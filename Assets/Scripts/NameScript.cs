@@ -3,7 +3,7 @@ using System.Collections;
 
 
 /*
- * Names: James Wright, Joel Kalos
+ * Names: James Wright, Joel Kalos, Daniel Truax
  * 
  * 
  * 
