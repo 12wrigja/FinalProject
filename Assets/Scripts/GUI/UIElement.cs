@@ -2,13 +2,13 @@
 using System.Collections;
 
 //The Menu class represents the state of a UI menu and interfaces the code with the animator.
-public class Menu : MonoBehaviour {
+public class UIElement : MonoBehaviour {
 
 	private Animator _animator;
 	private CanvasGroup _canvasGroup;
 
 	//Determines if the menu is open on the screen
-	public bool isOpen{
+	public bool isOnScreen{
 		get{
 			return _animator.GetBool("IsOpen");
 		}

@@ -966,6 +966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f380eb87b7024fb295007cb70f4fb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _canvasGroup: {fileID: 0}
 --- !u!114 &11465540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1152,6 +1154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f380eb87b7024fb295007cb70f4fb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _canvasGroup: {fileID: 0}
 --- !u!114 &11465556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1409,6 +1413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f380eb87b7024fb295007cb70f4fb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _canvasGroup: {fileID: 0}
 --- !u!114 &11465576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1639,6 +1645,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f380eb87b7024fb295007cb70f4fb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _canvasGroup: {fileID: 0}
 --- !u!222 &22265546
 CanvasRenderer:
   m_ObjectHideFlags: 1
