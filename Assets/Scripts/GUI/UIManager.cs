@@ -1,32 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.Collections.ObjectModel;
 
 //The menu manager controls the switching between UI menu's.
 public class UIManager : MonoBehaviour {
 
-    public KeyCode debugListKeyCode = KeyCode.BackQuote;
+    public static ReadOnlyCollection<UIElement> AllElements
+    {
+        get
+        {
+            return allUIElements.AsReadOnly();
+        }
+    }
 
     private static UIManager instance;
 
-    private static UIElement[] allUIElements;
+    private static List<UIElement> allUIElements;
     private static List<UIElement> currentUIElements;
 
-    private static UIElement debugUIPanel;
-
-	public void Start(){
-        allUIElements = GetComponentsInChildren<UIElement>();
+	public void Awake(){
+        allUIElements = GetComponentsInChildren<UIElement>().ToList<UIElement>();
+        Debug.Log(allUIElements.Count);
         currentUIElements = new List<UIElement>();
-        debugUIPanel = allUIElements[allUIElements.Length - 1];
 	}
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(debugListKeyCode))
-        {
-            ToggleUIElement(debugUIPanel);
-        }
-    }
 
 	//Show menu shows the current menu. If null is passed it, it shows nothing while disabling the previous menu.
 	public static void ShowUIElementExclusive(UIElement element){
@@ -59,7 +58,7 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    private static void ToggleUIElement(UIElement element)
+    public static void ToggleUIElement(UIElement element)
     {
         if (element.isOnScreen)
         {
