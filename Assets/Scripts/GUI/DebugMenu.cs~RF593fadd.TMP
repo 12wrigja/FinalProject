@@ -21,10 +21,10 @@ public class DebugMenu : MonoBehaviour {
         {
             GameObject toggle = Instantiate(UIElementToggle) as GameObject;
             toggle.transform.SetParent(toggleContainer.transform,false);
+            toggle.GetComponent<Text>().text = element.gameObject.name;
             Toggle toggleScript = toggle.GetComponent<Toggle>();
-            toggles.Add(toggleScript);
-            UIElement linkedElement = element;
-            toggleScript.onValueChanged.AddListener((val)=>AlterUIElement(linkedElement,val));
+            toggleScript.isOn = element.isOnScreen;
+
         }
     }
     
@@ -33,24 +33,6 @@ public class DebugMenu : MonoBehaviour {
         if (Input.GetKeyDown(debugListKeyCode))
         {
             UIManager.ToggleUIElement(self);
-            updateDisplay();
         }
 	}
-
-    private void updateDisplay()
-    {
-        int count = 0;
-        foreach (UIElement element in UIManager.AllElements)
-        {
-            Toggle t = toggles[count];
-            t.gameObject.GetComponentInChildren<Text>().text = element.gameObject.name;
-            t.isOn = element.isOnScreen;
-            count++;
-        }
-    }
-
-    void AlterUIElement(UIElement element, bool showVal)
-    {
-        element.isOnScreen = showVal;
-    }
 }
