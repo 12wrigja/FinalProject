@@ -7,6 +7,7 @@ public class UIElement : MonoBehaviour {
 	private Animator _animator;
 	private CanvasGroup _canvasGroup;
 
+    [SerializeField]
 	//Determines if the menu is open on the screen
 	public bool isOnScreen{
 		get{
