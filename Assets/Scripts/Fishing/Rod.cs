@@ -20,6 +20,10 @@ public class Rod : MonoBehaviour {
 			managerInstance = Instantiate(managerPrefab) as FishingManager;
 			managerExists = true;
 		}
+		if (!isPickedUp && managerExists){
+			Destroy(managerInstance.gameObject);
+			managerExists = false;
+		}
 	}
 
 	public void interact(){
