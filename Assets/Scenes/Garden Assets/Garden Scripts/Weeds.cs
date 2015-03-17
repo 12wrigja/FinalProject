@@ -10,8 +10,10 @@ public class Weeds : MonoBehaviour {
 	public FlowerManager gameFlowers;
 	public GameObject target;
 	public GameObject tempTarget;
+	public Player player;
 	
 	public float health;
+	public float maxHealth;
 	public float damage;
 	
 	public Vector3 moveDirection;
@@ -43,5 +45,19 @@ public class Weeds : MonoBehaviour {
 		}
 		
 		rigidbody.AddForce(moveDirection * acceleration * Time.deltaTime);
+	}
+	
+	public void OnTriggerStay() {
+		if (Input.GetMouseButtonDown(0)) {
+			TakeDamage(player.damage);
+		}
+	}
+	
+	public void TakeDamage(float damage) {
+		health -= damage;
+		
+		if (health <= 0) {
+			Destroy(this.gameObject);
+		}
 	}
 }
