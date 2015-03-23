@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System;
+using LitJson;
 
 public class Conversable : MonoBehaviour {
 
     public string conversable_tag;
     public string conversee_name;
+	public int current_state;
 
     private static readonly string conversationFolder = "Assets/Resources/";
 
@@ -32,60 +34,31 @@ public class Conversable : MonoBehaviour {
 
     public List<string> GetConversationLines()
     {
-        List<string> lines = new List<string>();
-        string line;
-        StreamReader reader = new StreamReader(conversationFolder+conversable_tag + ".conversation", Encoding.Default);
-        using (reader)
-        {
-            do
-            {
-                line = reader.ReadLine();
-                if (line != null)
-                {
-                    if (line.Equals(conversation_state + delimiter))
-                    {
-                        line = reader.ReadLine();
-                        while(!line.Equals(delimiter))
-                        {
-                            lines.Add(line);
-                            line = reader.ReadLine();
-                        }
-                        break;
-                    }
-                }
-            } while (line != null);
-            reader.Close();
-        }
-        return lines;
+		List<string> lines = new List<string>();
+		TextAsset textfile = (TextAsset)Resources.Load("script");
+		JsonData jdata = JsonMapper.ToObject(textfile.text);
+		for(int i = 0;i < jdata["char"].Count;i++) {
+			if(jdata["char"][i]["name"].Equals(conversee_name)) {
+				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["line"].Count;c++) {
+					lines.Add(jdata["char"][i]["lines"][current_state]["line"][c].ToString());
+				}
+			}
+		}
+		return lines;
     }
 
     public List<string> GetConversationOptions()
     {
         List<string> lines = new List<string>();
-        string line;
-        StreamReader reader = new StreamReader(conversationFolder + conversable_tag + ".conversation", Encoding.Default);
-        nextStates = new List<string>();
-        using (reader)
-        {
-            line = reader.ReadLine();
-            while (!line.Equals(conversation_state + delimiter))
-            {
-                line = reader.ReadLine();
-            }
-            while (!line.Equals(delimiter))
-            {
-                line = reader.ReadLine();
-            }
-            line = reader.ReadLine();
-            Debug.Log(line);
-            while (!line.Equals(delimiter))
-            {
-                string[] parts = line.Split(new String[] { delimiter }, StringSplitOptions.None);
-                lines.Add(parts[0]);
-                nextStates.Add(parts[1]);
-                line = reader.ReadLine();
-            }
-        }
+		TextAsset textfile = (TextAsset)Resources.Load("script");
+		JsonData jdata = JsonMapper.ToObject(textfile.text);
+		for(int i = 0;i < jdata["char"].Count;i++) {
+			if(jdata[i]["name"].Equals(conversee_name)) {
+				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["options"].Count;c++) {
+					lines.Add(jdata["char"][i]["lines"][current_state]["options"][c].ToString());
+				}
+			}
+		}
         return lines;
     }
 

@@ -1,0 +1,29 @@
+{
+  "char":[
+	 {
+	   "name":"Bob",
+	   "lines" : [
+		{"line":["Hello"],
+		 "state":0,
+		 "options": ["Hi","Hello"],
+		 "tostate": [1,1]
+		},
+		{"line":["Where are you going"],
+		 "state":1,
+		 "options": ["home","work"],
+		 "tostate":[3,4]
+    }
+    ]
+		},
+         {
+           "name":"Dan",
+	   "lines" : [
+		{"line":["Hi"],
+		 "state":0,
+		 "options":["Hey","How are you"],
+		 "tostate":[0]
+		}
+      	]
+    }
+  ]
+}
