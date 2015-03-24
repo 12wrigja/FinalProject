@@ -45,6 +45,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
             Destroy(optionsPanel.GetChild(i).gameObject);
         }
         List<string> conversationLines = currentConversee.GetConversationLines();
+        Debug.Log("Conversation Line " + conversationLines.Count);
         if (conversationLines.Count == 0)
         {
             EndConversation();
