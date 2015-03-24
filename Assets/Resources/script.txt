@@ -27,26 +27,8 @@
                         "work"
                     ],
                     "tostate": [
-                        3,
-                        4
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Dan",
-            "lines": [
-                {
-                    "line": [
-                        "Hi"
-                    ],
-                    "state": 0,
-                    "options": [
-                        "Hey",
-                        "How are you"
-                    ],
-                    "tostate": [
-                        0
+                        2,
+                        2
                     ]
                 }
             ]

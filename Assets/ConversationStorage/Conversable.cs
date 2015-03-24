@@ -10,11 +10,8 @@ public class Conversable : MonoBehaviour {
 
     public string conversable_tag;
     public string conversee_name;
+
 	public int current_state = 0;
-
-    private static readonly string conversationFolder = "Assets/Resources/";
-
-    private string delimiter = "::";
 
     //private string conversation_state = "start";
 
