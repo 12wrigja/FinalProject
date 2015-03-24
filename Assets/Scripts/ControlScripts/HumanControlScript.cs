@@ -12,7 +12,14 @@ public class HumanControlScript : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        transform.Translate(0.1f * h, 0f, 0.1f * v);
+        if (rigidbody.velocity.magnitude < 1f)
+        {
+            rigidbody.velocity = transform.TransformDirection(new Vector3(h * 1, 0, v * 1));
+        }
+        if (h == 0 && v == 0)
+        {
+            rigidbody.velocity = new Vector3(0.8f * rigidbody.velocity.x, 0.8f * rigidbody.velocity.y, 0.8f * rigidbody.velocity.z);
+        }
         transform.Rotate(new Vector3(0, 5 * Input.GetAxis("Rotate"), 0));
         RaycastHit hit;
         if(Physics.Raycast(transform.position,-1*Vector3.forward,out hit,1f)){
