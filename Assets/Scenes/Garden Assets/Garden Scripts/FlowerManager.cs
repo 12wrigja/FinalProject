@@ -3,15 +3,21 @@ using System.Collections;
 
 public class FlowerManager : MonoBehaviour {
 	
-	public GameObject[] flowers;
+	public bool canPlaceFlower;
+	public bool canPlaceWall;
+	public Player player;
+	
+	public Flower[] flowers;
+	
+	public Flower[] flowerPrefabs;
 	
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	public void Update () {
+		
 	}
 }

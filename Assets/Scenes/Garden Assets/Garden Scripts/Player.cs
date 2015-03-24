@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	public Vector2 screenSize;
 	public Vector2 offset;
 	public float damage;
+	
 
 	// Use this for initialization
 	void Start() {

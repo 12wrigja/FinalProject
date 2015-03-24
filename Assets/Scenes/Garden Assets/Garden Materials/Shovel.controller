@@ -26,27 +26,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &110101488
-Transition:
-  serializedVersion: 2
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_SrcState: {fileID: 110212056}
-  m_DstState: {fileID: 110277006}
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: Swing
-    m_EventTreshold: 0
-    m_ExitTime: 1
-  m_Atomic: 1
-  m_Solo: 0
-  m_Mute: 0
-  m_CanTransitionToSelf: 0
---- !u!1101 &110104470
+--- !u!1101 &110149482
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
@@ -54,7 +34,7 @@ Transition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_SrcState: {fileID: 110277006}
-  m_DstState: {fileID: 110212056}
+  m_DstState: {fileID: 110289666}
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_Conditions:
@@ -66,21 +46,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1102 &110212056
-State:
+--- !u!1101 &110191014
+Transition:
+  serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: swing
-  m_Speed: .75
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: ee70a5e6f32b82d4f9e4b633de85934d, type: 2}
-  m_ParentStateMachine: {fileID: 110712056}
-  m_Position: {x: 168, y: -48, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
+  m_Name: 
+  m_SrcState: {fileID: 110289666}
+  m_DstState: {fileID: 110277006}
+  m_TransitionDuration: .25
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: .75
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1102 &110277006
 State:
   m_ObjectHideFlags: 3
@@ -96,6 +81,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110289666
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: swing
+  m_Speed: 3
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: ee70a5e6f32b82d4f9e4b633de85934d, type: 2}
+  m_ParentStateMachine: {fileID: 110712056}
+  m_Position: {x: 180, y: -48, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1107 &110712056
 StateMachine:
   serializedVersion: 2
@@ -103,21 +103,21 @@ StateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110212056}
+  m_DefaultState: {fileID: 110277006}
   m_States:
-  - {fileID: 110212056}
   - {fileID: 110277006}
+  - {fileID: 110289666}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110212056}
+      first: {fileID: 110289666}
       second:
-      - {fileID: 110101488}
+      - {fileID: 110191014}
     data:
       first: {fileID: 110277006}
       second:
-      - {fileID: 110104470}
+      - {fileID: 110149482}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

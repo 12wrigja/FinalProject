@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.5499992, y: 3.98000002, z: -8.32999992}
+  m_LocalPosition: {x: -11.6092358, y: 50.0984077, z: -38.932312}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 439498}
@@ -128,13 +128,17 @@ MonoBehaviour:
   front: {fileID: 439498}
   acceleration: 100
   rotationalForce: 10
+  killY: -10
+  collectionPoint: {fileID: 0}
   gameFlowers: {fileID: 0}
   target: {fileID: 0}
   tempTarget: {fileID: 0}
   player: {fileID: 0}
   health: 10
   maxHealth: 10
-  damage: 0
+  damage: 5
+  recoil: 50
+  targetHealth: 0
   moveDirection: {x: 0, y: 0, z: 0}
   desiredDirection: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
