@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversable_tag: Bob
-  conversee_name: Bob
+  conversee_name: 
   current_state: 0
 --- !u!136 &569614219
 CapsuleCollider:
