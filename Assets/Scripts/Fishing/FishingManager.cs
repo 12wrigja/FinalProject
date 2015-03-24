@@ -42,10 +42,6 @@ public class FishingManager : MonoBehaviour {
 				canCatch = true;
 			}
 		}
-//
-//		if(Input.GetKey(KeyCode.Space) && canFish && !fishCaught){
-//			isFishing = true;
-//		}
 
 	}
 
