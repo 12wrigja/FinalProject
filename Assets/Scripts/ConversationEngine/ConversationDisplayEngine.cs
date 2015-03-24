@@ -9,7 +9,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
     public Text ConverseeText;
     public RectTransform optionsPanel;
     public GameObject buttonPrefab;
-    public KeyCode conversationAdvanceKeyCode = KeyCode.Space;
+    public static KeyCode conversationAdvanceKeyCode = KeyCode.Space;
 
     private bool inConversation;
     private Conversable currentConversee;

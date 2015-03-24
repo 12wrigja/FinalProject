@@ -3,11 +3,8 @@ using System.Collections;
 
 public class HumanControlScript : MonoBehaviour {
 
-    Animator anim;
-
 	// Use this for initialization
 	void Start () {
-        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -15,7 +12,16 @@ public class HumanControlScript : MonoBehaviour {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        anim.SetFloat("Forward_Axis", v);
-        anim.SetFloat("Rotate_Axis", h);
+        transform.Translate(0.1f * h, 0f, 0.1f * v);
+        transform.Rotate(new Vector3(0, 5 * Input.GetAxis("Rotate"), 0));
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position,-1*Vector3.forward,out hit,1f)){
+            GameObject obj = hit.transform.gameObject;
+            Conversable c = obj.transform.GetComponent<Conversable>();
+            if (c != null && Input.GetKeyDown(ConversationDisplayEngine.conversationAdvanceKeyCode))
+            {
+                ConversationDisplayEngine.DisplayConversation(c);
+            }
+        }
 	}
 }
