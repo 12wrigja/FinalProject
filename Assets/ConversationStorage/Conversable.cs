@@ -10,7 +10,8 @@ public class Conversable : MonoBehaviour {
 
     public string conversable_tag;
     public string conversee_name;
-	public int current_state;
+	public int start_state;
+	private int current_state;
 
     private static readonly string conversationFolder = "Assets/Resources/";
 
@@ -22,6 +23,7 @@ public class Conversable : MonoBehaviour {
 
     void Start()
     {
+		current_state = start_state;
         if (conversable_tag == null)
         {
             throw new System.Exception("Character without conversation tag!! Object: " + gameObject.name);
@@ -63,7 +65,15 @@ public class Conversable : MonoBehaviour {
     }
 
     public void transitionConversation(int conversationChoiceIndex)
-    {
-        conversation_state = nextStates[conversationChoiceIndex];
-    }
+	{
+		int index = conversationChoiceIndex - 1;
+		List<string> lines = new List<string>();
+		TextAsset textfile = (TextAsset)Resources.Load("script");
+		JsonData jdata = JsonMapper.ToObject(textfile.text);
+		for(int i = 0;i < jdata["char"].Count;i++) {
+			if(jdata[i]["name"].Equals(conversee_name)) {
+				current_state = (int)jdata["char"][i]["lines"][current_state]["tostate"][index];
+			}
+		}
+	}
 }

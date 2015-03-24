@@ -11,7 +11,7 @@
 		{"line":["Where are you going"],
 		 "state":1,
 		 "options": ["home","work"],
-		 "tostate":[3,4]
+		 "tostate":[0,0]
     }
     ]
 		},
