@@ -7,8 +7,7 @@ public class ConversationTester : MonoBehaviour {
 
     void Start()
     {
-        c = new Conversable();
-        c.conversable_tag = "greeter";
+        c = GetComponent<Conversable>();
     }
 
 	// Update is called once per frame

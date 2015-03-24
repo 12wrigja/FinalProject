@@ -10,15 +10,17 @@ public class Conversable : MonoBehaviour {
 
     public string conversable_tag;
     public string conversee_name;
-	public int current_state;
+	public int current_state = 0;
 
     private static readonly string conversationFolder = "Assets/Resources/";
 
     private string delimiter = "::";
 
-    private string conversation_state = "start";
+    //private string conversation_state = "start";
 
-    private List<string> nextStates;
+    //private List<string> nextStates;
+
+    private List<int> nextStates;
 
     void Start()
     {
@@ -50,20 +52,27 @@ public class Conversable : MonoBehaviour {
     public List<string> GetConversationOptions()
     {
         List<string> lines = new List<string>();
+        nextStates = new List<int>();
 		TextAsset textfile = (TextAsset)Resources.Load("script");
 		JsonData jdata = JsonMapper.ToObject(textfile.text);
 		for(int i = 0;i < jdata["char"].Count;i++) {
-			if(jdata[i]["name"].Equals(conversee_name)) {
+			if(jdata["char"][i]["name"].Equals(conversee_name)) {
 				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["options"].Count;c++) {
 					lines.Add(jdata["char"][i]["lines"][current_state]["options"][c].ToString());
+                    nextStates.Add(Convert.ToInt32(jdata["char"][i]["lines"][current_state]["tostate"][c].ToString()));
 				}
 			}
 		}
         return lines;
     }
 
-    public void transitionConversation(int conversationChoiceIndex)
+    public bool transitionConversation(int conversationChoiceIndex)
     {
-        conversation_state = nextStates[conversationChoiceIndex];
+        if (nextStates[conversationChoiceIndex] >= nextStates.Count)
+        {
+            return false;
+        }
+        current_state = nextStates[conversationChoiceIndex];
+        return true;
     }
 }

@@ -1,9 +1,5 @@
 {
-    "char": [
-        {
-            "name": "Bob",
-            "lines": [
-                {
+            "start":{
                     "line": [
                         "Hello"
                     ],
@@ -16,9 +12,8 @@
                         1,
                         1
                     ]
-                },
-                {
-                    "line": [
+                }
+"wheregoing": [
                         "Where are you going"
                     ],
                     "state": 1,
@@ -32,24 +27,4 @@
                     ]
                 }
             ]
-        },
-        {
-            "name": "Dan",
-            "lines": [
-                {
-                    "line": [
-                        "Hi"
-                    ],
-                    "state": 0,
-                    "options": [
-                        "Hey",
-                        "How are you"
-                    ],
-                    "tostate": [
-                        0
-                    ]
-                }
-            ]
-        }
-    ]
 }

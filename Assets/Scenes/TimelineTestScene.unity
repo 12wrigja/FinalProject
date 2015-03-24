@@ -1178,6 +1178,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1829998422}
   - 114: {fileID: 1829998421}
+  - 114: {fileID: 1829998423}
   m_Layer: 0
   m_Name: TestingObject
   m_TagString: Untagged
@@ -1208,6 +1209,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1829998423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1829998420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e082f7aae4b3b384db2dfd0855412416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversable_tag: bob
+  conversee_name: Bob
+  current_state: 0
 --- !u!1 &1946761525
 GameObject:
   m_ObjectHideFlags: 0

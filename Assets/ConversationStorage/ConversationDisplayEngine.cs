@@ -87,7 +87,11 @@ public class ConversationDisplayEngine : MonoBehaviour {
 
     private void advanceCurrentConversation(int index)
     {
-        currentConversee.transitionConversation(index);
+        if (!currentConversee.transitionConversation(index))
+        {
+            EndConversation();
+            return;
+        };
         instance.StartCoroutine(HaveConversation());
     }
 
