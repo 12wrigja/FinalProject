@@ -74,13 +74,17 @@ public class ConversationDisplayEngine : MonoBehaviour {
                     Text txt = obj.GetComponentInChildren<Text>();
                     txt.text = conversationOptions[i];
                     Button btn = obj.GetComponent<Button>();
-                    copy = i;
                     Debug.Log("Attaching option with text '" + conversationOptions[i] + "' to index " + i);
-                    btn.onClick.AddListener(() => advanceCurrentConversation(copy));
+                    AddListener(btn, i);
                     options.Add(btn);
                 }
             }
         }
+    }
+
+    private void AddListener(Button b, int index)
+    {
+        b.onClick.AddListener(() => advanceCurrentConversation(index));
     }
 
     private void EndConversation()
