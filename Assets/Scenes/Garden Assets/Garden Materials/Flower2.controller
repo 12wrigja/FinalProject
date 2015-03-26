@@ -133,12 +133,12 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Dead2
-  m_Speed: 1
+  m_Speed: 0
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: d91ce5a3323ad034c916103cb6dbf1d9, type: 2}
   m_ParentStateMachine: {fileID: 110774388}
-  m_Position: {x: 276, y: -24, z: 0}
+  m_Position: {x: 300, y: -24, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -189,13 +189,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110205584}
-      second: []
-    data:
-      first: {fileID: 110239094}
-      second:
-      - {fileID: 110118832}
-    data:
       first: {fileID: 0}
       second:
       - {fileID: 110122072}
@@ -207,6 +200,13 @@ StateMachine:
       first: {fileID: 110274388}
       second:
       - {fileID: 110151478}
+    data:
+      first: {fileID: 110239094}
+      second:
+      - {fileID: 110118832}
+    data:
+      first: {fileID: 110205584}
+      second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -168, y: -24, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

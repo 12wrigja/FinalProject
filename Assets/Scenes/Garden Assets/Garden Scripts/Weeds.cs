@@ -80,9 +80,11 @@ public class Weeds : MonoBehaviour {
 		}
 	}
 	
-	public void OnCollisionEnter(Collision col) {
-		if (col.gameObject.name == target.name) {
-			target.StartCoroutine("GetHit", damage);
+	public void OnCollisionStay(Collision col) {
+		if (col.gameObject == target.gameObject) {
+			if (target.canTakeDamage) {
+				target.StartCoroutine("GetHit", damage);
+			}
 			//TakeDamage (1000);	// probably optional, if I don't do this, I should find a new target
 			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
 		}
