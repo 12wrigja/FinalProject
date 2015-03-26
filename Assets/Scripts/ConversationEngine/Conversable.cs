@@ -13,10 +13,6 @@ public class Conversable : MonoBehaviour {
 
 	public int current_state = 0;
 
-    //private string conversation_state = "start";
-
-    //private List<string> nextStates;
-
     private List<int> nextStates;
 
     void Start()
@@ -54,8 +50,11 @@ public class Conversable : MonoBehaviour {
 		JsonData jdata = JsonMapper.ToObject(textfile.text);
 		for(int i = 0;i < jdata["char"].Count;i++) {
 			if(jdata["char"][i]["name"].Equals(conversee_name)) {
-				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["options"].Count;c++) {
-					lines.Add(jdata["char"][i]["lines"][current_state]["options"][c].ToString());
+				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["tostate"].Count;c++) {
+                    if (jdata["char"][i]["lines"][current_state]["options"].Count > c)
+                    {
+                        lines.Add(jdata["char"][i]["lines"][current_state]["options"][c].ToString());
+                    }
                     nextStates.Add(Convert.ToInt32(jdata["char"][i]["lines"][current_state]["tostate"][c].ToString()));
 				}
 			}
@@ -65,7 +64,9 @@ public class Conversable : MonoBehaviour {
 
     public bool transitionConversation(int conversationChoiceIndex)
     {
-        if (nextStates[conversationChoiceIndex] >= nextStates.Count)
+        Debug.Log("Conversation Choice Index: " + conversationChoiceIndex);
+        Debug.Log("Next State Count: " + nextStates.Count);
+        if (conversationChoiceIndex >= nextStates.Count)
         {
             return false;
         }

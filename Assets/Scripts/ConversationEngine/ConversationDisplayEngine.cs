@@ -10,6 +10,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
     public RectTransform optionsPanel;
     public GameObject buttonPrefab;
     public static KeyCode conversationAdvanceKeyCode = KeyCode.Space;
+    public static KeyCode conversationEndKeyCode = KeyCode.Escape;
 
     private bool inConversation;
     private Conversable currentConversee;
@@ -27,7 +28,6 @@ public class ConversationDisplayEngine : MonoBehaviour {
     {
         if (instance.inConversation)
         {
-            Debug.Log("Already in conversation.");
             return;
         }
         instance.inConversation = true;
@@ -54,41 +54,47 @@ public class ConversationDisplayEngine : MonoBehaviour {
             yield return StartCoroutine(displayLines(conversationLines));
             List<string> conversationOptions = currentConversee.GetConversationOptions();
             List<Selectable> options = new List<Selectable>();
-            for (int i = 0; i < conversationOptions.Count; i++)
+            if (conversationOptions.Count == 0)
             {
-                if (conversationOptions.Count == 1 && conversationOptions[i].Equals(""))
+                int previousLineNumber = lineNumber;
+                while (lineNumber == previousLineNumber)
                 {
-                    int previousLineNumber = lineNumber;
-                    while (lineNumber == previousLineNumber)
-                    {
-                        yield return null;
-                    }
-                    EndConversation();
-                    break;
+                    yield return null;
                 }
-                GameObject obj = Instantiate(buttonPrefab) as GameObject;
-                obj.gameObject.transform.SetParent(optionsPanel.transform);
-                Text txt = obj.GetComponentInChildren<Text>();
-                txt.text = conversationOptions[i];
-                Button btn = obj.GetComponent<Button>();
-                options.Add(btn);
-                int currentIndex = i;
-                btn.onClick.AddListener(() => advanceCurrentConversation(currentIndex));
+                currentConversee.transitionConversation(0);
+                EndConversation();
+            }
+            else
+            {
+                int copy;
+                for (int i = 0; i < conversationOptions.Count; i++)
+                {
+                    GameObject obj = Instantiate(buttonPrefab) as GameObject;
+                    obj.gameObject.transform.SetParent(optionsPanel.transform);
+                    Text txt = obj.GetComponentInChildren<Text>();
+                    txt.text = conversationOptions[i];
+                    Button btn = obj.GetComponent<Button>();
+                    copy = i;
+                    Debug.Log("Attaching option with text '" + conversationOptions[i] + "' to index " + i);
+                    btn.onClick.AddListener(() => advanceCurrentConversation(copy));
+                    options.Add(btn);
+                }
             }
         }
     }
 
     private void EndConversation()
     {
-        currentConversee.transitionConversation(0);
         UIManager.ToggleUIElement(conversationLayout);
         inConversation = false;
     }
 
     private void advanceCurrentConversation(int index)
     {
+        Debug.Log("Selected index " + index);
         if (!currentConversee.transitionConversation(index))
         {
+            Debug.Log("Unable to transition conversation. Ending Conversation.");
             EndConversation();
             return;
         };
@@ -99,7 +105,6 @@ public class ConversationDisplayEngine : MonoBehaviour {
     {
         foreach(string line in conversationLines)
         {
-            Debug.Log("Advancing line in conversation.");
             ConverseeText.text = line;
             int nextNum = lineNumber + 1;
             while (nextNum != conversationLines.Count && lineNumber != nextNum)
@@ -114,8 +119,11 @@ public class ConversationDisplayEngine : MonoBehaviour {
     {
         if (Input.GetKeyDown(conversationAdvanceKeyCode) && inConversation)
         {
-            Debug.Log("Advancing Line Number.");
             lineNumber++;
+        }
+        if (Input.GetKeyDown(conversationEndKeyCode) && inConversation)
+        {
+            EndConversation();
         }
     }
 
