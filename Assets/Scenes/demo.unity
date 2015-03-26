@@ -4463,8 +4463,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1409837905}
   - 114: {fileID: 1409837904}
-  - 136: {fileID: 1409837906}
-  - 54: {fileID: 1409837907}
+  - 143: {fileID: 1409837906}
   m_Layer: 0
   m_Name: Person
   m_TagString: Untagged
@@ -4483,6 +4482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96015579427d9a478c3d37a987dd9d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 6
+  jumpSpeed: 8
+  gravity: 20
 --- !u!4 &1409837905
 Transform:
   m_ObjectHideFlags: 0
@@ -4496,34 +4498,20 @@ Transform:
   - {fileID: 1257098816}
   m_Father: {fileID: 0}
   m_RootOrder: 5
---- !u!136 &1409837906
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1409837903}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: -.5, z: 0}
---- !u!54 &1409837907
-Rigidbody:
+--- !u!143 &1409837906
+CharacterController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409837903}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
+  m_Height: 2
+  m_Radius: .5
+  m_SlopeLimit: 45
+  m_StepOffset: .300000012
+  m_SkinWidth: .0799999982
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: -.5, z: 0}
 --- !u!1 &1419710185
 GameObject:
   m_ObjectHideFlags: 0

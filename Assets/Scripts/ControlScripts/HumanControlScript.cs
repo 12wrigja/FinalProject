@@ -3,24 +3,39 @@ using System.Collections;
 
 public class HumanControlScript : MonoBehaviour {
 
+    private Vector3 moveDirection = Vector3.zero;
+    public float speed = 6.0F;
+    public float jumpSpeed = 8.0F;
+    public float gravity = 20.0F;
+    
 	// Use this for initialization
 	void Start () {
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        CharacterController controller = GetComponent<CharacterController>();
+        if (controller.isGrounded)
+        {
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= speed;
+            if (Input.GetButton("Jump"))
+                moveDirection.y = jumpSpeed;
 
-        if (rigidbody.velocity.magnitude < 1f)
-        {
-            rigidbody.velocity = transform.TransformDirection(new Vector3(h * 1, 0, v * 1));
         }
-        if (h == 0 && v == 0)
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.Q))
         {
-            rigidbody.velocity = new Vector3(0.8f * rigidbody.velocity.x, 0.8f * rigidbody.velocity.y, 0.8f * rigidbody.velocity.z);
+            transform.Rotate(0, -2, 0);
         }
-        transform.Rotate(new Vector3(0, 5 * Input.GetAxis("Rotate"), 0));
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Rotate(0, 2, 0);
+        }
+
         RaycastHit hit;
         if(Physics.Raycast(transform.position,-1*Vector3.forward,out hit,1f)){
             GameObject obj = hit.transform.gameObject;
