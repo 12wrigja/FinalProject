@@ -15,6 +15,8 @@ public class Conversable : MonoBehaviour {
 
     private List<int> nextStates;
 
+	private Animator anim;
+
     void Start()
     {
         if (conversable_tag == null)
@@ -25,6 +27,7 @@ public class Conversable : MonoBehaviour {
         {
             conversee_name = conversable_tag;
         }
+		anim = GetComponent<Animator> ();
     }
 
     public List<string> GetConversationLines()
@@ -64,8 +67,6 @@ public class Conversable : MonoBehaviour {
 
     public bool transitionConversation(int conversationChoiceIndex)
     {
-        Debug.Log("Conversation Choice Index: " + conversationChoiceIndex);
-        Debug.Log("Next State Count: " + nextStates.Count);
         if (conversationChoiceIndex >= nextStates.Count)
         {
             return false;
@@ -73,4 +74,12 @@ public class Conversable : MonoBehaviour {
         current_state = nextStates[conversationChoiceIndex];
         return true;
     }
+
+	public void playAnimation(String triggerName){
+		if (anim != null) {
+			anim.SetTrigger (triggerName);
+		} else {
+			Debug.Log ("Animator is null for object: "+gameObject.name);
+		}
+	}
 }

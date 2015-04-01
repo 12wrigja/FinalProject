@@ -6,7 +6,7 @@
                 {
                     "line": [
                         "Hello",
-                        "My Name is Casey!",
+                        "My Name is Casey! [wave]",
                         "Whats your name?"
                     ],
                     "state": 0,

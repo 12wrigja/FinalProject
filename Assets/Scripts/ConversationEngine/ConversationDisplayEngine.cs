@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class ConversationDisplayEngine : MonoBehaviour {
 
@@ -15,13 +16,17 @@ public class ConversationDisplayEngine : MonoBehaviour {
     private bool inConversation;
     private Conversable currentConversee;
     private UIElement conversationLayout;
-    private int lineNumber = 0;
+    private int lineNumber = -1;
+	private string strRegex = @"\[(.*?)\]";
+	private Regex animationRegex;
 
     private static ConversationDisplayEngine instance;
     public void Start()
     {
         instance = this;
         conversationLayout = GetComponent<UIElement>();
+		animationRegex = new Regex (strRegex, RegexOptions.None);
+		this.enabled = false;
     }
 
     public static void DisplayConversation(Conversable e)
@@ -34,6 +39,8 @@ public class ConversationDisplayEngine : MonoBehaviour {
         instance.currentConversee = e;
         UIManager.ShowUIElementExclusive(instance.conversationLayout);
         instance.ConverseeName.text = e.conversable_tag;
+		instance.enabled = true;
+		instance.lineNumber = -1;
         instance.StartCoroutine(instance.HaveConversation());
     }
 
@@ -47,6 +54,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
         List<string> conversationLines = currentConversee.GetConversationLines();
         if (conversationLines.Count == 0)
         {
+			Debug.Log ("Conversee has nothing else to say! Ending conversation!");
             EndConversation();
         }
         else
@@ -74,7 +82,6 @@ public class ConversationDisplayEngine : MonoBehaviour {
                     Text txt = obj.GetComponentInChildren<Text>();
                     txt.text = conversationOptions[i];
                     Button btn = obj.GetComponent<Button>();
-                    Debug.Log("Attaching option with text '" + conversationOptions[i] + "' to index " + i);
                     AddListener(btn, i);
                     options.Add(btn);
                 }
@@ -91,11 +98,11 @@ public class ConversationDisplayEngine : MonoBehaviour {
     {
         UIManager.ToggleUIElement(conversationLayout);
         inConversation = false;
+		lineNumber = -1;
     }
 
     private void advanceCurrentConversation(int index)
     {
-        Debug.Log("Selected index " + index);
         if (!currentConversee.transitionConversation(index))
         {
             Debug.Log("Unable to transition conversation. Ending Conversation.");
@@ -109,14 +116,29 @@ public class ConversationDisplayEngine : MonoBehaviour {
     {
         foreach(string line in conversationLines)
         {
-            ConverseeText.text = line;
+			MatchCollection matches = animationRegex.Matches(line);
+			int animationCount = matches.Count;
+			if(animationCount>1){
+				throw new System.Exception("Character with Multiple animations on one conversation line!! Object: " + gameObject.name);
+			}
+			if(animationCount > 0){
+				foreach(Match m in matches){
+					if(m.Success){
+						Debug.Log ("Playing animation: "+m.Groups[1].Value);
+						currentConversee.playAnimation(m.Groups[1].Value);
+					}
+				}
+			}
+
+			string saidText = animationRegex.Replace(line,"");
+            ConverseeText.text = saidText;
             int nextNum = lineNumber + 1;
             while (nextNum != conversationLines.Count && lineNumber != nextNum)
             {
                 yield return 0;
             }
         }
-        lineNumber = 0;
+		lineNumber = 0;
     }
 
     void Update()

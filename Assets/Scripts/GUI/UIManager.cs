@@ -23,7 +23,6 @@ public class UIManager : MonoBehaviour {
 
 	public void Awake(){
         allUIElements = GetComponentsInChildren<UIElement>().ToList<UIElement>();
-        Debug.Log(allUIElements.Count);
         currentUIElements = new List<UIElement>();
 	}
 
