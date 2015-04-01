@@ -14,6 +14,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: New Trigger
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -38,10 +44,10 @@ Transition:
   m_TransitionDuration: .214285702
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 2
+  - m_ConditionMode: 5
     m_ConditionEvent: isPressed
     m_EventTreshold: 0
-    m_ExitTime: .785714269
+    m_ExitTime: .790000021
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -59,7 +65,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isPressed
+    m_ConditionEvent: New Trigger
     m_EventTreshold: 0
     m_ExitTime: .970000029
   m_Atomic: 1
