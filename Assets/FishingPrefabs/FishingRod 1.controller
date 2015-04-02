@@ -60,6 +60,26 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
+--- !u!1101 &110126658
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110204796}
+  m_DstState: {fileID: 110276596}
+  m_TransitionDuration: .25
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: .75
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110143368
 Transition:
   serializedVersion: 2
@@ -100,15 +120,15 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110188610
+--- !u!1101 &110167740
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110243970}
-  m_DstState: {fileID: 110274018}
+  m_SrcState: {fileID: 110276596}
+  m_DstState: {fileID: 110243970}
   m_TransitionDuration: .25
   m_TransitionOffset: 0
   m_Conditions:
@@ -120,15 +140,15 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110195542
+--- !u!1101 &110188610
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110204796}
-  m_DstState: {fileID: 110243970}
+  m_SrcState: {fileID: 110243970}
+  m_DstState: {fileID: 110274018}
   m_TransitionDuration: .25
   m_TransitionOffset: 0
   m_Conditions:
@@ -151,7 +171,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: 0e24c1e0200d54562badc9ebe91980d2, type: 2}
   m_ParentStateMachine: {fileID: 110774018}
-  m_Position: {x: 12, y: 228, z: 0}
+  m_Position: {x: 144, y: 288, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -200,6 +220,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110276596
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: CatchFish
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: c03de8be87cba4e56a7fe61ccdb502bc, type: 2}
+  m_ParentStateMachine: {fileID: 110774018}
+  m_Position: {x: -108, y: 288, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1107 &110774018
 StateMachine:
   serializedVersion: 2
@@ -207,20 +242,25 @@ StateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110274018}
+  m_DefaultState: {fileID: 110243970}
   m_States:
   - {fileID: 110274018}
   - {fileID: 110232608}
   - {fileID: 110243970}
   - {fileID: 110204796}
+  - {fileID: 110276596}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
+      first: {fileID: 110276596}
+      second:
+      - {fileID: 110167740}
+    data:
       first: {fileID: 110204796}
       second:
-      - {fileID: 110195542}
       - {fileID: 110100690}
+      - {fileID: 110126658}
     data:
       first: {fileID: 110243970}
       second:
