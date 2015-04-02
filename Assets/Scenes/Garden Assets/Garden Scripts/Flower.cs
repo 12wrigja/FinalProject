@@ -5,10 +5,12 @@ public class Flower : MonoBehaviour {
 
 	public float health;
 	public float maxHealth;
+	public float cashCost;
 	public float hitDelay;
 	public float dyingTime;
 	public bool dead;
 	public bool canTakeDamage;
+	
 	
 	public FlowerManager gameFlowers;
 	

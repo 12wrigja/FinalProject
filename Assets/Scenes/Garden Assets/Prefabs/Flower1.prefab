@@ -143,11 +143,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e8e8e7551cc6d4f8ff4e5a336d22d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickedUp: 0
   health: 10
   maxHealth: 10
+  cashCost: 50
   hitDelay: 0
   dyingTime: 2
+  dead: 0
+  canTakeDamage: 0
   gameFlowers: {fileID: 0}
   anim: {fileID: 9598944}
 --- !u!136 &13636040

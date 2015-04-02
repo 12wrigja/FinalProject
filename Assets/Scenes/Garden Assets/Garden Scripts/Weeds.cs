@@ -14,6 +14,7 @@ public class Weeds : MonoBehaviour {
 	public Flower tempTarget;
 	public Player player;
 	
+	public float cashValue;
 	public float health;
 	public float maxHealth;
 	public float damage;
@@ -89,6 +90,12 @@ public class Weeds : MonoBehaviour {
 			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
 		}
 		
+		if (col.gameObject.name == "Wall(Clone)") {
+			Wall w = (Wall)col.gameObject.GetComponent("Wall");
+			
+			w.TakeDamage(damage);
+		}
+		
 		
 		//target = gameFlowers.flowers[Random.Range(0, gameFlowers.flowers.Length)];
 		
@@ -98,6 +105,7 @@ public class Weeds : MonoBehaviour {
 		health -= damage;
 		
 		if (health <= 0) {
+			gameFlowers.cash += cashValue;
 			Destroy(this.gameObject);
 		}
 	}
