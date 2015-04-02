@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b29e9b6fc0acb4a98a8ecf01c0e7d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cash: 150
+  cash: 50
   currentMoney: {fileID: 1161440480}
   flowerValue: {fileID: 1763812796}
   wallValue: {fileID: 1163862260}

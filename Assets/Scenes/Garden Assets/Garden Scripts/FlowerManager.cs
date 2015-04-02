@@ -28,7 +28,14 @@ public class FlowerManager : MonoBehaviour {
 		canPlaceFlower = false;
 		canPlaceWall = false;
 		
-		PlaceFlower(collectionPoint);
+		Flower[] newArray = new Flower[flowers.Length + 1];
+		
+		int i;
+		for (i = 0; i < flowers.Length; i++) {
+			newArray[i] = flowers[i];
+		}
+		newArray[i] = collectionPoint;
+		flowers = newArray;
 		
 		currentMoney.text = "" + cash;
 		flowerValue.text = "" + flowerPrefabs[0].cashCost;
