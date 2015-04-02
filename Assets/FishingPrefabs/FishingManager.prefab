@@ -37,7 +37,7 @@ AudioSource:
   m_GameObject: {fileID: 134214}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 3590d12a6933c451f953ce30afca43e1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a5d583370c75c4d5887dabd9a8124a4e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -101,7 +101,6 @@ MonoBehaviour:
   rod: {fileID: 11470146, guid: 1e8fdc58f34654f42be6541fd1a0034d, type: 2}
   chanceOfFish: .5
   initialCatchTimer: 3
-  timeBetweenSounds: 0
   canFish: 0
   isFishing: 0
   canCatch: 0

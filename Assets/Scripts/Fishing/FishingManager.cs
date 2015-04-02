@@ -5,29 +5,32 @@ public class FishingManager : MonoBehaviour {
 
 	public Rod rod;
 	public float chanceOfFish;
-	public float initialCatchTimer, timeBetweenSounds;
+	public float initialCatchTimer;
 
 	public bool canFish = false;
 	public bool isFishing = false;
 	public bool canCatch = false;
 	public bool fishCaught = false;
 
-	private bool firstSoundIsPlaying = false;
-	private bool secondSoundIsPlaying = false;
-	private float soundCounter;
+	private bool soundIsPlaying = false;
 	private float catchTimer;
 
 	void Start () {
 		catchTimer = initialCatchTimer;
-		soundCounter = timeBetweenSounds;
 	}
 
 	void Update () {
-
+		if(canFish && isFishing && canCatch && !soundIsPlaying){
+			audio.Play();
+			soundIsPlaying = true;
+		}
+		else if(!canCatch && soundIsPlaying){
+			audio.Stop();
+			soundIsPlaying = false;
+		}
 		if(canFish){
 			if(isFishing && canCatch) {
 				if(catchTimer > 0){
-					playSound();
 					if(Input.GetKeyDown(KeyCode.Space)){
 						fishCaught = true;
 						isFishing = false;
@@ -38,9 +41,6 @@ public class FishingManager : MonoBehaviour {
 				} else {
 					catchTimer = initialCatchTimer;
 					canCatch = false;
-					firstSoundIsPlaying = false;
-					secondSoundIsPlaying = false;
-					soundCounter = timeBetweenSounds;
 				}
 			} else if(!fishCaught && Input.GetKeyDown(KeyCode.Space)){
 				isFishing = !isFishing;
@@ -53,18 +53,5 @@ public class FishingManager : MonoBehaviour {
 
 	}
 
-	private void playSound(){
-		if(!firstSoundIsPlaying){
-			audio.Play();
-			firstSoundIsPlaying = true;
-		}
-		if(!secondSoundIsPlaying){
-			soundCounter -= Time.deltaTime;
-			if(soundCounter <= 0){
-				audio.Play();
-				secondSoundIsPlaying = true;
-			}
-		}
-	}
 
 }
