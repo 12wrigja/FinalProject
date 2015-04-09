@@ -1325,6 +1325,7 @@ MonoBehaviour:
   canPlaceFlower: 0
   canPlaceWall: 0
   verticalWall: 0
+  flowerDistance: 3
   player: {fileID: 869650746}
   collectionPoint: {fileID: 1494348144}
   wallPrefab: {fileID: 11404260, guid: e2b338a1fe173424e8e9bdb4ab715d03, type: 2}

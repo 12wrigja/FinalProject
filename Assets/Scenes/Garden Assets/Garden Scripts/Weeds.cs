@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class Weeds : MonoBehaviour {
 	
 	public Transform front;
@@ -20,6 +20,8 @@ public class Weeds : MonoBehaviour {
 	public float damage;
 	public float recoil;
 	public float targetHealth;
+	public Slider healthbar;
+	public Canvas canvas;
 	
 	public Vector3 moveDirection;
 	public Vector3 desiredDirection;
@@ -55,6 +57,8 @@ public class Weeds : MonoBehaviour {
 		}
 		
 		Turn();
+		
+		canvas.transform.LookAt(new Vector3(0, 37 *100, -18 *200));
 	}
 	
 	private void Turn() {
@@ -94,6 +98,7 @@ public class Weeds : MonoBehaviour {
 			Wall w = (Wall)col.gameObject.GetComponent("Wall");
 			
 			w.TakeDamage(damage);
+			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
 		}
 		
 		
@@ -103,7 +108,7 @@ public class Weeds : MonoBehaviour {
 	
 	public void TakeDamage(float damage) {
 		health -= damage;
-		
+		healthbar.value -= (float)damage / (float)healthbar.maxValue;
 		if (health <= 0) {
 			gameFlowers.cash += cashValue;
 			Destroy(this.gameObject);

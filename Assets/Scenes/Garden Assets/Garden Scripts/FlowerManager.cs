@@ -12,6 +12,7 @@ public class FlowerManager : MonoBehaviour {
 	public bool canPlaceFlower;
 	public bool canPlaceWall;
 	public bool verticalWall;
+	public float flowerDistance;
 	public Player player;
 	public Flower collectionPoint;
 	public Wall wallPrefab;
@@ -48,9 +49,30 @@ public class FlowerManager : MonoBehaviour {
 		currentMoney.text = "" + cash;
 		
 		if (canPlaceFlower && Input.GetMouseButtonDown(1)) {
-			Flower newFlower = Instantiate(flowerPrefabs[flowerType]) as Flower;
+			bool flowersHere = false;
 			
-			PlaceFlower(newFlower);
+			for (int i = 1; i < flowers.Length; i++) {
+				
+				// Done by comparing positions
+				/*if (Mathf.Abs (player.shovel.transform.position.x - flowers[i].transform.position.x) < flowerDistance &&
+					Mathf.Abs (player.shovel.transform.position.z + 3 - flowers[i].transform.position.z) < flowerDistance) {
+					
+					flowersHere = true;
+				}*/
+				
+				// Done by measuring distance
+				Vector3 shovelPos = new Vector3(player.shovel.transform.position.x, 0f, player.shovel.transform.position.z + 3);
+				Vector3 flowerPos = new Vector3(flowers[i].transform.position.x, 0f, flowers[i].transform.position.z);
+				if ((shovelPos - flowerPos).magnitude < flowerDistance) {
+					flowersHere = true;
+				}
+			}
+			
+			if (!flowersHere) {
+				Flower newFlower = Instantiate(flowerPrefabs[flowerType]) as Flower;
+			
+				PlaceFlower(newFlower);
+			}
 		}
 		
 		if (Input.GetKey (KeyCode.A)) {
