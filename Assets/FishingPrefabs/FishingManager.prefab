@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e3031963cbb4828807900dac9a1cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rod: {fileID: 11470146, guid: 1e8fdc58f34654f42be6541fd1a0034d, type: 2}
+  rod: {fileID: 0}
+  animations: {fileID: 0}
   chanceOfFish: .5
   initialCatchTimer: 3
   canFish: 0

@@ -19,6 +19,8 @@ public class Rod : MonoBehaviour {
 		if (isPickedUp && !managerExists){
 			managerInstance = Instantiate(managerPrefab) as FishingManager;
 			managerExists = true;
+			managerInstance.setAnimator(this.GetComponent<Animator>());
+			managerInstance.setRod(this);
 		}
 		if (!isPickedUp && managerExists){
 			Destroy(managerInstance.gameObject);
