@@ -169,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.69000006, y: 8.27000046, z: -1.66999996}
+  m_LocalPosition: {x: -8.84301281, y: 39.9259338, z: -26.1161041}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 439498}
@@ -251,8 +251,8 @@ MonoBehaviour:
   tempTarget: {fileID: 0}
   player: {fileID: 0}
   cashValue: 20
-  health: 10
-  maxHealth: 10
+  health: 12
+  maxHealth: 12
   damage: 5
   recoil: 50
   targetHealth: 0
@@ -538,7 +538,7 @@ RectTransform:
   m_GameObject: {fileID: 160350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 22460348}
   - {fileID: 22460346}

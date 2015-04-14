@@ -1,5 +1,10 @@
-﻿using UnityEngine;
+﻿/*****************************************************
+ * Flowers are instantiated in the FlowerManager script
+ *****************************************************/
+
+using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Flower : MonoBehaviour {
 
@@ -10,6 +15,8 @@ public class Flower : MonoBehaviour {
 	public float dyingTime;
 	public bool dead;
 	public bool canTakeDamage;
+	public Canvas canvas;
+	public Slider healthbar;
 	
 	
 	public FlowerManager gameFlowers;
@@ -26,6 +33,7 @@ public class Flower : MonoBehaviour {
 	// Update is called once per frame
 	public void Update() {
 		if (this.health <= 0 && !dead) {
+			canvas.enabled = false;
 			dead = true;
 			StartCoroutine("Die");
 			
@@ -33,11 +41,16 @@ public class Flower : MonoBehaviour {
 			//Destroy(this.gameObject);
 			
 		}
+		
+		canvas.transform.LookAt(new Vector3(0, 37 *100, -18 *200));
 	}
 	
 	public IEnumerator GetHit(float damage) {
+		Debug.Log ("flower hit");
+		
 		canTakeDamage = false;
 		health -= damage;
+		healthbar.value =  health / maxHealth * healthbar.maxValue;
 		anim.SetTrigger("Hit");
 		yield return new WaitForSeconds(hitDelay);
 		canTakeDamage = true;

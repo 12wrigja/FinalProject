@@ -16,6 +16,7 @@ public class FlowerManager : MonoBehaviour {
 	public Player player;
 	public Flower collectionPoint;
 	public Wall wallPrefab;
+	public Wall vertWallPrefab;
 	
 	public Flower[] flowers;
 	
@@ -75,6 +76,12 @@ public class FlowerManager : MonoBehaviour {
 			}
 		}
 		
+		// This used to cause problems with healthbars on walls and other surrounding healthbars
+		// It was fixed changing the slider navigation from automatic to none 
+		// 
+		// The only other problem with vertical walls is it makes the healthbar get really squished
+		// Something to do with rotating, maybe try to avoid rotating in the switch from horizontal to vertical
+		// Whoa, I could have a seperate prefab that is a vertical wall. I think I'll do that.
 		if (Input.GetKey (KeyCode.A)) {
 			verticalWall = true;
 		}
@@ -83,8 +90,8 @@ public class FlowerManager : MonoBehaviour {
 		}
 		
 		if (canPlaceWall && Input.GetMouseButtonDown(1)) {
-			Wall wall = Instantiate(wallPrefab) as Wall;
-			PlaceWall(wall, verticalWall);
+			
+			PlaceWall(verticalWall);
 		}
 	}
 	
@@ -119,12 +126,16 @@ public class FlowerManager : MonoBehaviour {
 		flowers[i].transform.position = new Vector3((float)(player.shovel.transform.position.x), 2.5f, (float)(player.shovel.transform.position.z + 3));
 	}
 	
-	public void PlaceWall(Wall wall, bool vertical) {
+	public void PlaceWall( bool vertical) {
 		canPlaceWall = false;
 		cash -= wallPrefab.cashCost;
-		wall.transform.position = new Vector3((float)(player.shovel.transform.position.x), 1.5f, (float)(player.shovel.transform.position.z + 3));
-		if (vertical) {
-			wall.transform.Rotate(0f, 90f, 0f);
+		if (!vertical) {
+			Wall wall = Instantiate(wallPrefab) as Wall;
+			wall.transform.position = new Vector3((float)(player.shovel.transform.position.x), 1.5f, (float)(player.shovel.transform.position.z + 3));
+		}
+		else {
+			Wall wall = Instantiate(vertWallPrefab) as Wall;
+			wall.transform.position = new Vector3((float)(player.shovel.transform.position.x), 1.5f, (float)(player.shovel.transform.position.z + 3));
 		}
 	}
 }

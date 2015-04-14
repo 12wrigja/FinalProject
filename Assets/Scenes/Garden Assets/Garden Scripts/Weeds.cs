@@ -1,3 +1,7 @@
+/*****************************************************
+ * Weeds are instantiated in the WeedSpawner script
+ *****************************************************/
+
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
@@ -85,7 +89,7 @@ public class Weeds : MonoBehaviour {
 		}
 	}
 	
-	public void OnCollisionStay(Collision col) {
+	public void OnCollisionEnter(Collision col) {
 		if (col.gameObject == target.gameObject) {
 			if (target.canTakeDamage) {
 				target.StartCoroutine("GetHit", damage);
@@ -101,6 +105,13 @@ public class Weeds : MonoBehaviour {
 			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
 		}
 		
+		if (col.gameObject.name == "Flower1(Clone)" || col.gameObject.name == "Flower2(Clone)") {
+			Flower f = (Flower)col.gameObject.GetComponent("Flower");
+			Debug.Log ("did it work");
+			f.StartCoroutine("GetHit", damage);
+			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
+		}
+		
 		
 		//target = gameFlowers.flowers[Random.Range(0, gameFlowers.flowers.Length)];
 		
@@ -108,8 +119,9 @@ public class Weeds : MonoBehaviour {
 	
 	public void TakeDamage(float damage) {
 		health -= damage;
-		healthbar.value -= (float)damage / (float)healthbar.maxValue;
+		healthbar.value =  health / maxHealth * healthbar.maxValue;
 		if (health <= 0) {
+			canvas.enabled = false;
 			gameFlowers.cash += cashValue;
 			Destroy(this.gameObject);
 		}
