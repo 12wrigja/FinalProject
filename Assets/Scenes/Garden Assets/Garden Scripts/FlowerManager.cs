@@ -62,7 +62,7 @@ public class FlowerManager : MonoBehaviour {
 				}*/
 				
 				// Done by measuring distance
-				Vector3 shovelPos = new Vector3(player.shovel.transform.position.x, 0f, player.shovel.transform.position.z + 3);
+				Vector3 shovelPos = new Vector3(player.shovel.transform.position.x, 0f, player.shovel.transform.position.z + 7);
 				Vector3 flowerPos = new Vector3(flowers[i].transform.position.x, 0f, flowers[i].transform.position.z);
 				if ((shovelPos - flowerPos).magnitude < flowerDistance) {
 					flowersHere = true;
@@ -123,7 +123,7 @@ public class FlowerManager : MonoBehaviour {
 		canPlaceFlower = false;
 		cash -= flowerPrefabs[0].cashCost;
 		
-		flowers[i].transform.position = new Vector3((float)(player.shovel.transform.position.x), 2.5f, (float)(player.shovel.transform.position.z + 3));
+		flowers[i].transform.position = new Vector3((float)(player.shovel.transform.position.x), 2.5f, (float)(player.shovel.transform.position.z + 8));
 	}
 	
 	public void PlaceWall( bool vertical) {
@@ -131,11 +131,11 @@ public class FlowerManager : MonoBehaviour {
 		cash -= wallPrefab.cashCost;
 		if (!vertical) {
 			Wall wall = Instantiate(wallPrefab) as Wall;
-			wall.transform.position = new Vector3((float)(player.shovel.transform.position.x), 1.5f, (float)(player.shovel.transform.position.z + 3));
+			wall.transform.position = new Vector3((float)(player.shovel.transform.position.x), 1.5f, (float)(player.shovel.transform.position.z + 8));
 		}
 		else {
 			Wall wall = Instantiate(vertWallPrefab) as Wall;
-			wall.transform.position = new Vector3((float)(player.shovel.transform.position.x), 1.5f, (float)(player.shovel.transform.position.z + 3));
+			wall.transform.position = new Vector3((float)(player.shovel.transform.position.x), 1.5f, (float)(player.shovel.transform.position.z + 8));
 		}
 	}
 }

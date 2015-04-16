@@ -33,11 +33,11 @@ public class Player : MonoBehaviour {
 		if (xPos < -19) {
 			xPos = -19;
 		}
-		if (zPos > 14) {
-			zPos = 14;
+		if (zPos > 9) {
+			zPos = 9;
 		}
-		if (zPos < -22) {
-			zPos = -22;
+		if (zPos < -28) {
+			zPos = -28;
 		}
 		
 		Vector3 newPosition = new Vector3(xPos, yPos, zPos);
