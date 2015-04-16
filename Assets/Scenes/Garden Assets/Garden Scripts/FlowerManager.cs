@@ -8,7 +8,13 @@ public class FlowerManager : MonoBehaviour {
 	public Text currentMoney;
 	public Text flowerValue;
 	public Text wallValue;
+	public Text winnerText;
+	public Text flowersText;
+	public Text timer;
 	
+	public float winTimeInitial;
+	public float winTimeCurrent;
+	public int flowerThreshhold;
 	public bool canPlaceFlower;
 	public bool canPlaceWall;
 	public bool verticalWall;
@@ -27,6 +33,10 @@ public class FlowerManager : MonoBehaviour {
 	
 	// Use this for initialization
 	public void Start() {
+		winnerText.enabled = false;
+		timer.enabled = false;
+		
+	
 		canPlaceFlower = false;
 		canPlaceWall = false;
 		
@@ -46,7 +56,8 @@ public class FlowerManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void Update() {
-	
+		
+		flowersText.text = "Flowers: " + (flowers.Length - 1);
 		currentMoney.text = "" + cash;
 		
 		if (canPlaceFlower && Input.GetMouseButtonDown(1)) {
@@ -93,6 +104,25 @@ public class FlowerManager : MonoBehaviour {
 			
 			PlaceWall(verticalWall);
 		}
+		
+		
+		
+		/****************************************************************/
+		// How winning the game works
+		if (flowers.Length >= flowerThreshhold + 1) {
+			timer.enabled = true;
+			winTimeCurrent -= Time.deltaTime;
+			timer.text = "" + (int)winTimeCurrent;
+			if (winTimeCurrent <= 0) {
+				winTimeCurrent = 0;
+				winnerText.enabled = true;
+			}
+		}
+		else {
+			winTimeCurrent = winTimeInitial;
+			timer.enabled = false;
+		}
+		/****************************************************************/
 	}
 	
 	public void SelectFlower() {
