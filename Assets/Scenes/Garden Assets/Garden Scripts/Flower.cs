@@ -46,8 +46,6 @@ public class Flower : MonoBehaviour {
 	}
 	
 	public IEnumerator GetHit(float damage) {
-		Debug.Log ("flower hit");
-		
 		canTakeDamage = false;
 		health -= damage;
 		healthbar.value =  health / maxHealth * healthbar.maxValue;

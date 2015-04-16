@@ -111,7 +111,7 @@ RectTransform:
   - {fileID: 1724434699}
   - {fileID: 1831205668}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 18
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 28}
@@ -205,7 +205,7 @@ Transform:
   - {fileID: 178613051}
   - {fileID: 1874619017}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!95 &75536672
 Animator:
   serializedVersion: 3
@@ -264,6 +264,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1584011304}
   m_GameObject: {fileID: 75536670}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &86793218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 86793219}
+  m_Layer: 0
+  m_Name: SpawnNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86793219
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86793218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -30, y: 3, z: -30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &120005603
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +319,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnChance: 100
-  spawnRate: 5
+  spawnRate: 10
+  initialSpawnRate: 10
   spawnable: 0
   weedPrefab: {fileID: 11439500, guid: 5e7138028bddfda43b89fe4f8466be82, type: 2}
   spawnLocations:
@@ -300,6 +328,10 @@ MonoBehaviour:
   - {fileID: 1665670629}
   - {fileID: 584993751}
   - {fileID: 614710703}
+  - {fileID: 86793219}
+  - {fileID: 1854384534}
+  - {fileID: 220932961}
+  - {fileID: 1994636301}
   collectionPoint: {fileID: 1494348144}
   gameFlowers: {fileID: 1513845651}
   player: {fileID: 869650746}
@@ -448,6 +480,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1710380209}
   m_RootOrder: 1
+--- !u!1 &220932960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 220932961}
+  m_Layer: 0
+  m_Name: SpawnNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &220932961
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220932960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -30, y: 3, z: 30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
 --- !u!1 &247442916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,7 +1329,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -22.5900002, y: 5.80999994}
-  m_SizeDelta: {x: 160, y: 60}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1386669267
 MonoBehaviour:
@@ -1547,7 +1606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b29e9b6fc0acb4a98a8ecf01c0e7d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cash: 50
+  cash: 1000
   currentMoney: {fileID: 1161440480}
   flowerValue: {fileID: 1763812796}
   wallValue: {fileID: 1163862260}
@@ -1560,11 +1619,13 @@ MonoBehaviour:
   canPlaceFlower: 0
   canPlaceWall: 0
   verticalWall: 0
+  winning: 0
   flowerDistance: 3
   player: {fileID: 869650746}
   collectionPoint: {fileID: 1494348144}
   wallPrefab: {fileID: 11404260, guid: e2b338a1fe173424e8e9bdb4ab715d03, type: 2}
   vertWallPrefab: {fileID: 11478344, guid: 7f00e6775a0edfb48884213977d66e0f, type: 2}
+  weedSpawner: {fileID: 120005604}
   flowers: []
   flowerPrefabs:
   - {fileID: 11498944, guid: e87562a699a6c784886b241e250828a2, type: 2}
@@ -2015,6 +2076,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1831205667}
+--- !u!1 &1854384533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1854384534}
+  m_Layer: 0
+  m_Name: SpawnNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1854384534
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1854384533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30, y: 3, z: -30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &1871166655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,7 +2395,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 17
 --- !u!1 &1960402148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,6 +2573,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1968700914}
+--- !u!1 &1994636300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1994636301}
+  m_Layer: 0
+  m_Name: SpawnNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1994636301
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1994636300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30, y: 3, z: 30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
 --- !u!1 &2039862452
 GameObject:
   m_ObjectHideFlags: 0

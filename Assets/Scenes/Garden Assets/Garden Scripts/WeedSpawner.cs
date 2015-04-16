@@ -5,6 +5,7 @@ public class WeedSpawner : MonoBehaviour {
 	
 	public float spawnChance;
 	public float spawnRate;
+	public float initialSpawnRate;
 	public bool spawnable;
 	public Weeds weedPrefab;
 	public Transform[] spawnLocations;
@@ -21,6 +22,10 @@ public class WeedSpawner : MonoBehaviour {
 		if (spawnable) {
 			StartCoroutine("Spawn");
 		}
+		spawnRate = initialSpawnRate / gameFlowers.flowers.Length;
+		if (spawnRate < 1.5) {
+			spawnRate = 1.5f;
+		}
 	}
 	
 	public IEnumerator Spawn() {
@@ -34,5 +39,11 @@ public class WeedSpawner : MonoBehaviour {
 			Instantiate(weedPrefab, spawnLocations[index].position, Quaternion.identity);
 		}
 		spawnable = true;
+	}
+	
+	public void SpawnWave() {
+		for (int i = 0; i < spawnLocations.Length; i++) {
+			Instantiate(weedPrefab, spawnLocations[i].position, Quaternion.identity);
+		}
 	}
 }

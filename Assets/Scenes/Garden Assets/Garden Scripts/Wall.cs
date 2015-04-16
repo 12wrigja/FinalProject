@@ -26,7 +26,6 @@ public class Wall : MonoBehaviour {
 	
 	public void TakeDamage(float damage) {
 		health -= damage;
-		Debug.Log("Walls hit");
 		healthbar.value =  health / maxHealth * healthbar.maxValue;
 		if (health <= 0) {
 			canvas.enabled = false;

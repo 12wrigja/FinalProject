@@ -107,7 +107,6 @@ public class Weeds : MonoBehaviour {
 		
 		if (col.gameObject.name == "Flower1(Clone)" || col.gameObject.name == "Flower2(Clone)") {
 			Flower f = (Flower)col.gameObject.GetComponent("Flower");
-			Debug.Log ("did it work");
 			f.StartCoroutine("GetHit", damage);
 			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
 		}

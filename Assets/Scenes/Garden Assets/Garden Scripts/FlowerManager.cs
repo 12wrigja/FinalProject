@@ -18,11 +18,13 @@ public class FlowerManager : MonoBehaviour {
 	public bool canPlaceFlower;
 	public bool canPlaceWall;
 	public bool verticalWall;
+	public bool winning;
 	public float flowerDistance;
 	public Player player;
 	public Flower collectionPoint;
 	public Wall wallPrefab;
 	public Wall vertWallPrefab;
+	public WeedSpawner weedSpawner;
 	
 	public Flower[] flowers;
 	
@@ -110,17 +112,27 @@ public class FlowerManager : MonoBehaviour {
 		/****************************************************************/
 		// How winning the game works
 		if (flowers.Length >= flowerThreshhold + 1) {
+			if (!winning) {
+				weedSpawner.SpawnWave(); // to make it more interesting
+			}
+			winning = true;
 			timer.enabled = true;
 			winTimeCurrent -= Time.deltaTime;
 			timer.text = "" + (int)winTimeCurrent;
 			if (winTimeCurrent <= 0) {
+				// This is where you win
 				winTimeCurrent = 0;
 				winnerText.enabled = true;
+				flowers = new Flower[1];
+				flowers[0] = collectionPoint;
+				weedSpawner.spawnChance = 0;
 			}
+			
 		}
 		else {
 			winTimeCurrent = winTimeInitial;
 			timer.enabled = false;
+			winning = false;
 		}
 		/****************************************************************/
 	}
