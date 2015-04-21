@@ -59,7 +59,7 @@ public class FlowerManager : MonoBehaviour {
 	// Update is called once per frame
 	public void Update() {
 		
-		flowersText.text = "Flowers: " + (flowers.Length - 1);
+		flowersText.text = "Flowers: " + (flowers.Length - 1) + "/" + flowerThreshhold;
 		currentMoney.text = "" + cash;
 		
 		if (canPlaceFlower && Input.GetMouseButtonDown(1)) {
