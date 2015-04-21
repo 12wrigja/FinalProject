@@ -1,78 +1,102 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
 
 public class AnxietySystem : MonoBehaviour {
 
-    public int StaminaMaxVal = 100;
-    public int RefreshInterval = 1;
-    public int StaminaDecreaseOverTime = 5;
-    public int StaminaIncreaseOverTime = 2;
+    public int maxEndurance;
+    public int maxAnxiety;
+    public int anxietyThreshold;
+    public int enduranceDecreaseOverTime;
+    public int enduranceIncreaseOverTime;
 
-    public Slider socialStaminaSlider;
-    public Slider socialAnxietyMeter;
+    public int updateTime;
 
-    private float intervalTime = 0f;
+    public Color anxietyGoodColor;
+    public Color anxietyBadColor;
+
+    public int currentAnxiety
+    {
+        get
+        {
+            return (int)anxietySlider.value;
+        }
+    }
+
+    public int currentEndurance
+    {
+        get
+        {
+            return (int)enduranceSlider.value;
+        }
+    }
+
+    public Slider enduranceSlider;
+    public Slider anxietySlider;
+
+    public Image anxietySliderBackground;
+
+    private float intervalTime;
 
     void Start()
     {
-        socialStaminaSlider.maxValue = 100;
-        socialStaminaSlider.minValue = 0;
-        socialStaminaSlider.value = 100;
+        enduranceSlider.minValue = 0;
+        anxietySlider.minValue = 0;
+        enduranceSlider.maxValue = maxAnxiety;
+        anxietySlider.maxValue = maxAnxiety;
 
-        socialAnxietyMeter.maxValue = 100;
-        socialAnxietyMeter.value = 25;
-        socialAnxietyMeter.minValue = 0;
-
+        enduranceSlider.value = 0.75f * maxEndurance;
+        anxietySlider.value = 0.25f * maxAnxiety;
         intervalTime = 0f;
+        UIElement ele = GetComponent<UIElement>();
+        UIManager.ShowUIElement(ele);
     }
+
 
     void Update()
     {
         intervalTime += Time.deltaTime;
-        if (intervalTime > RefreshInterval)
+        if (intervalTime >= updateTime)
         {
             intervalTime = 0f;
-            if (socialAnxietyMeter.value == socialAnxietyMeter.maxValue)
+            if (currentAnxiety > anxietyThreshold)
             {
-                //Trigger minigames here
-                Debug.Log("Triggering Minigames.");
-                return;
+                decreaseEndurance(enduranceDecreaseOverTime);
             }
-            int difference = (int)Mathf.Abs(socialAnxietyMeter.value - 50);
-            if (socialAnxietyMeter.value > 50)
+            else if (currentAnxiety < anxietyThreshold)
             {
-                //The bar is above the critical level. Decrease the social endurance
-                socialStaminaSlider.value -= difference;
-            }
-            else if (socialAnxietyMeter.value < 50)
-            {
-                socialStaminaSlider.value += difference;
+                increaseEndurance(enduranceIncreaseOverTime);
             }
         }
+
+        if (currentAnxiety > anxietyThreshold)
+        {
+            anxietySliderBackground.color = anxietyBadColor;
+        }
+        else
+        {
+            anxietySliderBackground.color = anxietyGoodColor;
+        }
+
     }
 
-    public void increaseAnxiety(int increaseValue)
+    void decreaseEndurance(int value)
     {
-        if (socialAnxietyMeter.value + increaseValue <= socialAnxietyMeter.maxValue)
-        {
-            socialAnxietyMeter.value += increaseValue;
-        }
+        enduranceSlider.value -= (Mathf.Abs(anxietyThreshold - currentAnxiety))/maxAnxiety * value;
     }
 
-    public void decreaseAnxiety(int decreaseValue)
+    void increaseEndurance(int value)
     {
-        if (socialAnxietyMeter.value - decreaseValue <= socialAnxietyMeter.minValue)
-        {
-            socialAnxietyMeter.value -= decreaseValue;
-        }
+        enduranceSlider.value += (Mathf.Abs(anxietyThreshold - currentAnxiety))/maxAnxiety * value;
     }
 
-    public void setSocialStaminaValue(int value)
+    void increaseAnxiety(int value)
     {
-        if (value <= socialStaminaSlider.maxValue)
-        {
-            socialStaminaSlider.value = value;
-        }
+        anxietySlider.value += value;
+    }
+
+    void decreaseAnxiety(int value)
+    {
+        anxietySlider.value -= value;
     }
 }

@@ -6,6 +6,7 @@ public class HumanControlScript : MonoBehaviour {
     private Vector3 moveDirection = Vector3.zero;
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
+    public float rotateAngle = 5f;
     public float gravity = 20.0F;
     
 	// Use this for initialization
@@ -29,18 +30,18 @@ public class HumanControlScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.Rotate(0, -2, 0);
+            transform.Rotate(0, -rotateAngle, 0);
         }
         if (Input.GetKey(KeyCode.E))
         {
-            transform.Rotate(0, 2, 0);
+            transform.Rotate(0, rotateAngle, 0);
         }
 
         RaycastHit hit;
         if(Physics.Raycast(transform.position,-1*Vector3.forward,out hit,1f)){
             GameObject obj = hit.transform.gameObject;
             Conversable c = obj.transform.GetComponent<Conversable>();
-            if (c != null && Input.GetKeyDown(ConversationDisplayEngine.conversationAdvanceKeyCode))
+            if (c != null && Input.GetKeyDown(ConversationDisplayEngine.advanceConversationKey))
             {
                 ConversationDisplayEngine.DisplayConversation(c);
             }

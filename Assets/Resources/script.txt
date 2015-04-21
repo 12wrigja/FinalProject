@@ -1,62 +1,34 @@
 {
     "char": [
         {
-            "name": "Casey",
+            "name": "Bob",
             "lines": [
                 {
                     "line": [
-                        "Hello",
-                        "My Name is Casey! [wave]",
-                        "Whats your name?"
+                        "Hello"
                     ],
                     "state": 0,
                     "options": [
-                        "My Name is Joe",
-                        "My Name is Jane",
-						"Blah1",
-						"Blah2",
-						"Blah3"
+                        "Hi",
+                        "Hello"
                     ],
                     "tostate": [
                         1,
-                        2,
-						1,
-						1,
-						1
+                        1
                     ]
                 },
                 {
                     "line": [
-                        "That is such a cool name!"
+                        "Where are you going"
                     ],
                     "state": 1,
                     "options": [
-                        "Thanks!"
+                        "home",
+                        "work"
                     ],
                     "tostate": [
-                        3
-                    ]
-                },
-                {
-                    "line": [
-                        "Thats such a pretty name!"
-                    ],
-                    "state": 2,
-                    "options": [
-                        "Thanks!"
-                    ],
-                    "tostate": [
-                        3
-                    ]
-                },
-                {
-                    "line": [
-                        "I have to go. Talk to you later!"
-                    ],
-                    "state": 3,
-                    "options": [],
-                    "tostate": [
-                        0
+                        2,
+                        2
                     ]
                 }
             ]

@@ -13,9 +13,11 @@ public class Conversable : MonoBehaviour {
 
 	public int current_state = 0;
 
-    private List<int> nextStates;
+    //private string conversation_state = "start";
 
-	private Animator anim;
+    //private List<string> nextStates;
+
+    private List<int> nextStates;
 
     void Start()
     {
@@ -27,7 +29,6 @@ public class Conversable : MonoBehaviour {
         {
             conversee_name = conversable_tag;
         }
-		anim = GetComponent<Animator> ();
     }
 
     public List<string> GetConversationLines()
@@ -53,11 +54,8 @@ public class Conversable : MonoBehaviour {
 		JsonData jdata = JsonMapper.ToObject(textfile.text);
 		for(int i = 0;i < jdata["char"].Count;i++) {
 			if(jdata["char"][i]["name"].Equals(conversee_name)) {
-				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["tostate"].Count;c++) {
-                    if (jdata["char"][i]["lines"][current_state]["options"].Count > c)
-                    {
-                        lines.Add(jdata["char"][i]["lines"][current_state]["options"][c].ToString());
-                    }
+				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["options"].Count;c++) {
+					lines.Add(jdata["char"][i]["lines"][current_state]["options"][c].ToString());
                     nextStates.Add(Convert.ToInt32(jdata["char"][i]["lines"][current_state]["tostate"][c].ToString()));
 				}
 			}
@@ -67,19 +65,11 @@ public class Conversable : MonoBehaviour {
 
     public bool transitionConversation(int conversationChoiceIndex)
     {
-        if (conversationChoiceIndex >= nextStates.Count)
+        if (nextStates[conversationChoiceIndex] >= nextStates.Count)
         {
             return false;
         }
         current_state = nextStates[conversationChoiceIndex];
         return true;
     }
-
-	public void playAnimation(String triggerName){
-		if (anim != null) {
-			anim.SetTrigger (triggerName);
-		} else {
-			Debug.Log ("Animator is null for object: "+gameObject.name);
-		}
-	}
 }
