@@ -48,7 +48,7 @@ public class Weeds : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (rigidbody.position.y < killY) {
+		if (GetComponent<Rigidbody>().position.y < killY) {
 			Destroy(this.gameObject);
 		}
 	
@@ -74,13 +74,13 @@ public class Weeds : MonoBehaviour {
 		float angle = Mathf.Atan2(moveDirection.x, moveDirection.z) - Mathf.Atan2(desiredDirection.x, desiredDirection.z);
 		
 		if (angle > 0 && angle < Mathf.PI || angle < -Mathf.PI) {
-			rigidbody.AddTorque(0, -rotationalForce, 0);
+			GetComponent<Rigidbody>().AddTorque(0, -rotationalForce, 0);
 		}
 		else {
-			rigidbody.AddTorque(0, rotationalForce, 0);
+			GetComponent<Rigidbody>().AddTorque(0, rotationalForce, 0);
 		}
 		
-		rigidbody.AddForce(moveDirection * acceleration * Time.deltaTime);
+		GetComponent<Rigidbody>().AddForce(moveDirection * acceleration * Time.deltaTime);
 	}
 	
 	public void OnTriggerStay() {
@@ -95,20 +95,20 @@ public class Weeds : MonoBehaviour {
 				target.StartCoroutine("GetHit", damage);
 			}
 			//TakeDamage (1000);	// probably optional, if I don't do this, I should find a new target
-			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
+			GetComponent<Rigidbody>().AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
 		}
 		
 		if (col.gameObject.name == "Wall(Clone)") {
 			Wall w = (Wall)col.gameObject.GetComponent("Wall");
 			
 			w.TakeDamage(damage);
-			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
+			GetComponent<Rigidbody>().AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
 		}
 		
 		if (col.gameObject.name == "Flower1(Clone)" || col.gameObject.name == "Flower2(Clone)") {
 			Flower f = (Flower)col.gameObject.GetComponent("Flower");
 			f.StartCoroutine("GetHit", damage);
-			rigidbody.AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
+			GetComponent<Rigidbody>().AddForce(-moveDirection * acceleration * recoil * Time.deltaTime);
 		}
 		
 		
