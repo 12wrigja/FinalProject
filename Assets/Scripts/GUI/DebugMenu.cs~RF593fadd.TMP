@@ -1,0 +1,38 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
+public class DebugMenu : MonoBehaviour {
+
+    public KeyCode debugListKeyCode = KeyCode.BackQuote;
+    public GameObject UIElementToggle;
+    public GameObject toggleContainer;
+
+    private UIElement self;
+
+    private List<Toggle> toggles;
+
+    void Start()
+    {
+        self = GetComponent<UIElement>();
+        toggles = new List<Toggle>();
+        foreach (UIElement element in UIManager.AllElements)
+        {
+            GameObject toggle = Instantiate(UIElementToggle) as GameObject;
+            toggle.transform.SetParent(toggleContainer.transform,false);
+            toggle.GetComponent<Text>().text = element.gameObject.name;
+            Toggle toggleScript = toggle.GetComponent<Toggle>();
+            toggleScript.isOn = element.isOnScreen;
+
+        }
+    }
+    
+	// Update is called once per frame
+	void Update () {
+        if (Input.GetKeyDown(debugListKeyCode))
+        {
+            UIManager.ToggleUIElement(self);
+        }
+	}
+}

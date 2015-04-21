@@ -1,0 +1,30 @@
+{
+            "start":{
+                    "line": [
+                        "Hello"
+                    ],
+                    "state": 0,
+                    "options": [
+                        "Hi",
+                        "Hello"
+                    ],
+                    "tostate": [
+                        1,
+                        1
+                    ]
+                }
+"wheregoing": [
+                        "Where are you going"
+                    ],
+                    "state": 1,
+                    "options": [
+                        "home",
+                        "work"
+                    ],
+                    "tostate": [
+                        3,
+                        4
+                    ]
+                }
+            ]
+}
