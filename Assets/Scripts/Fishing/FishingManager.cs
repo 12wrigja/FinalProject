@@ -35,6 +35,7 @@ public class FishingManager : MonoBehaviour {
 			if(isFishing && canCatch) {
 				if(catchTimer > 0){
 					if(Input.GetKeyDown(KeyCode.Space)){
+						rod.spawnFish();
 						fishCaught = true;
 						isFishing = false;
 						animations.SetBool("isFishing", isFishing);

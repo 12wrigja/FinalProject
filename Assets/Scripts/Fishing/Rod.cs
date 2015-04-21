@@ -5,9 +5,11 @@ public class Rod : MonoBehaviour {
 
 	public bool isPickedUp = false;
 	public FishingManager managerPrefab;
+	public GameObject fish;
 
 	private bool managerExists = false;
 	private FishingManager managerInstance;
+	private GameObject fishInstance;
 
 	// Use this for initialization
 	void Start () {
@@ -30,5 +32,11 @@ public class Rod : MonoBehaviour {
 
 	public void interact(){
 		isPickedUp = true;
+	}
+
+	public void spawnFish(){
+		fishInstance = Instantiate (fish) as GameObject;
+		fishInstance.transform.SetParent (this.transform.GetChild(0));
+		fishInstance.transform.position = this.transform.GetChild (0).position;
 	}
 }
