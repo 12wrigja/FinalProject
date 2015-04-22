@@ -8,9 +8,15 @@ public class HumanControlScript : MonoBehaviour {
     public float jumpSpeed = 8.0F;
     public float rotateAngle = 5f;
     public float gravity = 20.0F;
-    
+
+    public KeyCode interactKey;
+
+    public MouseLook msScript;
+    private static HumanControlScript instance;
 	// Use this for initialization
 	void Start () {
+        Cursor.visible = false;
+        instance = this;
 	}
 	
 	// Update is called once per frame
@@ -28,23 +34,63 @@ public class HumanControlScript : MonoBehaviour {
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Rotate(0, -rotateAngle, 0);
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(0, rotateAngle, 0);
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+        //    transform.Rotate(0, -rotateAngle, 0);
+        //}
+        //if (Input.GetKey(KeyCode.E))
+        //{
+        //    transform.Rotate(0, rotateAngle, 0);
+        //}
+
+        if (msScript != null) { 
+            if (Input.GetKey(KeyCode.LeftAlt))
+            {
+                msScript.enabled = false;
+            }
+            else
+            {
+                msScript.enabled = true;
+            }
         }
 
+        UINotifier.Dismiss();
         RaycastHit hit;
-        if(Physics.Raycast(transform.position,-1*Vector3.forward,out hit,1f)){
+        if(Physics.Raycast(transform.position,transform.forward,out hit,1f)){
             GameObject obj = hit.transform.gameObject;
-            Conversable c = obj.transform.GetComponent<Conversable>();
-            if (c != null && Input.GetKeyDown(ConversationDisplayEngine.advanceConversationKey))
+            Conversable c = obj.GetComponent<Conversable>();
+            Interactable i = obj.GetComponent<Interactable>();
+    
+            if (c != null && !Input.GetKeyDown(interactKey))
+            {
+                Debug.Log("Showing notifier for conversable.");
+                UINotifier.Notify("Press " + (interactKey.ToString()) + " to talk with " + c.conversee_name);
+            }else if (i != null && !Input.GetKeyDown(interactKey))
+            {
+                Debug.Log("Showing notifier for interactable.");
+                UINotifier.Notify("Press " + (interactKey.ToString()) + " to "+i.interactText);
+            } else if (c != null && Input.GetKeyDown(interactKey))
             {
                 ConversationDisplayEngine.DisplayConversation(c);
+                
+            } else if (i != null && Input.GetKeyDown(interactKey)){
+                i.Interact();
             }
         }
 	}
+
+    public static void EnableHuman()
+    {
+        instance.enabled = true;
+    }
+
+    public static void DisableHuman()
+    {
+        instance.enabled = false;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawLine(transform.position, transform.position + (transform.forward));
+    }
 }

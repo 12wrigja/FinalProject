@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22218128}
   - 114: {fileID: 11418128}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RightPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ GameObject:
   - 222: {fileID: 22218130}
   - 114: {fileID: 11418130}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LeftPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ GameObject:
   - 224: {fileID: 22418134}
   - 95: {fileID: 9518128}
   - 225: {fileID: 22518128}
-  - 114: {fileID: 11418134}
+  - 114: {fileID: 11451472}
   m_Layer: 5
   m_Name: BookViewLayout
   m_TagString: Untagged
@@ -82,6 +82,8 @@ Animator:
   m_CullingMode: 0
   m_UpdateMode: 2
   m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11418128
@@ -157,7 +159,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11418134
+--- !u!114 &11451472
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -165,9 +167,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 118134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dcadfa2d7b846e4d9106d888d6f081a, type: 3}
+  m_Script: {fileID: 11500000, guid: 07ac33ec1e214d64db6e4388d8d41425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftPage: {fileID: 11418130}
+  rightPage: {fileID: 11418128}
 --- !u!222 &22218128
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -215,10 +219,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22418134}
   m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -114, y: 3}
-  m_SizeDelta: {x: 198, y: 251}
+  m_AnchorMin: {x: .12537159, y: .0954326019}
+  m_AnchorMax: {x: .5, y: .907702267}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22418132
 RectTransform:
@@ -252,11 +256,11 @@ RectTransform:
   - {fileID: 22418128}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 494}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: .5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 638}
+  m_Pivot: {x: .5, y: -2.70083547e-08}
 --- !u!225 &22518128
 CanvasGroup:
   m_ObjectHideFlags: 1
@@ -279,4 +283,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 118134}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
