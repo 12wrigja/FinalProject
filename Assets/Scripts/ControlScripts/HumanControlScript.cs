@@ -108,6 +108,11 @@ public class HumanControlScript : MonoBehaviour {
         
     }
 
+    public static void SaveHuman()
+    {
+        
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawLine(transform.position, transform.position + (transform.forward));

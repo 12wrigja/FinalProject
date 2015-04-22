@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class AnxietySystem : MonoBehaviour {
 
@@ -40,8 +41,19 @@ public class AnxietySystem : MonoBehaviour {
 
     private bool shouldTeleport = true;
 
+    private static AnxietySystem instance;
+
+    public static void SaveValues()
+    {
+
+        PlayerPrefs.SetInt("Anxiety", instance.currentAnxiety);
+        PlayerPrefs.SetInt("Endurance", instance.currentEndurance);
+        PlayerPrefs.SetInt("Teleport", (instance.shouldTeleport)?1:0);
+    }
+
     void Start()
     {
+        instance = this;
         enduranceSlider.minValue = 0;
         anxietySlider.minValue = 0;
         enduranceSlider.maxValue = maxAnxiety;
@@ -50,6 +62,19 @@ public class AnxietySystem : MonoBehaviour {
         enduranceSlider.value = 0.75f * maxEndurance;
         anxietySlider.value = 0.25f * maxAnxiety;
         intervalTime = 0f;
+        if (PlayerPrefs.HasKey("Teleport"))
+        {
+            shouldTeleport = Convert.ToBoolean(PlayerPrefs.GetInt("Teleport"));
+        }
+        if (PlayerPrefs.HasKey("Anxiety"))
+        {
+            anxietySlider.value = PlayerPrefs.GetInt("Anxiety");
+        }
+        if (PlayerPrefs.HasKey("Endurance"))
+        {
+            enduranceSlider.value = PlayerPrefs.GetInt("Endurance");
+        }
+
         UIElement ele = GetComponent<UIElement>();
         UIManager.ShowUIElement(ele);
     }
@@ -97,17 +122,25 @@ public class AnxietySystem : MonoBehaviour {
 
         if (currentAnxiety == maxAnxiety && shouldTeleport)
         {
-            shouldTeleport = false;
-            DontDestroyOnLoad(HumanControlScript.GetHuman());
-            DontDestroyOnLoad(GetComponentInParent<Canvas>().gameObject);
-            Application.LoadLevel("House_OutsideScene");
-            UINotifier.NotifyLock("You became too anxious, and you have stepped outside for a while. Play some minigames to relax! (Press Escape to clear this message)",this.gameObject);
+            StartCoroutine(TeleportPlayerOutside());
         }
-        else if (currentAnxiety < maxAnxiety * .9)
+        else if (currentAnxiety < maxAnxiety * .9 && !shouldTeleport)
         {
+            Debug.Log("ShouldAllowTeleportsAgain.");
             shouldTeleport = true;
             UINotifier.DismissLock(this.gameObject);
         }
+    }
+
+    IEnumerator TeleportPlayerOutside()
+    {
+        Debug.Log("Should be teleporting player!");
+            shouldTeleport = false;
+            SaveValues();
+            Application.LoadLevel("House_OutsideScene");
+            yield return new WaitForSeconds(3);
+            Debug.Log("Showing Notification.");
+            UINotifier.NotifyLock("You became too anxious, and you have stepped outside for a while. Play some minigames to relax! (Press Escape to clear this message)",this.gameObject);
     }
 
     void decreaseEndurance(int value)

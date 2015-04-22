@@ -62,6 +62,10 @@ public class UINotifier : MonoBehaviour {
 
     public static bool hasLock(GameObject obj)
     {
+        if (null == instance)
+        {
+            return false;
+        }
         return (null == instance.lockObj)?false:(instance.lockObj == obj);
     }
 }

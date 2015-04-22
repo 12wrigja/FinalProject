@@ -37,7 +37,8 @@ public class Conversable : MonoBehaviour {
 		TextAsset textfile = (TextAsset)Resources.Load("script");
 		JsonData jdata = JsonMapper.ToObject(textfile.text);
 		for(int i = 0;i < jdata["char"].Count;i++) {
-			if(jdata["char"][i]["name"].Equals(conversee_name)) {
+            if (jdata["char"][i]["name"].Equals(conversable_tag))
+            {
 				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["line"].Count;c++) {
 					lines.Add(jdata["char"][i]["lines"][current_state]["line"][c].ToString());
 				}
@@ -53,7 +54,8 @@ public class Conversable : MonoBehaviour {
 		TextAsset textfile = (TextAsset)Resources.Load("script");
 		JsonData jdata = JsonMapper.ToObject(textfile.text);
 		for(int i = 0;i < jdata["char"].Count;i++) {
-			if(jdata["char"][i]["name"].Equals(conversee_name)) {
+            if (jdata["char"][i]["name"].Equals(conversable_tag))
+            {
 				for(int c = 0;c < jdata["char"][i]["lines"][current_state]["options"].Count;c++) {
 					lines.Add(jdata["char"][i]["lines"][current_state]["options"][c].ToString());
                     nextStates.Add(Convert.ToInt32(jdata["char"][i]["lines"][current_state]["tostate"][c].ToString()));
