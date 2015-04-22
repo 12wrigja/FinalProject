@@ -15,6 +15,9 @@ public class AnxietySystem : MonoBehaviour {
 
     public int updateTime;
 
+    public Color anxietyGoodColor;
+    public Color anxietyBadColor;
+
     public int currentAnxiety
     {
         get
@@ -33,6 +36,8 @@ public class AnxietySystem : MonoBehaviour {
 
     public Slider enduranceSlider;
     public Slider anxietySlider;
+
+    public Image anxietySliderBackground;
 
     private float intervalTime;
 
@@ -64,7 +69,16 @@ public class AnxietySystem : MonoBehaviour {
                 increaseEndurance(enduranceIncreaseOverTime);
             }
         }
-        
+
+        if (currentAnxiety > anxietyThreshold)
+        {
+            anxietySliderBackground.color = anxietyBadColor;
+        }
+        else
+        {
+            anxietySliderBackground.color = anxietyGoodColor;
+        }
+
     }
 
     void decreaseEndurance(int value)
@@ -75,5 +89,15 @@ public class AnxietySystem : MonoBehaviour {
     void increaseEndurance(int value)
     {
         enduranceSlider.value += enduranceIncreaseMaxMultiplier * (Mathf.Abs(anxietyThreshold - currentAnxiety)) * value;
+    }
+
+    void increaseAnxiety(int value)
+    {
+        anxietySlider.value += value;
+    }
+
+    void decreaseAnxiety(int value)
+    {
+        anxietySlider.value -= value;
     }
 }
