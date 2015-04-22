@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour {
     private static List<UIElement> allUIElements;
     private static List<UIElement> currentUIElements;
 
+    private static List<UIElement> stashedElements;
+
 	public void Awake(){
         allUIElements = GetComponentsInChildren<UIElement>().ToList<UIElement>();
         Debug.Log(allUIElements.Count);
@@ -68,5 +70,24 @@ public class UIManager : MonoBehaviour {
         {
             ShowUIElement(element);
         }
+    }
+
+    public static void StashScreen()
+    {
+        stashedElements = new List<UIElement>(currentUIElements);
+    }
+
+    public static void RestoreStash()
+    {
+        if (stashedElements != null)
+        {
+            clearScreen();
+            foreach (UIElement ele in stashedElements)
+            {
+                ShowUIElement(ele);
+            }
+            stashedElements = null;
+        }
+        
     }
 }

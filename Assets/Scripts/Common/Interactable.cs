@@ -5,7 +5,6 @@ using System.Collections;
 public abstract class Interactable : MonoBehaviour {
 
     public string interactText;
-
     public abstract void Interact();
 
 }

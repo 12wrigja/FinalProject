@@ -12,10 +12,11 @@ public class HumanControlScript : MonoBehaviour {
     public KeyCode interactKey;
 
     public MouseLook msScript;
-
+    private static HumanControlScript instance;
 	// Use this for initialization
 	void Start () {
         Cursor.visible = false;
+        instance = this;
 	}
 	
 	// Update is called once per frame
@@ -53,13 +54,13 @@ public class HumanControlScript : MonoBehaviour {
             }
         }
 
+        UINotifier.Dismiss();
         RaycastHit hit;
         if(Physics.Raycast(transform.position,transform.forward,out hit,1f)){
             GameObject obj = hit.transform.gameObject;
             Conversable c = obj.GetComponent<Conversable>();
             Interactable i = obj.GetComponent<Interactable>();
-
-            UINotifier.Dismiss();
+    
             if (c != null && !Input.GetKeyDown(interactKey))
             {
                 Debug.Log("Showing notifier for conversable.");
@@ -77,6 +78,16 @@ public class HumanControlScript : MonoBehaviour {
             }
         }
 	}
+
+    public static void EnableHuman()
+    {
+        instance.enabled = true;
+    }
+
+    public static void DisableHuman()
+    {
+        instance.enabled = false;
+    }
 
     void OnDrawGizmosSelected()
     {

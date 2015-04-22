@@ -7,6 +7,7 @@ public class UINotifier : MonoBehaviour {
 
     private UIElement element;
     private Text notifyText;
+    public GameObject notifyPanel;
 
     private static UINotifier instance;
 
@@ -15,25 +16,24 @@ public class UINotifier : MonoBehaviour {
         instance = this;
         notifyText = GetComponentInChildren<Text>();
         element = GetComponent<UIElement>();
+        instance.notifyPanel.SetActive(false);
         UIManager.ShowUIElement(element);
 	}
 
-    //void Update()
-    //{
-    //    if (!element.isOnScreen)
-    //    {
-    //        UIManager.ShowUIElement(element);
-    //    }
-    //}
-
     public static void Notify(string text)
     {
-        instance.notifyText.text = text;
-        instance.notifyText.enabled = true;
+        if (instance != null)
+        {
+            instance.notifyText.text = text;
+            instance.notifyPanel.SetActive(true);
+        }
     }
 
     public static void Dismiss()
     {
-        instance.notifyText.enabled = false;
+        if (instance != null)
+        {
+            instance.notifyPanel.SetActive(false);
+        }
     }
 }

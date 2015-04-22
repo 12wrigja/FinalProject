@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TeleportDoor : MonoBehaviour {
+public class TeleportDoor : Interactable {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public string loadSceneName;
+
+    public override void Interact()
+    {
+        if (loadSceneName != null)
+        {
+            Application.LoadLevel(loadSceneName);
+        }
+    }
+
 }
