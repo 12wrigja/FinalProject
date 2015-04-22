@@ -31,6 +31,9 @@ public class FishingManager : MonoBehaviour {
 			GetComponent<AudioSource>().Stop();
 			soundIsPlaying = false;
 		}
+		if(fishCaught && Input.GetKeyDown(KeyCode.Space)){
+			rod.putDown();
+		}
 		if(canFish){
 			if(isFishing && canCatch) {
 				if(catchTimer > 0){
@@ -52,10 +55,6 @@ public class FishingManager : MonoBehaviour {
 			} else if(!fishCaught && Input.GetKeyDown(KeyCode.Space)){
 				isFishing = !isFishing;
 				animations.SetBool("isFishing", isFishing);
-			}
-
-			if(fishCaught && Input.GetKeyDown(KeyCode.Space)){
-				rod.putDown();
 			}
 
 			if(isFishing && !canCatch && chanceOfFish > Random.Range(0f, 100f)){
