@@ -11,6 +11,8 @@ public class HumanControlScript : MonoBehaviour {
 
     public KeyCode interactKey;
 
+    public MouseLook msScript;
+
 	// Use this for initialization
 	void Start () {
         Cursor.visible = false;
@@ -40,6 +42,17 @@ public class HumanControlScript : MonoBehaviour {
         //    transform.Rotate(0, rotateAngle, 0);
         //}
 
+        if (msScript != null) { 
+            if (Input.GetKey(KeyCode.LeftAlt))
+            {
+                msScript.enabled = false;
+            }
+            else
+            {
+                msScript.enabled = true;
+            }
+        }
+
         RaycastHit hit;
         if(Physics.Raycast(transform.position,transform.forward,out hit,1f)){
             GameObject obj = hit.transform.gameObject;
@@ -50,11 +63,11 @@ public class HumanControlScript : MonoBehaviour {
             if (c != null && !Input.GetKeyDown(interactKey))
             {
                 Debug.Log("Showing notifier for conversable.");
-                UINotifier.Notify("Press " + (interactKey.ToString()) + "to talk with " + c.conversee_name);
+                UINotifier.Notify("Press " + (interactKey.ToString()) + " to talk with " + c.conversee_name);
             }else if (i != null && !Input.GetKeyDown(interactKey))
             {
                 Debug.Log("Showing notifier for interactable.");
-                UINotifier.Notify("Press " + (interactKey.ToString()) + "to "+i.interactText);
+                UINotifier.Notify("Press " + (interactKey.ToString()) + " to "+i.interactText);
             } else if (c != null && Input.GetKeyDown(interactKey))
             {
                 ConversationDisplayEngine.DisplayConversation(c);

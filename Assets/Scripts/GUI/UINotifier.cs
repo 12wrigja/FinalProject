@@ -14,7 +14,17 @@ public class UINotifier : MonoBehaviour {
 	void Start () {
         instance = this;
         notifyText = GetComponentInChildren<Text>();
+        element = GetComponent<UIElement>();
+        UIManager.ShowUIElement(element);
 	}
+
+    //void Update()
+    //{
+    //    if (!element.isOnScreen)
+    //    {
+    //        UIManager.ShowUIElement(element);
+    //    }
+    //}
 
     public static void Notify(string text)
     {
