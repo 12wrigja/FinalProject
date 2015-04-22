@@ -38,6 +38,8 @@ public class AnxietySystem : MonoBehaviour {
 
     private float intervalTime;
 
+    private bool shouldTeleport = true;
+
     void Start()
     {
         enduranceSlider.minValue = 0;
@@ -55,6 +57,21 @@ public class AnxietySystem : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Equals))
+        {
+            increaseAnxiety(5);
+        }
+        else if (Input.GetKeyDown(KeyCode.Minus))
+        {
+            decreaseAnxiety(5);
+        }
+
+        if (UINotifier.hasLock(this.gameObject) && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Dismissing message because of escape button.");
+            UINotifier.DismissLock(this.gameObject);
+        }
+
         intervalTime += Time.deltaTime;
         if (intervalTime >= updateTime)
         {
@@ -78,6 +95,19 @@ public class AnxietySystem : MonoBehaviour {
             anxietySliderBackground.color = anxietyGoodColor;
         }
 
+        if (currentAnxiety == maxAnxiety && shouldTeleport)
+        {
+            shouldTeleport = false;
+            DontDestroyOnLoad(HumanControlScript.GetHuman());
+            DontDestroyOnLoad(GetComponentInParent<Canvas>().gameObject);
+            Application.LoadLevel("House_OutsideScene");
+            UINotifier.NotifyLock("You became too anxious, and you have stepped outside for a while. Play some minigames to relax! (Press Escape to clear this message)",this.gameObject);
+        }
+        else if (currentAnxiety < maxAnxiety * .9)
+        {
+            shouldTeleport = true;
+            UINotifier.DismissLock(this.gameObject);
+        }
     }
 
     void decreaseEndurance(int value)

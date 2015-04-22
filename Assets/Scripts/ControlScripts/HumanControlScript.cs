@@ -11,7 +11,7 @@ public class HumanControlScript : MonoBehaviour {
 
     public KeyCode interactKey;
 
-    public MouseLook msScript;
+    public MonoBehaviour msScript;
     private static HumanControlScript instance;
 	// Use this for initialization
 	void Start () {
@@ -86,11 +86,26 @@ public class HumanControlScript : MonoBehaviour {
     public static void EnableHuman()
     {
         instance.enabled = true;
+        instance.msScript.enabled = true;
     }
 
     public static void DisableHuman()
     {
         instance.enabled = false;
+        instance.msScript.enabled = false;
+    }
+
+    public static GameObject GetHuman()
+    {
+        if (instance != null)
+        {
+            return instance.gameObject;
+        }
+        else
+        {
+            return null;
+        }
+        
     }
 
     void OnDrawGizmosSelected()
