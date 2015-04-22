@@ -11800,6 +11800,45 @@ Transform:
   - {fileID: 773946501}
   m_Father: {fileID: 677562948}
   m_RootOrder: 0
+--- !u!1 &214068065
+GameObject:
+  m_PrefabParentObject: {fileID: 139990, guid: b9b8be74fedd341508a4d781d94419d8, type: 2}
+  m_PrefabInternal: {fileID: 353531700}
+--- !u!65 &214068067
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 214068065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.78076065, y: .504361987, z: .368440241}
+  m_Center: {x: -.297885895, y: .253559887, z: -.0141961612}
+--- !u!114 &214068069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 214068065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b004aeb211ad494894ddc3c35e81415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: read the book
+  leftPageText: There are many tools you can use to help you navigate social anxiety.
+    First, you must  understand and observe your social anxiety. A good way to do
+    this is to chart when, where   and what kind of anxiety you experience. We are
+    doing this sort of self monitoring here!   This chart will help show you when
+    and where you become more anxious.  You must learn to relax as well because it
+    will help decrease the amount of anxiety you   experience. So BREATHE and practice
+    breathing techniques.
+  rightPageText: Some patients like to use the 4-7-4 rule where you breathe for 4
+    seconds, hold your breath for 7 seconds, and let go for 4 seconds. This will help
+    reduce your heart rate and will help calm your body down.
+  bookUI: {fileID: 977076603}
 --- !u!1001 &214191919
 Prefab:
   m_ObjectHideFlags: 0
@@ -12309,6 +12348,42 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b68862f68abc2404ebd898cbea23b0e7, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &219693212
+GameObject:
+  m_PrefabParentObject: {fileID: 140072, guid: b9b8be74fedd341508a4d781d94419d8, type: 2}
+  m_PrefabInternal: {fileID: 353531700}
+--- !u!65 &219693214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219693212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.78076065, y: .504361987, z: .368440241}
+  m_Center: {x: -.297885895, y: .253559887, z: -.0141961612}
+--- !u!114 &219693216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 219693212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b004aeb211ad494894ddc3c35e81415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: read the book
+  leftPageText: People with social anxiety tend not to immerse themselves in social
+    situations because they  are worried that they might do something embarrassing
+    or will be judged by others. On   occasion, it is very normal to feel like this.
+    Many people get anxious when they have to talk   in front of a large group.
+  rightPageText: Social anxiety becomes concerning when it does not let you enjoy  your
+    life and you are unable to function. Do not worry! Many people have faced and   managed
+    their social anxiety! There are many strategies available to help you.
+  bookUI: {fileID: 977076603}
 --- !u!1001 &220651995
 Prefab:
   m_ObjectHideFlags: 0
@@ -55258,7 +55333,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
       propertyPath: m_AnchorMax.x
-      value: .886360705
+      value: .867000043
       objectReference: {fileID: 0}
     - target: {fileID: 22418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -55266,11 +55341,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
       propertyPath: m_SizeDelta.x
-      value: -20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
       propertyPath: m_AnchorMax.y
-      value: .907702267
+      value: .857460856
       objectReference: {fileID: 0}
     - target: {fileID: 22418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -55278,15 +55353,55 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
       propertyPath: m_SizeDelta.y
-      value: -20
+      value: 6.10349998e-05
       objectReference: {fileID: 0}
     - target: {fileID: 22418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
       propertyPath: m_AnchorMin.y
-      value: .120595619
+      value: .15200001
       objectReference: {fileID: 0}
     - target: {fileID: 22418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
       propertyPath: m_AnchorMin.x
-      value: .545639396
+      value: .56382519
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418128, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: .151278704
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: .470825195
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: .167730421
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22418130, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: .857460856
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e7d90b1c1f0b09498eda5e88fcbef58, type: 2}
@@ -103003,6 +103118,41 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1869339745}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1870008024
+GameObject:
+  m_PrefabParentObject: {fileID: 184704, guid: b9b8be74fedd341508a4d781d94419d8, type: 2}
+  m_PrefabInternal: {fileID: 353531700}
+--- !u!65 &1870008026
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870008024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.78076065, y: .504361987, z: .368440241}
+  m_Center: {x: -.297885895, y: .253559887, z: -.0141961612}
+--- !u!114 &1870008028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1870008024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b004aeb211ad494894ddc3c35e81415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: read the book
+  leftPageText: This game will also help you practice realistic thinking! Often times
+    people with social  anxiety have negative thoughts about themselves. Your thoughts
+    are guesses about what   will happen and not actual facts. Many people with social
+    anxiety increase the danger in   social situations. No one is perfect, so examine
+    how true your thoughts are.
+  rightPageText: 
+  bookUI: {fileID: 977076603}
 --- !u!1 &1870085194
 GameObject:
   m_ObjectHideFlags: 0
@@ -104343,7 +104493,19 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 140018, guid: b9b8be74fedd341508a4d781d94419d8, type: 2}
   m_PrefabInternal: {fileID: 353531700}
---- !u!114 &1890648679
+--- !u!65 &1890648680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890648678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.78076065, y: .504361987, z: .368440241}
+  m_Center: {x: -.297889709, y: .253559887, z: -.0141961612}
+--- !u!114 &1890648682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -104362,18 +104524,6 @@ MonoBehaviour:
   rightPageText: You just have to remember to talk about your feelings and accept
     and work through   your feelings.
   bookUI: {fileID: 977076603}
---- !u!65 &1890648680
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1890648678}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.78076065, y: .504361987, z: .368440241}
-  m_Center: {x: -.297889709, y: .253559887, z: -.0141961612}
 --- !u!1 &1891341526
 GameObject:
   m_ObjectHideFlags: 0
@@ -114391,6 +114541,42 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b68862f68abc2404ebd898cbea23b0e7, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &2071152963
+GameObject:
+  m_PrefabParentObject: {fileID: 179880, guid: b9b8be74fedd341508a4d781d94419d8, type: 2}
+  m_PrefabInternal: {fileID: 353531700}
+--- !u!65 &2071152965
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071152963}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.78076065, y: .504361987, z: .368440241}
+  m_Center: {x: -.297885895, y: .253559887, z: -.0141999759}
+--- !u!114 &2071152967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071152963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b004aeb211ad494894ddc3c35e81415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: read the book
+  leftPageText: Learning how to regulate normal negative feelings such as anxiety
+    will give you a sense of  normality and self-confidence.  But, first you must
+    learn what anxiety is. Anxiety is a very   normal process. It help our body prepare
+    for danger by giving our muscles the energy to run   away or fight.
+  rightPageText: Anxiety become an issue when our body tells us that there is danger
+    when  there is actually no real, physical danger. This is why you must learn how
+    manage your   anxiety and not eliminate it.
+  bookUI: {fileID: 977076603}
 --- !u!1 &2072007560
 GameObject:
   m_ObjectHideFlags: 0

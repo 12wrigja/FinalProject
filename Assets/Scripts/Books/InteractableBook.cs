@@ -15,13 +15,17 @@ public class InteractableBook : Interactable {
     {
         if (bookUI.isOnScreen && Input.GetKeyDown(exitBookKeyCode))
         {
-
+            UIManager.RestoreStash();
+            HumanControlScript.EnableHuman();
         }
     }
 
     public override void Interact()
     {
         HumanControlScript.DisableHuman();
+        UIManager.StashScreen();
+        bookUI.leftPage.text = leftPageText;
+        bookUI.rightPage.text = rightPageText;
         UIManager.ShowUIElementExclusive(bookUI);
     }
 

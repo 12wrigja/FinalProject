@@ -43,8 +43,8 @@ public class HumanControlScript : MonoBehaviour {
         //    transform.Rotate(0, rotateAngle, 0);
         //}
 
-        if (msScript != null) { 
-            if (Input.GetKey(KeyCode.LeftAlt))
+        if (msScript != null) {
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 msScript.enabled = false;
             }
@@ -55,19 +55,23 @@ public class HumanControlScript : MonoBehaviour {
         }
 
         UINotifier.Dismiss();
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position,transform.forward,out hit,1f)){
-            GameObject obj = hit.transform.gameObject;
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(transform.position,transform.forward,1f);
+        for(int j=0; j<hits.Length; j++){
+            GameObject obj = hits[j].transform.gameObject;
             Conversable c = obj.GetComponent<Conversable>();
             Interactable i = obj.GetComponent<Interactable>();
-    
+
+            if (c == null && i == null)
+            {
+                continue;
+            }
+
             if (c != null && !Input.GetKeyDown(interactKey))
             {
-                Debug.Log("Showing notifier for conversable.");
                 UINotifier.Notify("Press " + (interactKey.ToString()) + " to talk with " + c.conversee_name);
             }else if (i != null && !Input.GetKeyDown(interactKey))
             {
-                Debug.Log("Showing notifier for interactable.");
                 UINotifier.Notify("Press " + (interactKey.ToString()) + " to "+i.interactText);
             } else if (c != null && Input.GetKeyDown(interactKey))
             {
