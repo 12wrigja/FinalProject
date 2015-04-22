@@ -8,7 +8,7 @@ public class FishingManager : MonoBehaviour {
 	public float chanceOfFish;
 	public float initialCatchTimer;
 
-	public bool canFish = false;
+	public bool canFish = true;
 	public bool isFishing = false;
 	public bool canCatch = false;
 	public bool fishCaught = false;
@@ -52,6 +52,10 @@ public class FishingManager : MonoBehaviour {
 			} else if(!fishCaught && Input.GetKeyDown(KeyCode.Space)){
 				isFishing = !isFishing;
 				animations.SetBool("isFishing", isFishing);
+			}
+
+			if(fishCaught && Input.GetKeyDown(KeyCode.Space)){
+				rod.putDown();
 			}
 
 			if(isFishing && !canCatch && chanceOfFish > Random.Range(0f, 100f)){
