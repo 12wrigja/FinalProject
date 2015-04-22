@@ -17,6 +17,11 @@ public class ConversationDisplayEngine : MonoBehaviour {
             return instance.conversationAdvanceKeyCode;
         }
     }
+
+    public delegate void FinishedConversation();
+
+    private FinishedConversation signalConversationFinish;
+
     private bool inConversation;
     private Conversable currentConversee;
     private UIElement conversationLayout;
@@ -89,6 +94,8 @@ public class ConversationDisplayEngine : MonoBehaviour {
         currentConversee.transitionConversation(0);
         UIManager.ToggleUIElement(conversationLayout);
         inConversation = false;
+        signalConversationFinish();
+        signalConversationFinish = null;
     }
 
     private void advanceCurrentConversation(int index)
@@ -114,6 +121,11 @@ public class ConversationDisplayEngine : MonoBehaviour {
             }
         }
         lineNumber = 0;
+    }
+
+    public static void RegisterForConversationEnd(FinishedConversation a)
+    {
+        instance.signalConversationFinish += a;
     }
 
     void Update()
