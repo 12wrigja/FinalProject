@@ -36,7 +36,8 @@ AudioSource:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134214}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a5d583370c75c4d5887dabd9a8124a4e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: .0500000007
@@ -87,6 +88,16 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11434214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,7 +113,7 @@ MonoBehaviour:
   animations: {fileID: 0}
   chanceOfFish: .5
   initialCatchTimer: 3
-  canFish: 0
+  canFish: 1
   isFishing: 0
   canCatch: 0
   fishCaught: 0
@@ -117,4 +128,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 134214}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
