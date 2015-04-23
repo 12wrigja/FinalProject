@@ -87,7 +87,7 @@ NavMeshSettings:
     cellSize: .166666657
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &35858804 stripped
+--- !u!1 &35858804
 GameObject:
   m_PrefabParentObject: {fileID: 118002, guid: 4a3ed1826b05b724ab8d4cfd83feee37, type: 2}
   m_PrefabInternal: {fileID: 1086832262}
@@ -150,10 +150,18 @@ Prefab:
       propertyPath: interactText
       value: Fishing Rod
       objectReference: {fileID: 0}
+    - target: {fileID: 13618766, guid: 677bf157e997e4adcb1928dea46da736, type: 2}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 13618766, guid: 677bf157e997e4adcb1928dea46da736, type: 2}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 677bf157e997e4adcb1928dea46da736, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &570753181 stripped
+--- !u!1 &570753181
 GameObject:
   m_PrefabParentObject: {fileID: 184452, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
   m_PrefabInternal: {fileID: 1419706783}
@@ -332,7 +340,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a3ed1826b05b724ab8d4cfd83feee37, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1090407775 stripped
+--- !u!1 &1090407775
 GameObject:
   m_PrefabParentObject: {fileID: 170432, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
   m_PrefabInternal: {fileID: 1419706783}

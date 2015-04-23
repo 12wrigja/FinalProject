@@ -52,7 +52,8 @@ public class UIManager : MonoBehaviour {
     {
         if (currentUIElements.Count > 0)
         {
-            foreach (UIElement element in currentUIElements)
+            List<UIElement> screenElements = new List<UIElement>(currentUIElements);
+            foreach (UIElement element in screenElements)
             {
                 element.isOnScreen = false;
                 currentUIElements.Remove(element);

@@ -124,6 +124,7 @@ MonoBehaviour:
   rotateAngle: 5
   gravity: 20
   interactKey: 101
+  msScript: {fileID: 11490228}
 --- !u!114 &11490228
 MonoBehaviour:
   m_ObjectHideFlags: 1

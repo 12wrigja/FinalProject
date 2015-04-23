@@ -43,7 +43,10 @@ public class ConversationDisplayEngine : MonoBehaviour {
         }
         instance.inConversation = true;
         instance.currentConversee = e;
+        UIManager.StashScreen();
         UIManager.ShowUIElementExclusive(instance.conversationLayout);
+        HumanControlScript.DisableHuman();
+        Cursor.visible = true;
         instance.ConverseeName.text = e.conversable_tag;
         instance.StartCoroutine(instance.HaveConversation());
     }
@@ -92,9 +95,14 @@ public class ConversationDisplayEngine : MonoBehaviour {
     private void EndConversation()
     {
         currentConversee.transitionConversation(0);
-        UIManager.ToggleUIElement(conversationLayout);
+        UIManager.RestoreStash();
+        HumanControlScript.EnableHuman();
+        Cursor.visible = false;
         inConversation = false;
-        signalConversationFinish();
+        if (signalConversationFinish != null)
+        {
+            signalConversationFinish();
+        }
         signalConversationFinish = null;
     }
 

@@ -110,7 +110,12 @@ public class JSon : MonoBehaviour{
 					}
 				}
 				file.Add("]");
-				file.Add("}");
+				if(lineCount < charLineCount[charCount]) {
+					file.Add("},");
+				}
+				else {
+					file.Add("}");
+				}
 				cntr++;
 			} else {
 				charCount++;

@@ -11,7 +11,7 @@ public class HumanControlScript : MonoBehaviour {
 
     public KeyCode interactKey;
 
-    public MouseLook msScript;
+    public MonoBehaviour msScript;
     private static HumanControlScript instance;
 	// Use this for initialization
 	void Start () {
@@ -43,31 +43,31 @@ public class HumanControlScript : MonoBehaviour {
         //    transform.Rotate(0, rotateAngle, 0);
         //}
 
-        if (msScript != null) { 
-            if (Input.GetKey(KeyCode.LeftAlt))
+        if (msScript != null) {
+            if (Input.GetKeyDown(KeyCode.V))
             {
-                msScript.enabled = false;
-            }
-            else
-            {
-                msScript.enabled = true;
+                msScript.enabled = !msScript.enabled;
             }
         }
 
         UINotifier.Dismiss();
-        RaycastHit hit;
-        if(Physics.Raycast(transform.position,transform.forward,out hit,1f)){
-            GameObject obj = hit.transform.gameObject;
+        RaycastHit[] hits;
+        hits = Physics.RaycastAll(transform.position,transform.forward,1.5f);
+        for(int j=0; j<hits.Length; j++){
+            GameObject obj = hits[j].transform.gameObject;
             Conversable c = obj.GetComponent<Conversable>();
             Interactable i = obj.GetComponent<Interactable>();
-    
+
+            if (c == null && i == null)
+            {
+                continue;
+            }
+
             if (c != null && !Input.GetKeyDown(interactKey))
             {
-                Debug.Log("Showing notifier for conversable.");
                 UINotifier.Notify("Press " + (interactKey.ToString()) + " to talk with " + c.conversee_name);
             }else if (i != null && !Input.GetKeyDown(interactKey))
             {
-                Debug.Log("Showing notifier for interactable.");
                 UINotifier.Notify("Press " + (interactKey.ToString()) + " to "+i.interactText);
             } else if (c != null && Input.GetKeyDown(interactKey))
             {
@@ -82,11 +82,31 @@ public class HumanControlScript : MonoBehaviour {
     public static void EnableHuman()
     {
         instance.enabled = true;
+        instance.msScript.enabled = true;
     }
 
     public static void DisableHuman()
     {
         instance.enabled = false;
+        instance.msScript.enabled = false;
+    }
+
+    public static GameObject GetHuman()
+    {
+        if (instance != null)
+        {
+            return instance.gameObject;
+        }
+        else
+        {
+            return null;
+        }
+        
+    }
+
+    public static void SaveHuman()
+    {
+        
     }
 
     void OnDrawGizmosSelected()

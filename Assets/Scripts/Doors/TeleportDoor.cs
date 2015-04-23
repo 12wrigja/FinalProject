@@ -9,6 +9,7 @@ public class TeleportDoor : Interactable {
     {
         if (loadSceneName != null)
         {
+            AnxietySystem.SaveValues();
             Application.LoadLevel(loadSceneName);
         }
     }
