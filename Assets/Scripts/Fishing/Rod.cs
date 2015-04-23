@@ -7,6 +7,8 @@ public class Rod : Interactable{
 	public FishingManager managerPrefab;
 	public GameObject fish;
 	public GameObject cam;
+	public Vector3 cameraPosition;
+	public Vector3 cameraRotation;
 
 	private bool managerExists = false;
 	private bool fishExists = false;
@@ -24,8 +26,11 @@ public class Rod : Interactable{
 	// Update is called once per frame
 	void Update () {
 		if (isPickedUp && !managerExists){
-//			this.transform.SetParent(cam.transform);
-//			this.transform.position = cam.transform.position + new Vector3(3, 0, 5);
+
+
+			this.transform.SetParent(cam.transform);
+			this.transform.localPosition = cameraPosition;
+			this.transform.localEulerAngles = cameraRotation;
 			managerInstance = Instantiate(managerPrefab) as FishingManager;
 			managerExists = true;
 			managerInstance.setAnimator(this.GetComponent<Animator>());
