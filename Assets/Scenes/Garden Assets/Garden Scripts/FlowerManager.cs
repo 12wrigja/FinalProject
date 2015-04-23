@@ -12,6 +12,7 @@ public class FlowerManager : MonoBehaviour {
 	public Text flowersText;
 	public Text timer;
 	
+	public int waveSpawnDelayInWinningState;
 	public float winTimeInitial;
 	public float winTimeCurrent;
 	public int flowerThreshhold;
@@ -32,12 +33,10 @@ public class FlowerManager : MonoBehaviour {
 	private int flowerType;
 	
 	
-	
 	// Use this for initialization
 	public void Start() {
 		winnerText.enabled = false;
 		timer.enabled = false;
-		
 	
 		canPlaceFlower = false;
 		canPlaceWall = false;
@@ -66,13 +65,6 @@ public class FlowerManager : MonoBehaviour {
 			bool flowersHere = false;
 			
 			for (int i = 1; i < flowers.Length; i++) {
-				
-				// Done by comparing positions
-				/*if (Mathf.Abs (player.shovel.transform.position.x - flowers[i].transform.position.x) < flowerDistance &&
-					Mathf.Abs (player.shovel.transform.position.z + 3 - flowers[i].transform.position.z) < flowerDistance) {
-					
-					flowersHere = true;
-				}*/
 				
 				// Done by measuring distance
 				Vector3 shovelPos = new Vector3(player.shovel.transform.position.x, 0f, player.shovel.transform.position.z + 7);
@@ -112,13 +104,27 @@ public class FlowerManager : MonoBehaviour {
 		/****************************************************************/
 		// How winning the game works
 		if (flowers.Length >= flowerThreshhold + 1) {
+			
+			// Trying to get multiple wave spawns to work
+			/*if (winning && (int)winTimeCurrent % waveSpawnDelayInWinningState == 0 && (int)winTimeCurrent != 0) {
+				winning = false;
+			}
+			else {
+				winning = true;
+			}*/
+			
 			if (!winning) {
 				weedSpawner.SpawnWave(); // to make it more interesting
 			}
-			winning = true;
+			
+			//if ((int)winTimeCurrent % waveSpawnDelayInWinningState != 0) {
+				winning = true;
+			//}
 			timer.enabled = true;
 			winTimeCurrent -= Time.deltaTime;
 			timer.text = "" + (int)winTimeCurrent;
+			
+
 			if (winTimeCurrent <= 0) {
 				// This is where you win
 				winTimeCurrent = 0;
@@ -127,7 +133,6 @@ public class FlowerManager : MonoBehaviour {
 				flowers[0] = collectionPoint;
 				weedSpawner.spawnChance = 0;
 			}
-			
 		}
 		else {
 			winTimeCurrent = winTimeInitial;

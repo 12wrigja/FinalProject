@@ -3,9 +3,12 @@ using System.Collections;
 
 public class WeedSpawner : MonoBehaviour {
 	
+	
 	public float spawnChance;
-	public float spawnRate;
-	public float initialSpawnRate;
+	public float minSpawnTimeDelay;
+	public float spawnTimeDelay;
+	public float initialSpawnTimeDelay;
+	public float spawnGrowthRate;
 	public bool spawnable;
 	public Weeds weedPrefab;
 	public Transform[] spawnLocations;
@@ -22,15 +25,15 @@ public class WeedSpawner : MonoBehaviour {
 		if (spawnable) {
 			StartCoroutine("Spawn");
 		}
-		spawnRate = initialSpawnRate / gameFlowers.flowers.Length;
-		if (spawnRate < 1.5) {
-			spawnRate = 1.5f;
+		spawnTimeDelay = initialSpawnTimeDelay / gameFlowers.flowers.Length / spawnGrowthRate;
+		if (spawnTimeDelay < minSpawnTimeDelay) {
+			spawnTimeDelay = minSpawnTimeDelay;
 		}
 	}
 	
 	public IEnumerator Spawn() {
 		spawnable = false;
-		yield return new WaitForSeconds(spawnRate);
+		yield return new WaitForSeconds(spawnTimeDelay);
 		
 		float chance = Random.Range(0, 100);
 		int index = (int)(Random.Range(0, spawnLocations.Length));
@@ -45,5 +48,6 @@ public class WeedSpawner : MonoBehaviour {
 		for (int i = 0; i < spawnLocations.Length; i++) {
 			Instantiate(weedPrefab, spawnLocations[i].position, Quaternion.identity);
 		}
+		Debug.Log ("wave Spawned");
 	}
 }
