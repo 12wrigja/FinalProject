@@ -26,15 +26,13 @@ public class Rod : Interactable{
 	// Update is called once per frame
 	void Update () {
 		if (isPickedUp && !managerExists){
-
-
 			this.transform.SetParent(cam.transform);
 			this.transform.localPosition = cameraPosition;
 			this.transform.localEulerAngles = cameraRotation;
 			managerInstance = Instantiate(managerPrefab) as FishingManager;
-			managerExists = true;
 			managerInstance.setAnimator(this.GetComponent<Animator>());
 			managerInstance.setRod(this);
+			managerExists = true;
 		}
 		if (!isPickedUp && managerExists){
 			this.transform.SetParent(null);
