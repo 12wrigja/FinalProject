@@ -5489,7 +5489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversable_tag: Wife
-  conversee_name: Casey
+  conversee_name: Wife
   current_state: 0
 --- !u!136 &97207140
 CapsuleCollider:

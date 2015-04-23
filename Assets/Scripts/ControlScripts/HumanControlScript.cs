@@ -44,13 +44,9 @@ public class HumanControlScript : MonoBehaviour {
         //}
 
         if (msScript != null) {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.V))
             {
-                msScript.enabled = false;
-            }
-            else
-            {
-                msScript.enabled = true;
+                msScript.enabled = !msScript.enabled;
             }
         }
 
