@@ -1,0 +1,336 @@
+{
+"char": [
+{
+"name" : "Wife",
+"lines" : [
+{
+"line": [
+"Hello there. What brings you here?"
+],
+"state": 0,
+"options" : [
+"None of your business.",
+"I was told to talk to you"
+],
+"tostate": [
+"1",
+"2"
+]
+},
+{
+"line": [
+"Well aren't you pleasent. If you don't want to talk, go away."
+],
+"state": 1,
+"options" : [
+"Goodbye"
+],
+"tostate": [
+"0"
+]
+},
+{
+"line": [
+"Oh, I see. Well, I don't know much about the incident. I do feel bad for the butler...He was always such a nice man. I wasn't there when it happened though, I was here, sitting by the fire."
+],
+"state": 2,
+"options" : [
+"Okay, thank you for your time."
+],
+"tostate": [
+"0"
+]
+}
+]
+},
+{
+"name" : "Environmentalist",
+"lines" : [
+{
+"line": [
+"Hello there"
+],
+"state": 0,
+"options" : [
+"Hello sir, how are you doing?"
+],
+"tostate": [
+"1"
+]
+},
+{
+"line": [
+"Pretty great, it’s a lovely evening isn’t it!"
+],
+"state": 1,
+"options" : [
+"Well, yes, besides the murder of the butler…speaking of which, what are your thoughts on it?"
+],
+"tostate": [
+"2"
+]
+},
+{
+"line": [
+"The butler was my favorite person at this party! I was just picking apples and enjoying my time here when I had heard the terrible news!"
+],
+"state": 2,
+"options" : [
+"Oh, you were picking apples all night? Okay, thank you for talking to me. Do you have any idea who would want to hurt him though?"
+],
+"tostate": [
+"3"
+]
+},
+{
+"line": [
+"Not really, although its possible the farmer may be responsible, since he has had a competition with the Dr. for a while. Don’t stress out too much about it though, try to enjoy the rest of your night! You’re doing a great job though. I wish I was as curious and smart at your age!"
+],
+"state": 3,
+"options" : [
+"Thank you, I will see you later!"
+],
+"tostate": [
+"0"
+]
+}
+]
+},
+{
+"name" : "Farmer",
+"lines" : [
+{
+"line": [
+"Hello"
+],
+"state": 0,
+"options" : [
+"Hi, I heard that you and the Dr. have had some competitions recently, is there a reason why you would want to kill the butler or harm anyone in general?"
+],
+"tostate": [
+"1"
+]
+},
+{
+"line": [
+"Whoa whoa whoa. Don’t accuse me, it wasn’t me!"
+],
+"state": 1,
+"options" : [
+"Okay, but can you tell me where you were at the time of the crime then?"
+],
+"tostate": [
+"2"
+]
+},
+{
+"line": [
+"Um, sure…I guess? Just know that I wasn’t anywhere near the bathroom. Didn’t even know the butler was murdered until much later!"
+],
+"state": 2,
+"options" : [
+"But could you tell me exactly where?"
+],
+"tostate": [
+"3"
+]
+},
+{
+"line": [
+"It is kind of embarrassing, and I don’t really want to tell you.."
+],
+"state": 3,
+"options" : [
+"I’m sorry, but this is the only way I could know positively that it wasn’t you."
+],
+"tostate": [
+"4"
+]
+},
+{
+"line": [
+"Okay, please don’t tell anyone, but I was snooping around the Dr’s lab. I’m trying to see what he has been up to in order to be competitive against him, but I promise I didn’t harm anyone at all tonight!"
+],
+"state": 4,
+"options" : [
+"Okay, thank you for telling me. Any advice on who else I should ask?"
+],
+"tostate": [
+"5"
+]
+},
+{
+"line": [
+"I’ve heard some other CEOs talking about the Miner CEO wanting to possibly purchase the animal, so you could try with him? Good job with asking people though, you’re going to solve the crime!"
+],
+"state": 5,
+"options" : [
+"Thank you, I hope so."
+],
+"tostate": [
+"0"
+]
+}
+]
+},
+{
+"name" : "Miner",
+"lines" : [
+{
+"line": [
+"Hi"
+],
+"state": 0,
+"options" : [
+"Hi, I was referred to talk to you about the murder of the butler. Could you tell me a little bit about where you were tonight?"
+],
+"tostate": [
+"1"
+]
+},
+{
+"line": [
+"No. I am tired and hungry, and the party is not fun and I just want to not be here."
+],
+"state": 1,
+"options" : [
+"I’m sorry you feel that way, what happened tonight that is making you feel this way?"
+],
+"tostate": [
+"2"
+]
+},
+{
+"line": [
+"Just a lot of crazy things regarding the animal that I want to purchase but now cannot."
+],
+"state": 2,
+"options" : [
+"Well, is this anger enough to make you want to hurt someone over it?"
+],
+"tostate": [
+"3"
+]
+},
+{
+"line": [
+"Uh, no. You are wrong."
+],
+"state": 3,
+"options" : [
+"Okay, then please explain your situation."
+],
+"tostate": [
+"4"
+]
+},
+{
+"line": [
+"Ive just been sitting here devising a plan for the whole night and I have still not come up with anything concrete. Ask anyone. I’ve been sitting in this very seat all night."
+],
+"state": 4,
+"options" : [
+"Okay, thank you for talking to me. I hope your night gets a little better."
+],
+"tostate": [
+"5"
+]
+},
+{
+"line": [
+"You, too, kid. You should try talking to the environmentalist though. Ive heard not so great things about him. Or the Dr. He could help. You’re doing a great job though. Keep it up."
+],
+"state": 5,
+"options" : [
+"Thanks!"
+],
+"tostate": [
+"0"
+]
+}
+]
+},
+{
+"name" : "Dr.",
+"lines" : [
+{
+"line": [
+"Hello"
+],
+"state": 0,
+"options" : [
+"Hi Dr. Busy night, huh?"
+],
+"tostate": [
+"1"
+]
+},
+{
+"line": [
+"That’s one way to put it. I’ve been so busy doing research I havent had anytime to enjoy the party, and also, my butler died! What is going on?!"
+],
+"state": 1,
+"options" : [
+"Well, that’s what I’m trying to figure out! Do you know why anyone would have done something like this?"
+],
+"tostate": [
+"2"
+]
+},
+{
+"line": [
+"Honestly, I really don’t know. Maybe you can check the library? I know there are some books in there that talk about motives of why people do certain things. There are also some facts about people with social anxiety that could explain the behaviors of some people too. Overall, there are a lot of good reading material in there."
+],
+"state": 2,
+"options" : [
+"Okay, thanks Dr.! I’ll check it out."
+],
+"tostate": [
+"0"
+]
+}
+]
+},
+{
+"name" : "Ghos",
+"lines" : [
+{
+"line": [
+"Hello there. I am the butler who has been killed by an attendee at this party, and I need your help. Please find who the killer is. I will be here to assist you in solving the crime."
+],
+"state": 0,
+"options" : [
+"Ok, I will"
+],
+"tostate": [
+"0"
+]
+},
+{
+"line": [
+"What's wrong?"
+],
+"state": 1,
+"options" : [
+"Oh no! the library door is locked! How am I going to get out now?"
+],
+"tostate": [
+"2"
+]
+},
+{
+"line": [
+"Do not worry, youre doing a great job. Within these books are clues that will help you solve the mystery. It will help you if you read all of the books and you will find a lot of information that you will be surprised about and that will really help you in your situation. Go ahead, and read on! Let me know if you find anything."
+],
+"state": 2,
+"options" : [
+"Okay, thanks!"
+],
+"tostate": [
+"0"
+]
+}
+]
+}
+]
+}

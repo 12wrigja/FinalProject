@@ -184,7 +184,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &75536670 stripped
+--- !u!1 &75536670
 GameObject:
   m_PrefabParentObject: {fileID: 129890, guid: e402d18d52919634e941e921baa1ccd3, type: 2}
   m_PrefabInternal: {fileID: 1584011304}
@@ -867,7 +867,7 @@ Prefab:
     - {fileID: 6549488, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &761069419 stripped
+--- !u!4 &761069419
 Transform:
   m_PrefabParentObject: {fileID: 431038, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_PrefabInternal: {fileID: 761069418}
@@ -1045,7 +1045,7 @@ Prefab:
     - {fileID: 6536378, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &927167193 stripped
+--- !u!4 &927167193
 Transform:
   m_PrefabParentObject: {fileID: 431038, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_PrefabInternal: {fileID: 927167192}
@@ -1239,7 +1239,7 @@ Prefab:
     - {fileID: 6536378, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1054145834 stripped
+--- !u!4 &1054145834
 Transform:
   m_PrefabParentObject: {fileID: 431038, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_PrefabInternal: {fileID: 1054145833}
@@ -1585,7 +1585,7 @@ Prefab:
     - {fileID: 6549488, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1204667352 stripped
+--- !u!4 &1204667352
 Transform:
   m_PrefabParentObject: {fileID: 431038, guid: 9a459f1f85e535141904eaa8f4c664ef, type: 2}
   m_PrefabInternal: {fileID: 1204667351}
@@ -1649,6 +1649,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1973456085}
   m_RootOrder: 7
+--- !u!1 &1261279562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1261279564}
+  - 114: {fileID: 1261279563}
+  m_Layer: 0
+  m_Name: ReturnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1261279563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1261279562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a68c551eca906d5458def7933d9b11f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelToReturnTo: House_OutsideScene
+--- !u!4 &1261279564
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1261279562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.0131817, y: 2.47019339, z: 62.5118027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
 --- !u!1 &1283587709
 GameObject:
   m_ObjectHideFlags: 0

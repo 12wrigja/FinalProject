@@ -89,14 +89,6 @@ Material:
         first:
           name: _SpecColor
         second: {r: .5, g: .5, b: .5, a: 1}
-      data:
-        first:
-          name: _TreeInstanceColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _TreeInstanceScale
-        second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -175,15 +167,7 @@ Material:
       data:
         first:
           name: _TranslucencyColor
-        second: {r: .904411793, g: .205831632, b: 0, a: 1}
-      data:
-        first:
-          name: _TreeInstanceColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _TreeInstanceScale
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .42178005, g: .477611959, b: .278012931, a: 1}
 --- !u!1002 &2100003
 EditorExtensionImpl:
   serializedVersion: 6

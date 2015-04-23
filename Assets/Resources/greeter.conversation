@@ -1,0 +1,32 @@
+start::
+Hello! This is a test of the conversation engine.
+How are you?
+::
+I'm fine thanks!::happygreeting
+I'm doing poorly::sadgreeting
+I'm sleepy...::sleepygreeting
+::
+
+happygreeting::
+That's good to hear!
+::
+Thanks!::endconversation
+::
+
+sadgreeting::
+That's not so good!
+::
+I know....::endconversation
+::
+
+sleepygreeting::
+Go to bed!
+::
+I will. Thanks!::endconversation
+::
+
+endconversation::
+Goodbye!
+::
+::start
+::
