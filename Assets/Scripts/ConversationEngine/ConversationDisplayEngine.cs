@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class ConversationDisplayEngine : MonoBehaviour {
 
@@ -21,24 +22,28 @@ public class ConversationDisplayEngine : MonoBehaviour {
     public delegate void FinishedConversation();
 
     private FinishedConversation signalConversationFinish;
+    public static KeyCode conversationEndKeyCode = KeyCode.Escape;
 
     private bool inConversation;
     private Conversable currentConversee;
     private UIElement conversationLayout;
-    private int lineNumber = 0;
+    private int lineNumber = -1;
+	private string strRegex = @"\[(.*?)\]";
+	private Regex animationRegex;
 
     private static ConversationDisplayEngine instance;
     public void Start()
     {
         instance = this;
         conversationLayout = GetComponent<UIElement>();
+		animationRegex = new Regex (strRegex, RegexOptions.None);
+		this.enabled = false;
     }
 
     public static void DisplayConversation(Conversable e)
     {
         if (instance.inConversation)
         {
-            Debug.Log("Already in conversation.");
             return;
         }
         instance.inConversation = true;
@@ -48,6 +53,8 @@ public class ConversationDisplayEngine : MonoBehaviour {
         HumanControlScript.DisableHuman();
         Cursor.visible = true;
         instance.ConverseeName.text = e.conversable_tag;
+		instance.enabled = true;
+		instance.lineNumber = -1;
         instance.StartCoroutine(instance.HaveConversation());
     }
 
@@ -68,28 +75,36 @@ public class ConversationDisplayEngine : MonoBehaviour {
             yield return StartCoroutine(displayLines(conversationLines));
             List<string> conversationOptions = currentConversee.GetConversationOptions();
             List<Selectable> options = new List<Selectable>();
-            for (int i = 0; i < conversationOptions.Count; i++)
+            if (conversationOptions.Count == 0)
             {
-                if (conversationOptions.Count == 1 && conversationOptions[i].Equals(""))
+                int previousLineNumber = lineNumber;
+                while (lineNumber == previousLineNumber)
                 {
-                    int previousLineNumber = lineNumber;
-                    while (lineNumber == previousLineNumber)
-                    {
-                        yield return null;
-                    }
-                    EndConversation();
-                    break;
+                    yield return null;
                 }
-                GameObject obj = Instantiate(buttonPrefab) as GameObject;
-                obj.gameObject.transform.SetParent(optionsPanel.transform);
-                Text txt = obj.GetComponentInChildren<Text>();
-                txt.text = conversationOptions[i];
-                Button btn = obj.GetComponent<Button>();
-                options.Add(btn);
-                int currentIndex = i;
-                btn.onClick.AddListener(() => advanceCurrentConversation(currentIndex));
+                currentConversee.transitionConversation(0);
+                EndConversation();
+            }
+            else
+            {
+                int copy;
+                for (int i = 0; i < conversationOptions.Count; i++)
+                {
+                    GameObject obj = Instantiate(buttonPrefab) as GameObject;
+                    obj.gameObject.transform.SetParent(optionsPanel.transform);
+                    Text txt = obj.GetComponentInChildren<Text>();
+                    txt.text = conversationOptions[i];
+                    Button btn = obj.GetComponent<Button>();
+                    AddListener(btn, i);
+                    options.Add(btn);
+                }
             }
         }
+    }
+
+    private void AddListener(Button b, int index)
+    {
+        b.onClick.AddListener(() => advanceCurrentConversation(index));
     }
 
     private void EndConversation()
@@ -104,6 +119,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
             signalConversationFinish();
         }
         signalConversationFinish = null;
+		lineNumber = -1;
     }
 
     private void advanceCurrentConversation(int index)
@@ -120,28 +136,40 @@ public class ConversationDisplayEngine : MonoBehaviour {
     {
         foreach(string line in conversationLines)
         {
-            Debug.Log("Advancing line in conversation.");
-            ConverseeText.text = line;
+			MatchCollection matches = animationRegex.Matches(line);
+			int animationCount = matches.Count;
+			if(animationCount>1){
+				throw new System.Exception("Character with Multiple animations on one conversation line!! Object: " + gameObject.name);
+			}
+			if(animationCount > 0){
+				foreach(Match m in matches){
+					if(m.Success){
+						Debug.Log ("Playing animation: "+m.Groups[1].Value);
+						currentConversee.playAnimation(m.Groups[1].Value);
+					}
+				}
+			}
+
+			string saidText = animationRegex.Replace(line,"");
+            ConverseeText.text = saidText;
             int nextNum = lineNumber + 1;
             while (nextNum != conversationLines.Count && lineNumber != nextNum)
             {
                 yield return 0;
             }
         }
-        lineNumber = 0;
-    }
-
-    public static void RegisterForConversationEnd(FinishedConversation a)
-    {
-        instance.signalConversationFinish += a;
+		lineNumber = 0;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(conversationAdvanceKeyCode) && inConversation)
         {
-            Debug.Log("Advancing Line Number.");
             lineNumber++;
+        }
+        if (Input.GetKeyDown(conversationEndKeyCode) && inConversation)
+        {
+            EndConversation();
         }
     }
 
