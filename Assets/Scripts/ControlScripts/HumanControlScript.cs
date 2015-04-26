@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
+//[RequireComponent(typeof(AudioSource))]
 public class HumanControlScript : MonoBehaviour {
 
     private Vector3 moveDirection = Vector3.zero;
@@ -10,6 +12,9 @@ public class HumanControlScript : MonoBehaviour {
     public float gravity = 20.0F;
 
     public KeyCode interactKey;
+
+	//public AudioClip walking;
+	private int stepCount = 0;
 
     public MonoBehaviour msScript;
     private static HumanControlScript instance;
@@ -32,6 +37,13 @@ public class HumanControlScript : MonoBehaviour {
 
         }
         moveDirection.y -= gravity * Time.deltaTime;
+//		if ((moveDirection.x != 0 || moveDirection.z != 0)) {
+//			if(stepCount == 16){
+//				GetComponent<AudioSource>().PlayOneShot(walking, 1f);
+//				stepCount = 0;
+//			}
+//			stepCount++;
+//		}
         controller.Move(moveDirection * Time.deltaTime);
 
         //if (Input.GetKey(KeyCode.Q))
