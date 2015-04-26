@@ -74,7 +74,7 @@ public class Conversable : MonoBehaviour
 
     public bool transitionConversation(int conversationChoiceIndex)
     {
-        if (conversationChoiceIndex >= nextStates.Count)
+		if (conversationChoiceIndex >= nextStates.Count || nextStates[conversationChoiceIndex] == 0)
         {
             return false;
         }
