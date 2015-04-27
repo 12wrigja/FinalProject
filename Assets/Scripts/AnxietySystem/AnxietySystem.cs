@@ -65,14 +65,17 @@ public class AnxietySystem : MonoBehaviour {
         if (PlayerPrefs.HasKey("Teleport"))
         {
             shouldTeleport = Convert.ToBoolean(PlayerPrefs.GetInt("Teleport"));
+            PlayerPrefs.DeleteKey("Teleport");
         }
         if (PlayerPrefs.HasKey("Anxiety"))
         {
             anxietySlider.value = PlayerPrefs.GetInt("Anxiety");
+            PlayerPrefs.DeleteKey("Anxiety");
         }
         if (PlayerPrefs.HasKey("Endurance"))
         {
             enduranceSlider.value = PlayerPrefs.GetInt("Endurance");
+            PlayerPrefs.DeleteKey("Endurance");
         }
 
         UIElement ele = GetComponent<UIElement>();

@@ -8,6 +8,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
 
     public Text ConverseeName;
     public Text ConverseeText;
+    public Text advanceHintText;
     public RectTransform optionsPanel;
     public GameObject buttonPrefab;
     public KeyCode conversationAdvanceKeyCode = KeyCode.Space;
@@ -134,6 +135,10 @@ public class ConversationDisplayEngine : MonoBehaviour {
 
     private IEnumerator displayLines(List<string> conversationLines)
     {
+        if (advanceHintText != null)
+        {
+            advanceHintText.enabled = true;
+        }
         foreach(string line in conversationLines)
         {
 			MatchCollection matches = animationRegex.Matches(line);
@@ -157,6 +162,10 @@ public class ConversationDisplayEngine : MonoBehaviour {
             {
                 yield return 0;
             }
+        }
+        if (advanceHintText != null)
+        {
+            advanceHintText.enabled = false;
         }
 		lineNumber = 0;
     }
