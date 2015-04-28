@@ -10,6 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/House_OutsideScene.unity
   - enabled: 1
-    path: Assets/Scenes/yolo.unity
+    path: Assets/Scenes/Basement.unity
   - enabled: 1
     path: Assets/Scenes/Gardening.unity
