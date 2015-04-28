@@ -94,7 +94,7 @@ public class JSon : MonoBehaviour{
 				lineCount++;
 				file.Add("\"options\" : [");
 				for(int c = 0;c < responseList[cntr].Count;c++) {
-					if(c + 1 < responseList[cntr].Count) {
+					if(c < responseList[cntr].Count) {
 						file.Add("\"" + responseList[cntr][c] +"\",");
 					} else {
 						file.Add("\"" + responseList[cntr][c] +"\"");

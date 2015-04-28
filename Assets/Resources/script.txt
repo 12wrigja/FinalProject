@@ -1,4 +1,4 @@
-{
+﻿{
 "char": [
 {
 "name" : "Wife",
@@ -36,6 +36,56 @@
 "state": 2,
 "options" : [
 "Okay, thank you for your time."
+],
+"tostate": [
+"100"
+]
+},
+{
+"line": [
+"Hello, How are you?"
+],
+"state": 3,
+"options" : [
+"Good",
+"Bad"
+],
+"tostate": [
+"4",
+"5"
+]
+},
+{
+"line": [
+"That's Great!"
+],
+"state": 4,
+"options" : [
+"Goodbye"
+],
+"tostate": [
+"100"
+]
+},
+{
+"line": [
+"Terrible"
+],
+"state": 5,
+"options" : [
+"Bye"
+],
+"tostate": [
+"0"
+]
+},
+{
+"line": [
+"Hello"
+],
+"state": 6,
+"options" : [
+"Hi"
 ],
 "tostate": [
 "0"

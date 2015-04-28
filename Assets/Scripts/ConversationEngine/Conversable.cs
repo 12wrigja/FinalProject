@@ -8,18 +8,28 @@ using LitJson;
 
 public class Conversable : MonoBehaviour
 {
-
+	public NotificationsManager plotManager;
     public string conversable_tag;
     public string conversee_name;
+	public int[] startState;
+	public int plotpoint;
 
     public int current_state = 0;
 
     private List<int> nextStates;
 
     private Animator anim;
+	private bool plotAdvancement;
 
     void Start()
     {
+		if (plotManager == null)
+		{
+			throw new System.Exception("Character without plot manager Object: " + gameObject.name);
+		} else
+		{
+			plotManager.AddListener(this,"AdvancePlot");
+		}
         if (conversable_tag == null)
         {
             throw new System.Exception("Character without conversation tag!! Object: " + gameObject.name);
@@ -29,6 +39,7 @@ public class Conversable : MonoBehaviour
             conversee_name = conversable_tag;
         }
         anim = GetComponent<Animator>();
+		plotAdvancement = true;
     }
 
     public List<string> GetConversationLines()
@@ -74,8 +85,17 @@ public class Conversable : MonoBehaviour
 
     public bool transitionConversation(int conversationChoiceIndex)
     {
+		if (nextStates[conversationChoiceIndex] == 100)
+		{
+			if(plotAdvancement) {
+				plotManager.PostNotification(this,"AdvancePlot");
+				StartCoroutine(this.PlotTimer());
+			}
+			return false;
+		}
 		if (conversationChoiceIndex >= nextStates.Count || nextStates[conversationChoiceIndex] == 0)
         {
+			current_state = startState[plotpoint];
             return false;
         }
         current_state = nextStates[conversationChoiceIndex];
@@ -93,4 +113,15 @@ public class Conversable : MonoBehaviour
             Debug.Log("Animator is null for object: " + gameObject.name);
         }
     }
+	public void AdvancePlot()
+	{
+		plotpoint++;
+		current_state = startState[plotpoint];
+	}
+	public IEnumerator PlotTimer()
+	{
+		plotAdvancement = false;
+		yield return new WaitForSeconds(5);
+		plotAdvancement = true;
+	}
 }
