@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 451474}
   - 33: {fileID: 3351476}
   - 23: {fileID: 2351476}
+  - 65: {fileID: 6568096}
+  - 114: {fileID: 11417784}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -1716,6 +1718,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.00837708, y: 4.01975393, z: .300000191}
   m_Center: {x: 0, y: 2.00987697, z: 0}
+--- !u!65 &6568096
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.48949468, y: 2.86911321, z: .196045205}
+  m_Center: {x: .744747341, y: 1.43455684, z: .0636478812}
+--- !u!114 &11417784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: go upstairs
+  loadSceneName: MainScene
+  playerStartPosition: {x: 1.93199503, y: -2.80004501, z: 39.8734207}
+  playerStartRotation: {x: 338.25, y: 187.505707, z: -2.29803206e-07}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

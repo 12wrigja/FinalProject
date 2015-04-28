@@ -4,6 +4,7 @@ using System.Collections;
 public class RotateDoor : Interactable {
 
     public bool isOpen = false;
+    public bool isLocked = false;
 
     public void Start()
     {
@@ -12,17 +13,20 @@ public class RotateDoor : Interactable {
 
     public override void Interact()
     {
-        if (isOpen)
+        if (!isLocked)
         {
-            isOpen = false;
-            interactText = "open the door.";
-            transform.Rotate(new Vector3(0, 90, 0));
-        }
-        else
-        {
-            isOpen = true;
-            interactText = "close the door.";
-            transform.Rotate(new Vector3(0, -90, 0));
+            if (isOpen)
+            {
+                isOpen = false;
+                interactText = "open the door.";
+                transform.Rotate(new Vector3(0, 90, 0));
+            }
+            else
+            {
+                isOpen = true;
+                interactText = "close the door.";
+                transform.Rotate(new Vector3(0, -90, 0));
+            }
         }
     }
 

@@ -22,6 +22,8 @@ public class HumanControlScript : MonoBehaviour {
 	void Start () {
         Cursor.visible = false;
         instance = this;
+
+        TryRestoreSavedPosition();
 	}
 	
 	// Update is called once per frame
@@ -75,17 +77,17 @@ public class HumanControlScript : MonoBehaviour {
                 continue;
             }
 
-            if (c != null && !Input.GetKeyDown(interactKey))
+            if (c != null && !Input.GetKeyDown(interactKey) && c.enabled)
             {
                 UINotifier.Notify("Press " + (interactKey.ToString()) + " to talk with " + c.conversee_name);
-            }else if (i != null && !Input.GetKeyDown(interactKey))
+            }else if (i != null && !Input.GetKeyDown(interactKey) && i.enabled)
             {
                 UINotifier.Notify("Press " + (interactKey.ToString()) + " to "+i.interactText);
-            } else if (c != null && Input.GetKeyDown(interactKey))
+            } else if (c != null && Input.GetKeyDown(interactKey) && c.enabled)
             {
                 ConversationDisplayEngine.DisplayConversation(c);
                 
-            } else if (i != null && Input.GetKeyDown(interactKey)){
+            } else if (i != null && Input.GetKeyDown(interactKey) && i.enabled){
                 i.Interact();
             }
         }
@@ -119,6 +121,39 @@ public class HumanControlScript : MonoBehaviour {
     public static void SaveHuman()
     {
         
+    }
+
+    private void TryRestoreSavedPosition()
+    {
+        string sceneName = Application.loadedLevelName;
+        if(
+            PlayerPrefs.HasKey(sceneName+"posX") &&
+            PlayerPrefs.HasKey(sceneName+"posY") &&
+            PlayerPrefs.HasKey(sceneName+"posZ") &&
+            PlayerPrefs.HasKey(sceneName+"rotX") &&
+            PlayerPrefs.HasKey(sceneName+"rotY") &&
+            PlayerPrefs.HasKey(sceneName+"rotZ")
+            ){
+                float posX = PlayerPrefs.GetFloat(sceneName + "posX");
+                float posY = PlayerPrefs.GetFloat(sceneName + "posY");
+                float posZ = PlayerPrefs.GetFloat(sceneName + "posZ");
+
+                float rotX = PlayerPrefs.GetFloat(sceneName + "rotX");
+                float rotY = PlayerPrefs.GetFloat(sceneName + "rotY");
+                float rotZ = PlayerPrefs.GetFloat(sceneName + "rotZ");
+                Debug.Log("Setting Position: ("+posX+", "+posY+", "+posZ);
+                Debug.Log("Setting Rotation: ("+rotX+", "+rotY+", "+rotZ);
+                transform.position = new Vector3(posX, posY, posZ);
+                transform.eulerAngles = new Vector3(rotX, rotY, rotZ);
+
+                PlayerPrefs.DeleteKey(sceneName+"posX");
+                PlayerPrefs.DeleteKey(sceneName + "posY");
+                PlayerPrefs.DeleteKey(sceneName + "posZ");
+
+                PlayerPrefs.DeleteKey(sceneName + "rotX");
+                PlayerPrefs.DeleteKey(sceneName + "rotY");
+                PlayerPrefs.DeleteKey(sceneName + "rotZ");
+        }
     }
 
     void OnDrawGizmosSelected()

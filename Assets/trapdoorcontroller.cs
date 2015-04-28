@@ -10,8 +10,9 @@ public class trapdoorcontroller : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        foundKey = false;
+        foundKey = (PlayerPrefs.GetInt("Trapdoor") == 1) ? true : false;
         trapDoorAnimator = trapDoor.GetComponent<Animator>();
+        trapDoor.GetComponent<TeleportDoor>().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -19,6 +20,8 @@ public class trapdoorcontroller : MonoBehaviour {
         if (foundKey)
         {
             trapDoorAnimator.SetTrigger("RiseTrigger");
+            trapDoor.GetComponent<TeleportDoor>().enabled = true;
+            PlayerPrefs.SetInt("Trapdoor", 1);
         }
 	}
 

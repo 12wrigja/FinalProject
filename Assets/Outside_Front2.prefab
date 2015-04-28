@@ -727,6 +727,7 @@ GameObject:
   - 4: {fileID: 400452}
   - 33: {fileID: 3300632}
   - 23: {fileID: 2300632}
+  - 136: {fileID: 13691754}
   m_Layer: 0
   m_Name: prefab_stone_gr3
   m_TagString: Untagged
@@ -1837,6 +1838,7 @@ GameObject:
   - 4: {fileID: 400582}
   - 33: {fileID: 3300724}
   - 23: {fileID: 2300724}
+  - 136: {fileID: 13604902}
   m_Layer: 0
   m_Name: prefab_stone_gr3
   m_TagString: Untagged
@@ -6965,6 +6967,23 @@ GameObject:
   - 33: {fileID: 3301176}
   - 65: {fileID: 6501176}
   - 23: {fileID: 2301176}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &131510
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 427396}
+  - 65: {fileID: 6536446}
+  - 114: {fileID: 11489732}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -12368,6 +12387,7 @@ GameObject:
   - 4: {fileID: 469608}
   - 33: {fileID: 3369472}
   - 23: {fileID: 2369472}
+  - 136: {fileID: 13637280}
   m_Layer: 0
   m_Name: prefab_stone_gr3
   m_TagString: Untagged
@@ -12549,6 +12569,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 413580}
   - 65: {fileID: 6574712}
+  - 114: {fileID: 11414186}
   m_Layer: 0
   m_Name: RightGateGuard
   m_TagString: Untagged
@@ -14824,6 +14845,7 @@ GameObject:
   - 4: {fileID: 478848}
   - 33: {fileID: 3378782}
   - 23: {fileID: 2378782}
+  - 136: {fileID: 13674100}
   m_Layer: 0
   m_Name: prefab_stone_gr3
   m_TagString: Untagged
@@ -18442,6 +18464,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479262}
+  - 65: {fileID: 6593348}
+  - 114: {fileID: 11415800}
   m_Layer: 0
   m_Name: Gardening
   m_TagString: Untagged
@@ -18686,6 +18710,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 460162}
   - 65: {fileID: 6544358}
+  - 114: {fileID: 11460622}
   m_Layer: 0
   m_Name: LeftGateGuard
   m_TagString: Untagged
@@ -24032,6 +24057,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 478606}
   m_RootOrder: 20
+--- !u!4 &427396
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131510}
+  m_LocalRotation: {x: 0, y: .385088265, z: 0, w: .922879755}
+  m_LocalPosition: {x: -2.23000002, y: 8.07999992, z: 2.41000009}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 479262}
+  m_RootOrder: 3
 --- !u!4 &460162
 Transform:
   m_ObjectHideFlags: 1
@@ -32595,6 +32632,7 @@ Transform:
   - {fileID: 469614}
   - {fileID: 479288}
   - {fileID: 401168}
+  - {fileID: 427396}
   m_Father: {fileID: 478606}
   m_RootOrder: 9
 --- !u!4 &479264
@@ -61168,6 +61206,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6536446
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 3, z: 7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6544358
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -64720,6 +64770,66 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6593348
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11414186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: return to the mansion
+  loadSceneName: MainScene
+  overrideplayerposition: 1
+  playerStartPosition: {x: .0370957889, y: 1.37845898, z: 2.21267009}
+  playerStartRotation: {x: 355.5, y: .0003105535, z: -8.16739688e-13}
+--- !u!114 &11415800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: play the gardening minigame
+  loadSceneName: Gardening
+  overrideplayerposition: 1
+  playerStartPosition: {x: 0, y: 0, z: 0}
+  playerStartRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &11460622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: return to the mansion
+  loadSceneName: MainScene
+  overrideplayerposition: 1
+  playerStartPosition: {x: 0, y: 0, z: 0}
+  playerStartRotation: {x: 0, y: 0, z: 0}
 --- !u!218 &11478586
 Terrain:
   m_ObjectHideFlags: 1
@@ -64764,6 +64874,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2f50a8e0bb841a5aaa90ae55db8849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11489732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: play the gardening minigame
+  loadSceneName: Gardening
+  overrideplayerposition: 1
+  playerStartPosition: {x: 0, y: 0, z: 0}
+  playerStartRotation: {x: 0, y: 0, z: 0}
 --- !u!135 &13501114
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -66528,6 +66654,32 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &13604902
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 2.87596869
+  m_Direction: 1
+  m_Center: {x: -.184506893, y: 1, z: .297541738}
+--- !u!136 &13637280
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169606}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 2.87596869
+  m_Direction: 1
+  m_Center: {x: -.184514582, y: 1, z: .297541857}
 --- !u!136 &13668984
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -67178,6 +67330,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &13674100
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 2.87596869
+  m_Direction: 1
+  m_Center: {x: -.184506893, y: 1, z: .297541738}
 --- !u!136 &13678586
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -67893,6 +68058,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &13691754
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 2.87596869
+  m_Direction: 1
+  m_Center: {x: -.184510767, y: 1, z: .297541857}
 --- !u!154 &15478586
 TerrainCollider:
   m_ObjectHideFlags: 1

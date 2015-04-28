@@ -183,7 +183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &187514709
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,23 +211,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!1 &258472327
-GameObject:
-  m_PrefabParentObject: {fileID: 169606, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
-  m_PrefabInternal: {fileID: 1419706783}
---- !u!136 &258472331
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 258472327}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 2
-  m_Height: 2.87596869
-  m_Direction: 1
-  m_Center: {x: -.184514582, y: 1, z: .297541857}
 --- !u!1001 &528456153
 Prefab:
   m_ObjectHideFlags: 0
@@ -326,23 +309,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1813bcb4462170549913f82fec03fb14, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &570753181
-GameObject:
-  m_PrefabParentObject: {fileID: 184452, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
-  m_PrefabInternal: {fileID: 1419706783}
---- !u!114 &570753184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 570753181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: return to the mansion
-  loadSceneName: MainScene
 --- !u!1 &600228488
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,33 +429,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1 &905463425
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 905463426}
-  m_Layer: 0
-  m_Name: PreferenceClearer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &905463426
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 905463425}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.3931141, y: 4, z: 79.2963104}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
 --- !u!1001 &938651246
 Prefab:
   m_ObjectHideFlags: 0
@@ -532,94 +471,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a3ed1826b05b724ab8d4cfd83feee37, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1090407775
-GameObject:
-  m_PrefabParentObject: {fileID: 170432, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
-  m_PrefabInternal: {fileID: 1419706783}
---- !u!114 &1090407778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1090407775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: return to the mansion
-  loadSceneName: MainScene
---- !u!1 &1189032778
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1189032779}
-  - 65: {fileID: 1189032781}
-  - 114: {fileID: 1189032780}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1189032779
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1189032778}
-  m_LocalRotation: {x: 0, y: .385088265, z: 0, w: .922879755}
-  m_LocalPosition: {x: -2.23000002, y: 8.07999992, z: 2.41000009}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1806822226}
-  m_RootOrder: 3
---- !u!114 &1189032780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1189032778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: play the gardening minigame
-  loadSceneName: Gardening
---- !u!65 &1189032781
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1189032778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 7, y: 3, z: 7}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1197634921
-GameObject:
-  m_PrefabParentObject: {fileID: 178848, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
-  m_PrefabInternal: {fileID: 1419706783}
---- !u!136 &1197634925
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1197634921}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 2
-  m_Height: 2.87596869
-  m_Direction: 1
-  m_Center: {x: -.184506893, y: 1, z: .297541738}
 --- !u!1 &1230561723
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,73 +583,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11460622, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
+      propertyPath: playerStartPosition.x
+      value: .0370957889
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460622, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
+      propertyPath: playerStartPosition.y
+      value: 1.37845898
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460622, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
+      propertyPath: playerStartPosition.z
+      value: 2.21267009
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460622, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
+      propertyPath: playerStartRotation.x
+      value: 355.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460622, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
+      propertyPath: playerStartRotation.y
+      value: .0003105535
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460622, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
+      propertyPath: playerStartRotation.z
+      value: -8.16739688e-13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1681291451
-GameObject:
-  m_PrefabParentObject: {fileID: 100582, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
-  m_PrefabInternal: {fileID: 1419706783}
---- !u!136 &1681291455
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1681291451}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 2
-  m_Height: 2.87596869
-  m_Direction: 1
-  m_Center: {x: -.184506893, y: 1, z: .297541738}
---- !u!1 &1732785363
-GameObject:
-  m_PrefabParentObject: {fileID: 100452, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
-  m_PrefabInternal: {fileID: 1419706783}
---- !u!136 &1732785367
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1732785363}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 2
-  m_Height: 2.87596869
-  m_Direction: 1
-  m_Center: {x: -.184510767, y: 1, z: .297541857}
---- !u!1 &1806822225
-GameObject:
-  m_PrefabParentObject: {fileID: 179262, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
-  m_PrefabInternal: {fileID: 1419706783}
---- !u!4 &1806822226
-Transform:
-  m_PrefabParentObject: {fileID: 479262, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
-  m_PrefabInternal: {fileID: 1419706783}
---- !u!65 &1806822227
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1806822225}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1806822228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1806822225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d329492ed96c44e9e143b1e5096430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: play the gardening minigame
-  loadSceneName: Gardening
