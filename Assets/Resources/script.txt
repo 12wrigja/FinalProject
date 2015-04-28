@@ -332,5 +332,22 @@
 }
 ]
 }
+],
+{
+"name" : "Policeman",
+"lines" : [
+{
+"line": [
+"Sorry, but this area is off-limits until the investigation is done."
+],
+"state": 0,
+"options" : [
+"Okay. Thanks."
+],
+"tostate": [
+"0"
 ]
+}
+]
+}
 }

@@ -183,7 +183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &187514709
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
 --- !u!1 &258472327
 GameObject:
   m_PrefabParentObject: {fileID: 169606, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
@@ -402,7 +402,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &694395884
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +462,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &905463425
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1001 &938651246
 Prefab:
   m_ObjectHideFlags: 0
@@ -692,7 +692,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1001 &1419706783
 Prefab:
   m_ObjectHideFlags: 0
@@ -802,3 +802,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: play the gardening minigame
   loadSceneName: Gardening
+--- !u!1001 &1935114221
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 51.9967346
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.541646
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 54.5123901
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1 &1935114222
+GameObject:
+  m_PrefabParentObject: {fileID: 100144, guid: 7705f1ca26a0a254a9c712165f1a2782, type: 3}
+  m_PrefabInternal: {fileID: 1935114221}
+--- !u!114 &1935114223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1935114222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e082f7aae4b3b384db2dfd0855412416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversable_tag: Policeman
+  conversee_name: Policeman
+  current_state: 0
