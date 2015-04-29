@@ -13,7 +13,7 @@ public class FishingManager : MonoBehaviour {
 	public bool canCatch = false;
 	public bool fishCaught = false;
 
-	private bool soundIsPlaying = false;
+	private bool soundIsPlaying = false, movementDisabled = false;
 	private float catchTimer;
 
 	void Start () {
@@ -23,6 +23,14 @@ public class FishingManager : MonoBehaviour {
 	}
 
 	void Update () {
+		if(isFishing && !movementDisabled){
+			HumanControlScript.DisableHuman();
+			movementDisabled = true;
+		}
+		if (!isFishing && movementDisabled){
+			HumanControlScript.EnableHuman();
+			movementDisabled = false;
+		}
 		if(canFish && isFishing && canCatch && !soundIsPlaying){
 			rod.GetComponentInChildren<AudioSource>().Play();
 			soundIsPlaying = true;
