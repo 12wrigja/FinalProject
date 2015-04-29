@@ -24,11 +24,11 @@ public class FishingManager : MonoBehaviour {
 
 	void Update () {
 		if(canFish && isFishing && canCatch && !soundIsPlaying){
-			GetComponent<AudioSource>().Play();
+			rod.GetComponentInChildren<AudioSource>().Play();
 			soundIsPlaying = true;
 		}
 		else if(!canCatch && soundIsPlaying){
-			GetComponent<AudioSource>().Stop();
+			rod.GetComponentInChildren<AudioSource>().Stop();
 			soundIsPlaying = false;
 		}
 		if(fishCaught && Input.GetKeyDown(KeyCode.Space)){
