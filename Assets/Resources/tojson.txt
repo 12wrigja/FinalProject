@@ -1,12 +1,24 @@
 "Wife"
+Hello there. What brings you here?
+None of your business.::I was told to talk to you
+1,2
+Well aren't you pleasent. If you don't want to talk, go away.
+Goodbye
+0
+Oh, I see. Well, I don't know much about the incident. I do feel bad for the butler...He was always such a nice man. I wasn't there when it happened though, I was here, sitting by the fire.
+Okay, thank you for your time.
+100
+Hello, How are you?
+Good::Bad
+4,5
+That's Great!
+Goodbye
+100
+Aww, That's too bad
+Bye
+0
 Hello
-Hi, you are the wife of the Dr. who created this animal, right? How do you feel about it?
-1
-I think the animal is so wonderful and I have really begun to grow attached to it. Are you enjoying the party?
-Yes, I am. Do you know why someone would want to kill the butler?
-2
-No idea! He is such a good butler and I don’t think anyone would want to harm him! Although I do think the environmentalist CEO might know a few things…
-Okay, thanks, I’m just trying to solve this crime.
+Hi
 0
 "Environmentalist"
 Hello there
