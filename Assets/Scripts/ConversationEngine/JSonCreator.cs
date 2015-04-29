@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-public class JSon : MonoBehaviour{
-	public void CreateJSon() {
+public class JSonCreator : MonoBehaviour{
+	public static void CreateJSon() {
 		StreamReader reader = new StreamReader("Assets/Resources/tojson.txt");
 		string line;
 		List<string> charList = new List<string>();
@@ -94,7 +94,7 @@ public class JSon : MonoBehaviour{
 				lineCount++;
 				file.Add("\"options\" : [");
 				for(int c = 0;c < responseList[cntr].Count;c++) {
-					if(c < responseList[cntr].Count) {
+					if(c + 1 < responseList[cntr].Count) {
 						file.Add("\"" + responseList[cntr][c] +"\",");
 					} else {
 						file.Add("\"" + responseList[cntr][c] +"\"");

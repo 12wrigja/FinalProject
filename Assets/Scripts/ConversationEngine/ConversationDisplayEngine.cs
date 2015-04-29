@@ -24,7 +24,6 @@ public class ConversationDisplayEngine : MonoBehaviour {
 
     private FinishedConversation signalConversationFinish;
     public static KeyCode conversationEndKeyCode = KeyCode.Escape;
-
     private bool inConversation;
     private Conversable currentConversee;
     private UIElement conversationLayout;
@@ -47,6 +46,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
         {
             return;
         }
+		JSonCreator.CreateJSon();
         instance.inConversation = true;
         instance.currentConversee = e;
         UIManager.StashScreen();
