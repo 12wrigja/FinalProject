@@ -102,10 +102,12 @@
 ],
 "state": 0,
 "options" : [
-"Hello sir, how are you doing?"
+"Hello sir, how are you doing?",
+"Are you the murderer?"
 ],
 "tostate": [
-"1"
+"1",
+"4"
 ]
 },
 {
@@ -141,6 +143,18 @@
 "Thank you, I will see you later!"
 ],
 "tostate": [
+"100"
+]
+},
+{
+"line": [
+"Of course not, how can you even say that!"
+],
+"state": 4,
+"options" : [
+"..."
+],
+"tostate": [
 "0"
 ]
 }
@@ -167,10 +181,12 @@
 ],
 "state": 1,
 "options" : [
-"Okay, but can you tell me where you were at the time of the crime then?"
+"Okay, but can you tell me where you were at the time of the crime then?",
+"Why did you do it!?!"
 ],
 "tostate": [
-"2"
+"2",
+"7"
 ]
 },
 {
@@ -191,10 +207,12 @@
 ],
 "state": 3,
 "options" : [
-"I�m sorry, but this is the only way I could know positively that it wasn�t you."
+"I�m sorry, but this is the only way I could know positively that it wasn�t you.",
+"TELL ME NOW!"
 ],
 "tostate": [
-"4"
+"4",
+"6"
 ]
 },
 {
@@ -216,6 +234,30 @@
 "state": 5,
 "options" : [
 "Thank you, I hope so."
+],
+"tostate": [
+"100"
+]
+},
+{
+"line": [
+"Don't talk to me that way! Leave me alone!"
+],
+"state": 6,
+"options" : [
+"..."
+],
+"tostate": [
+"0"
+]
+},
+{
+"line": [
+"I didn't do it and that's all you need to know."
+],
+"state": 7,
+"options" : [
+"But..."
 ],
 "tostate": [
 "0"
@@ -244,10 +286,12 @@
 ],
 "state": 1,
 "options" : [
-"I�m sorry you feel that way, what happened tonight that is making you feel this way?"
+"I�m sorry you feel that way, what happened tonight that is making you feel this way?",
+"Calm down, there's no need for that."
 ],
 "tostate": [
-"2"
+"2",
+"6"
 ]
 },
 {
@@ -256,10 +300,12 @@
 ],
 "state": 2,
 "options" : [
-"Well, is this anger enough to make you want to hurt someone over it?"
+"Well, is this anger enough to make you want to hurt someone over it?",
+"Wow you sound angry, I bet you killed the butler."
 ],
 "tostate": [
-"3"
+"3",
+"7"
 ]
 },
 {
@@ -268,10 +314,12 @@
 ],
 "state": 3,
 "options" : [
-"Okay, then please explain your situation."
+"Okay, then please explain your situation.",
+"Talk to me then!"
 ],
 "tostate": [
-"4"
+"4",
+"8"
 ]
 },
 {
@@ -295,6 +343,42 @@
 "Thanks!"
 ],
 "tostate": [
+"100"
+]
+},
+{
+"line": [
+"Don't tell me what to do!"
+],
+"state": 6,
+"options" : [
+"Wait..."
+],
+"tostate": [
+"0"
+]
+},
+{
+"line": [
+"Of course not, who are you to accuse me? Leave me alone."
+],
+"state": 7,
+"options" : [
+"..."
+],
+"tostate": [
+"0"
+]
+},
+{
+"line": [
+"Don't talk to me that way."
+],
+"state": 8,
+"options" : [
+"..."
+],
+"tostate": [
 "0"
 ]
 }
@@ -305,11 +389,11 @@
 "lines" : [
 {
 "line": [
-"Hello"
+"Please leave me alone, I'm trying to do research."
 ],
 "state": 0,
 "options" : [
-"Hi Dr. Busy night, huh?"
+"But I need to talk to you!"
 ],
 "tostate": [
 "1"
@@ -317,26 +401,64 @@
 },
 {
 "line": [
-"That�s one way to put it. I�ve been so busy doing research I havent had anytime to enjoy the party, and also, my butler died! What is going on?!"
+"Not now, I'm busy."
 ],
 "state": 1,
+"options" : [
+"But wait..."
+],
+"tostate": [
+"0"
+]
+},
+{
+"line": [
+"Please leave me alone, I'm doing research."
+],
+"state": 2,
+"options" : [
+"But I need to talk to you!",
+"I've been working hard but I don't know where else to go?"
+],
+"tostate": [
+"1",
+"3"
+]
+},
+{
+"line": [
+"What have you been working on?"
+],
+"state": 3,
+"options" : [
+"I've been trying to figure out what happened to the butler, it's been a crazy night!"
+],
+"tostate": [
+"4"
+]
+},
+{
+"line": [
+"That�s one way to put it. I�ve been so busy doing research I havent had anytime to enjoy the party, and then my butler died! What is going on?!"
+],
+"state": 4,
 "options" : [
 "Well, that�s what I�m trying to figure out! Do you know why anyone would have done something like this?"
 ],
 "tostate": [
-"2"
+"5"
 ]
 },
 {
 "line": [
 "Honestly, I really don�t know. Maybe you can check the library? I know there are some books in there that talk about motives of why people do certain things. There are also some facts about people with social anxiety that could explain the behaviors of some people too. Overall, there are a lot of good reading material in there."
 ],
-"state": 2,
+"state": 5,
 "options" : [
 "Okay, thanks Dr.! I�ll check it out."
 ],
 "tostate": [
-"0"
+"100"
 ]
 }
 ]
