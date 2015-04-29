@@ -24,8 +24,10 @@ public class ButterflyMachine : MonoBehaviour {
 	private bool gameInProgress = false;
 	private GameObject[] butterflyInstances;
 
+    private static ButterflyMachine instance;
+
 	void Start () {
-		this.beginGame ();
+        instance = this;
 	}
 
 	void Update () {
@@ -75,4 +77,9 @@ public class ButterflyMachine : MonoBehaviour {
 			butterflyInstances[i].GetComponent<ButterflyHolder> ().playerWon ();
 		}
 	}
+
+    public static void launchGame()
+    {
+        instance.beginGame();
+    }
 }
