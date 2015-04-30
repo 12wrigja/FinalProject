@@ -739,11 +739,11 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &264910000
+--- !u!1 &264910000 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 118002, guid: 4a3ed1826b05b724ab8d4cfd83feee37, type: 2}
   m_PrefabInternal: {fileID: 938651246}
---- !u!4 &264910001
+--- !u!4 &264910001 stripped
 Transform:
   m_PrefabParentObject: {fileID: 417506, guid: 4a3ed1826b05b724ab8d4cfd83feee37, type: 2}
   m_PrefabInternal: {fileID: 938651246}
@@ -3616,7 +3616,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1f4721451325a24db33fb3e4c06d895, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &1094674685
+--- !u!1 &1094674685 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100146, guid: e1f4721451325a24db33fb3e4c06d895, type: 3}
   m_PrefabInternal: {fileID: 1094674684}
@@ -4497,6 +4497,14 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 264910000}
+    - target: {fileID: 13618766, guid: 677bf157e997e4adcb1928dea46da736, type: 2}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418766, guid: 677bf157e997e4adcb1928dea46da736, type: 2}
+      propertyPath: interactText
+      value: to play the fishing minigame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 677bf157e997e4adcb1928dea46da736, type: 2}
   m_IsPrefabParent: 0
@@ -5481,7 +5489,7 @@ Transform:
   - {fileID: 847813875}
   m_Father: {fileID: 1542340203}
   m_RootOrder: 2
---- !u!1 &1867614652
+--- !u!1 &1867614652 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 164842, guid: d04edef6df66d482389013420b4afcca, type: 2}
   m_PrefabInternal: {fileID: 116609163}
