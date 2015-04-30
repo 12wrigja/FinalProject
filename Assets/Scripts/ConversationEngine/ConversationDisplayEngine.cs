@@ -51,6 +51,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
         instance.currentConversee = e;
         UIManager.StashScreen();
         UIManager.ShowUIElementExclusive(instance.conversationLayout);
+        AnxietySystem.showOnScreen();
         HumanControlScript.DisableHuman();
         Cursor.visible = true;
         instance.ConverseeName.text = e.conversable_tag;
@@ -130,6 +131,7 @@ public class ConversationDisplayEngine : MonoBehaviour {
             EndConversation();
             return;
         };
+        AnxietySystem.increaseAnxiety(5);
         instance.StartCoroutine(HaveConversation());
     }
 

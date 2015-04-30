@@ -86,6 +86,13 @@ public class AnxietySystem : MonoBehaviour {
     }
 
 
+    public static void showOnScreen(){
+        if(instance != null){
+            UIElement ele = instance.GetComponent<UIElement>();
+            UIManager.ShowUIElement(ele);
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Equals))
