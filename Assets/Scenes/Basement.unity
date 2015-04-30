@@ -8558,6 +8558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: go to the library
   loadSceneName: MainScene
+  overrideplayerposition: 1
   playerStartPosition: {x: -19.7677708, y: 1.39128196, z: 30.2881508}
   playerStartRotation: {x: 2.25, y: 97.5028381, z: 0}
 --- !u!1 &126484293
@@ -35433,7 +35434,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &613851722
 GameObject:
   m_ObjectHideFlags: 0
@@ -46602,6 +46603,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 97188246}
   m_GameObject: {fileID: 869462138}
   m_Mesh: {fileID: 4300000, guid: 74d4d23dafcff7c4fa39725ce94466c1, type: 3}
+--- !u!1001 &869728668
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 420104, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -14.1000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 420104, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.4000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 420104, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 420104, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420104, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420104, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420104, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 420104, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 975cb2def89a54748903005ed1e418df, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &873924117
 GameObject:
   m_ObjectHideFlags: 0
@@ -59737,7 +59780,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406844, guid: d88c2cede1a3f4d8b8b6255ffd032a26, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 14.1300001
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 406844, guid: d88c2cede1a3f4d8b8b6255ffd032a26, type: 2}
       propertyPath: m_LocalRotation.x
@@ -59757,7 +59800,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406844, guid: d88c2cede1a3f4d8b8b6255ffd032a26, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d88c2cede1a3f4d8b8b6255ffd032a26, type: 2}
@@ -67328,6 +67371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: 
   isOpen: 0
+  isLocked: 0
 --- !u!65 &1342786226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -91371,7 +91415,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1869317703
 GameObject:
   m_ObjectHideFlags: 0
@@ -92989,7 +93033,7 @@ Transform:
   m_Children:
   - {fileID: 29001944}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1914227565
 GameObject:
   m_ObjectHideFlags: 0
