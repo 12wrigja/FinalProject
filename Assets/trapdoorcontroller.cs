@@ -25,7 +25,7 @@ public class trapdoorcontroller : MonoBehaviour {
         }
 	}
 
-    void HaveFoundKey()
+    public void HaveFoundKey()
     {
         foundKey = true;
     }

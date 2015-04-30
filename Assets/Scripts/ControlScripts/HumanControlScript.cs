@@ -118,11 +118,6 @@ public class HumanControlScript : MonoBehaviour {
         
     }
 
-    public static void SaveHuman()
-    {
-        
-    }
-
     private void TryRestoreSavedPosition()
     {
         string sceneName = Application.loadedLevelName;
