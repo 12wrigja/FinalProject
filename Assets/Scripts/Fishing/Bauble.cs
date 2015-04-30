@@ -5,11 +5,12 @@ public class Bauble : MonoBehaviour {
 
 	public Rod rod;
 	public Vector3 poolPosition;
+	public GameObject fakeBauble;
 
-	private Transform rodPosition;
+	private GameObject fakeBaubleInstance;
 
 	void Start () {
-		rodPosition = this.gameObject.transform;
+
 	}
 	
 	// Update is called once per frame
@@ -18,15 +19,13 @@ public class Bauble : MonoBehaviour {
 	}
 
 	public void toPool(){
-		rodPosition = this.gameObject.transform;
-		this.gameObject.transform.SetParent (null);
-		this.gameObject.transform.position = poolPosition;
+		this.GetComponent<MeshRenderer> ().enabled = false;
+		fakeBaubleInstance = Instantiate (fakeBauble) as GameObject;
+		fakeBaubleInstance.transform.position = poolPosition;
 	}
 
 	public void toRod(){
-		this.gameObject.transform.SetParent(rod.transform);
-		this.gameObject.transform.localPosition = rodPosition.localPosition;
-		this.gameObject.transform.localRotation = rodPosition.localRotation;
-		this.gameObject.transform.localScale = rodPosition.localScale;
+		this.GetComponent<MeshRenderer> ().enabled = true;
+		Destroy (fakeBaubleInstance.gameObject);
 	}
 }

@@ -107,7 +107,7 @@ public class FishingManager : MonoBehaviour {
 		}
 		if(!baubleIsChild && !(info.IsName("HasBeenCast") || info.IsName("CanCatch"))){
 			bauble.toRod();
-			baubleIsChild = false;
+			baubleIsChild = true;
 		}
 	}
 }
