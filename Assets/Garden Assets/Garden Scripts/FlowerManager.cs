@@ -132,6 +132,7 @@ public class FlowerManager : MonoBehaviour {
 				flowers = new Flower[1];
 				flowers[0] = collectionPoint;
 				weedSpawner.spawnChance = 0;
+                AnxietySystem.setAnxiety(25);
 			}
 		}
 		else {

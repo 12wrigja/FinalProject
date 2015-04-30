@@ -84,6 +84,7 @@ public class FishingManager : MonoBehaviour {
 						canCatch = false;
 						rodAnimations.SetBool("canCatch", canCatch);
 						baubleAnimations.SetBool("canCatch", canCatch);
+                        AnxietySystem.setAnxiety(25);
 					} else{
 						catchTimer -= Time.deltaTime;
 					}

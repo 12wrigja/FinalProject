@@ -42,13 +42,16 @@ public class AnxietySystem : MonoBehaviour {
     private bool shouldTeleport = true;
 
     private static AnxietySystem instance;
+    private static readonly string anxietyKey = "Anxiety";
+    private static readonly string enduranceKey = "Endurance";
+    private static readonly string teleportKey = "Teleport";
 
     public static void SaveValues()
     {
 
-        PlayerPrefs.SetInt("Anxiety", instance.currentAnxiety);
-        PlayerPrefs.SetInt("Endurance", instance.currentEndurance);
-        PlayerPrefs.SetInt("Teleport", (instance.shouldTeleport)?1:0);
+        PlayerPrefs.SetInt(anxietyKey, instance.currentAnxiety);
+        PlayerPrefs.SetInt(enduranceKey, instance.currentEndurance);
+        PlayerPrefs.SetInt(teleportKey, (instance.shouldTeleport)?1:0);
     }
 
     void Start()
@@ -62,20 +65,20 @@ public class AnxietySystem : MonoBehaviour {
         enduranceSlider.value = 0.75f * maxEndurance;
         anxietySlider.value = 0.25f * maxAnxiety;
         intervalTime = 0f;
-        if (PlayerPrefs.HasKey("Teleport"))
+        if (PlayerPrefs.HasKey(teleportKey))
         {
-            shouldTeleport = Convert.ToBoolean(PlayerPrefs.GetInt("Teleport"));
-            PlayerPrefs.DeleteKey("Teleport");
+            shouldTeleport = Convert.ToBoolean(PlayerPrefs.GetInt(teleportKey));
+            PlayerPrefs.DeleteKey(teleportKey);
         }
-        if (PlayerPrefs.HasKey("Anxiety"))
+        if (PlayerPrefs.HasKey(anxietyKey))
         {
-            anxietySlider.value = PlayerPrefs.GetInt("Anxiety");
-            PlayerPrefs.DeleteKey("Anxiety");
+            anxietySlider.value = PlayerPrefs.GetInt(anxietyKey);
+            PlayerPrefs.DeleteKey(anxietyKey);
         }
-        if (PlayerPrefs.HasKey("Endurance"))
+        if (PlayerPrefs.HasKey(enduranceKey))
         {
-            enduranceSlider.value = PlayerPrefs.GetInt("Endurance");
-            PlayerPrefs.DeleteKey("Endurance");
+            enduranceSlider.value = PlayerPrefs.GetInt(enduranceKey);
+            PlayerPrefs.DeleteKey(enduranceKey);
         }
 
         UIElement ele = GetComponent<UIElement>();
@@ -158,7 +161,14 @@ public class AnxietySystem : MonoBehaviour {
 
     public static void setAnxiety(int value)
     {
-        instance.anxietySlider.value = value;
+        if (instance != null)
+        {
+            instance.anxietySlider.value = value;
+        }
+        else
+        {
+            PlayerPrefs.SetInt(anxietyKey, value);
+        }
     }
 
     public static void increaseAnxiety(int value)

@@ -92,7 +92,7 @@ public class ButterflyMachine : MonoBehaviour {
 		Destroy (this.instantiatedNet);
 		this.GUItext = "";
 		this.butterflyCollider.GetComponent<Collider>().enabled = false;
-        AnxietySystem.decreaseAnxiety(100);
+        AnxietySystem.setAnxiety(25);
 		for (int i = 0; i < this.butterflyInstances.Length; i++) {
 			butterflyInstances[i].GetComponent<ButterflyHolder> ().playerWon ();
 		}

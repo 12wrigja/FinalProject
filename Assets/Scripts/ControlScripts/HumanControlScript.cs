@@ -64,6 +64,12 @@ public class HumanControlScript : MonoBehaviour {
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Backslash))
+        {
+            Debug.Log("Clearing all preferences");
+            PlayerPrefs.DeleteAll();
+        }
+
         UINotifier.Dismiss();
         RaycastHit[] hits;
         hits = Physics.RaycastAll(transform.position,transform.forward,1.5f);
