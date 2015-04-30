@@ -156,13 +156,18 @@ public class AnxietySystem : MonoBehaviour {
         enduranceSlider.value += (Mathf.Abs(anxietyThreshold - currentAnxiety))/maxAnxiety * value;
     }
 
-    void increaseAnxiety(int value)
+    public static void setAnxiety(int value)
     {
-        anxietySlider.value += value;
+        instance.anxietySlider.value = value;
     }
 
-    void decreaseAnxiety(int value)
+    public static void increaseAnxiety(int value)
     {
-        anxietySlider.value -= value;
+        instance.anxietySlider.value += value;
+    }
+
+    public static void decreaseAnxiety(int value)
+    {
+        instance.anxietySlider.value -= value;
     }
 }

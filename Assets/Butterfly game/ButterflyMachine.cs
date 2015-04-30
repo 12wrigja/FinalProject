@@ -96,6 +96,9 @@ public class ButterflyMachine : MonoBehaviour {
 		///////////////////////////
 		// DECREASE ANXIETY HERE //
 		///////////////////////////
+
+        AnxietySystem.decreaseAnxiety(100);
+
 		for (int i = 0; i < this.butterflyInstances.Length; i++) {
 			butterflyInstances[i].GetComponent<ButterflyHolder> ().playerWon ();
 		}
