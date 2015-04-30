@@ -5,7 +5,7 @@ public class FishingManager : MonoBehaviour {
 
 	public Rod rod;
 	public Bauble bauble;
-	public Animator animations;
+	public Animator rodAnimations, baubleAnimations;
 	public float chanceOfFish;
 	public float initialCatchTimer;
 
@@ -19,8 +19,10 @@ public class FishingManager : MonoBehaviour {
 
 	void Start () {
 		catchTimer = initialCatchTimer;
-		animations.SetBool("isFishing", isFishing);
-		animations.SetBool("canCatch", canCatch);
+		rodAnimations.SetBool("isFishing", isFishing);
+		rodAnimations.SetBool("canCatch", canCatch);
+		baubleAnimations.SetBool("isFishing", isFishing);
+		baubleAnimations.SetBool("canCatch", canCatch);
 	}
 
 	void Update () {
@@ -34,8 +36,9 @@ public class FishingManager : MonoBehaviour {
 
 	}
 
-	public void setAnimator(Animator animations){
-		this.animations = animations;
+	public void setAnimator(Animator rodAnimations, Animator baubleAnimations){
+		this.rodAnimations = rodAnimations;
+		this.baubleAnimations = baubleAnimations;
 	}
 
 	public void setRod(Rod rod){
@@ -76,31 +79,36 @@ public class FishingManager : MonoBehaviour {
 						rod.spawnFish();
 						fishCaught = true;
 						isFishing = false;
-						animations.SetBool("isFishing", isFishing);
+						rodAnimations.SetBool("isFishing", isFishing);
+						baubleAnimations.SetBool("isFishing", isFishing);
 						canCatch = false;
-						animations.SetBool("canCatch", canCatch);
+						rodAnimations.SetBool("canCatch", canCatch);
+						baubleAnimations.SetBool("canCatch", canCatch);
 					} else{
 						catchTimer -= Time.deltaTime;
 					}
 				} else {
 					catchTimer = initialCatchTimer;
 					canCatch = false;
-					animations.SetBool("canCatch", canCatch);
+					rodAnimations.SetBool("canCatch", canCatch);
+					baubleAnimations.SetBool("canCatch", canCatch);
 				}
 			} else if(!fishCaught && Input.GetKeyDown(KeyCode.Space)){
 				isFishing = !isFishing;
-				animations.SetBool("isFishing", isFishing);
+				rodAnimations.SetBool("isFishing", isFishing);
+				baubleAnimations.SetBool("isFishing", isFishing);
 			}
 			
 			if(isFishing && !canCatch && chanceOfFish > Random.Range(0f, 100f)){
 				canCatch = true;
-				animations.SetBool("canCatch", canCatch);
+				rodAnimations.SetBool("canCatch", canCatch);
+				baubleAnimations.SetBool("canCatch", canCatch);
 			}
 		}
 	}
 
 	private void handleBauble(){
-		AnimatorStateInfo info = animations.GetCurrentAnimatorStateInfo (0);
+		AnimatorStateInfo info = rodAnimations.GetCurrentAnimatorStateInfo (0);
 		if(baubleIsChild && (info.IsName("HasBeenCast") || info.IsName("CanCatch"))){
 			bauble.toPool();
 			baubleIsChild = false;

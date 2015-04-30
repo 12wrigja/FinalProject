@@ -10,6 +10,8 @@ public class Rod : Interactable{
 	public GameObject cam;
 	public Vector3 cameraPosition;
 	public Vector3 cameraRotation;
+	public Vector3 fishPosition;
+	public Vector3 fishRotation;
 
 	private bool managerExists = false;
 	private bool fishExists = false;
@@ -31,7 +33,7 @@ public class Rod : Interactable{
 			this.transform.localPosition = cameraPosition;
 			this.transform.localEulerAngles = cameraRotation;
 			managerInstance = Instantiate(managerPrefab) as FishingManager;
-			managerInstance.setAnimator(this.GetComponent<Animator>());
+			managerInstance.setAnimator(this.GetComponent<Animator>(), bauble.getAnimator());
 			managerInstance.setRod(this);
 			managerInstance.setBauble(bauble);
 			managerExists = true;
@@ -55,7 +57,8 @@ public class Rod : Interactable{
 			fishExists = true;
 			fishInstance = Instantiate (fish) as GameObject;
 			fishInstance.transform.SetParent (bauble.transform);
-			fishInstance.transform.position = bauble.transform.position;
+			fishInstance.transform.localPosition = fishPosition;
+			fishInstance.transform.localEulerAngles = fishRotation;
 		}
 	}
 

@@ -7,8 +7,6 @@ public class Bauble : MonoBehaviour {
 	public Vector3 poolPosition;
 	public GameObject fakeBauble;
 
-	private GameObject fakeBaubleInstance;
-
 	void Start () {
 
 	}
@@ -20,12 +18,15 @@ public class Bauble : MonoBehaviour {
 
 	public void toPool(){
 		this.GetComponent<MeshRenderer> ().enabled = false;
-		fakeBaubleInstance = Instantiate (fakeBauble) as GameObject;
-		fakeBaubleInstance.transform.position = poolPosition;
+		fakeBauble.GetComponent<MeshRenderer> ().enabled = true;
 	}
 
 	public void toRod(){
+		fakeBauble.GetComponent<MeshRenderer> ().enabled = false;
 		this.GetComponent<MeshRenderer> ().enabled = true;
-		Destroy (fakeBaubleInstance.gameObject);
+	}
+
+	public Animator getAnimator(){
+		return fakeBauble.GetComponent<Animator> ();
 	}
 }

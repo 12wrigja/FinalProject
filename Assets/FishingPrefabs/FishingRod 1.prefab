@@ -59,8 +59,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118766}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 3, y: 0, z: 5}
+  m_LocalRotation: {x: .430459142, y: -.560985744, z: -.560985446, w: -.43045935}
+  m_LocalPosition: {x: 18, y: 2.70000005, z: 71}
   m_LocalScale: {x: .25, y: 5, z: .25}
   m_Children:
   - {fileID: 418764}
@@ -248,8 +248,10 @@ MonoBehaviour:
   managerPrefab: {fileID: 11434214, guid: cd6acbf2cc3e24dc69d0edd8dd9b8df3, type: 2}
   fish: {fileID: 117900, guid: 6d293b113d92d41f490d0b91baeb79c1, type: 2}
   cam: {fileID: 0}
-  cameraPosition: {x: 0, y: 0, z: 0}
-  cameraRotation: {x: 0, y: 0, z: 0}
+  cameraPosition: {x: 3, y: 0, z: 3}
+  cameraRotation: {x: 0, y: 270, z: 0}
+  fishPosition: {x: 2, y: -5, z: 0}
+  fishRotation: {x: 90, y: 90, z: 0}
 --- !u!114 &11474742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rod: {fileID: 11418766}
   poolPosition: {x: 21.6100006, y: 3.1099999, z: 64.4199982}
+  fakeBauble: {fileID: 164842, guid: d04edef6df66d482389013420b4afcca, type: 2}
 --- !u!135 &13518766
 SphereCollider:
   m_ObjectHideFlags: 1
