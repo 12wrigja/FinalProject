@@ -503,6 +503,23 @@
 ]
 }
 ]
+},
+{
+"name" : "Policeman",
+"lines" : [
+{
+"line": [
+"Sorry, this area is blocked off until the investigation is complete."
+],
+"state": 0,
+"options" : [
+"Okay."
+],
+"tostate": [
+"0"
+]
+}
+]
 }
 ]
 }

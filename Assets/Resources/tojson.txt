@@ -118,3 +118,7 @@ Oh no! the library door is locked! How am I going to get out now?
 Do not worry, youre doing a great job. Within these books are clues that will help you solve the mystery. It will help you if you read all of the books and you will find a lot of information that you will be surprised about and that will really help you in your situation. Go ahead, and read on! Let me know if you find anything.
 Okay, thanks!
 0
+"Policeman"
+Sorry, this area is blocked off until the investigation is complete.
+Okay.
+0
