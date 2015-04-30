@@ -9,9 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 490572}
   - 54: {fileID: 5490584}
-  - 114: {fileID: 11490584}
   - 65: {fileID: 6589086}
-  - 114: {fileID: 11470282}
+  - 114: {fileID: 11478444}
   m_Layer: 0
   m_Name: ButterflyHolder1
   m_TagString: Untagged
@@ -243,18 +242,7 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
---- !u!114 &11470282
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 190572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21c6986a686b2d54988824bc5c59dcf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11490584
+--- !u!114 &11478444
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

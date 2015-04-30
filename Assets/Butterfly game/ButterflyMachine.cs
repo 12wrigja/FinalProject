@@ -21,37 +21,41 @@ public class ButterflyMachine : MonoBehaviour {
 	public static float zLimitPositive;
 	public static float zLimitNegative;
 
-	private bool gameInProgress = false;
+	public  static bool gameInProgress = false;
 	private GameObject[] butterflyInstances;
 
-    private static ButterflyMachine instance;
-
 	void Start () {
-        instance = this;
+
 	}
 
 	void Update () {
-		if (this.gameInProgress)
-			OnGUI();
-		if (this.gameInProgress && ButterflyMachine.butterfliesToCatch <= 0) {
+		if (ButterflyMachine.gameInProgress && ButterflyMachine.butterfliesToCatch <= 0) {
 			this.playerWin ();
 		}
 	}
 
+	/*
 	void OnGUI() {
-		if (this.gameInProgress == false) {
+		if (ButterflyMachine.gameInProgress == false) {
 			enabled = false;
 		}
-		GUI.Label(new Rect(10, 10, 100, 200), "Butterflies to catch: " + butterfliesToCatch.ToString());
+		else {
+			enabled = true;
+		}
+		GUI.Label(new Rect(10, 10, 100, 200), "Butterflies to catch: " + ButterflyMachine.butterfliesToCatch.ToString());
 	}
+	*/
 
 	public void beginGame() {
-		xLimitPositive = this.xDirectionLimitPositive;
-		xLimitNegative = this.xDirectionLimitNegative;
-		yLimitPositive = this.yDirectionLimitPositive;
-		yLimitNegative = this.yDirectionLimitNegative;
-		zLimitPositive = this.xDirectionLimitPositive;
-		zLimitNegative = this.zDirectionLimitNegative;
+		if (ButterflyMachine.gameInProgress) {
+			return;
+		}
+		xLimitPositive = this.xDirectionLimitPositive; // 50
+		xLimitNegative = this.xDirectionLimitNegative; // -8
+		yLimitPositive = this.yDirectionLimitPositive; // 5
+		yLimitNegative = this.yDirectionLimitNegative; // 1
+		zLimitPositive = this.zDirectionLimitPositive; // 85
+		zLimitNegative = this.zDirectionLimitNegative; // 60
 		this.butterflyInstances = new GameObject[numberOfButterflies];
 		int i = 0;
 		while (i < numberOfButterflies) {
@@ -62,8 +66,8 @@ public class ButterflyMachine : MonoBehaviour {
 			butterflyInstances[i] = (GameObject)(Instantiate (butterflyHolders[butterfly], new Vector3 (xcoord, ycoord, zcoord), Quaternion.identity));
 			i += 1;
 		}
-		ButterflyMachine.butterfliesToCatch = Random.Range (1, this.numberOfButterflies);
-		this.gameInProgress = true;
+		ButterflyMachine.butterfliesToCatch = Random.Range (5, 20);
+		ButterflyMachine.gameInProgress = true;
 	}
 
 	public static void butterflyCaught () {
@@ -71,15 +75,9 @@ public class ButterflyMachine : MonoBehaviour {
 	}
 
 	public void playerWin () {
-		Debug.Log ("derp");
-		this.gameInProgress = false;
+		ButterflyMachine.gameInProgress = false;
 		for (int i = 0; i < this.butterflyInstances.Length; i++) {
 			butterflyInstances[i].GetComponent<ButterflyHolder> ().playerWon ();
 		}
 	}
-
-    public static void launchGame()
-    {
-        instance.beginGame();
-    }
 }

@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class ButterflyGameLauncher : Interactable {
+	public ButterflyMachine butterflyMachine;
 
     public override void Interact()
     {
-        ButterflyMachine.launchGame();
+        butterflyMachine.beginGame();
     }
 }

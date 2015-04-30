@@ -210,7 +210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &528456153
 Prefab:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a2bc8b3e5be60a46ae73eb5bac84be1, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1218321710
+--- !u!1 &1218321710 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 106790, guid: 9a2bc8b3e5be60a46ae73eb5bac84be1, type: 2}
   m_PrefabInternal: {fileID: 1218321709}
@@ -540,7 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8335cfadc6fdc08409d875cc7bb7f427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: catch butterflies
+  interactText: 
+  butterflyMachine: {fileID: 2120525186}
 --- !u!136 &1218321712
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -722,14 +723,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   butterflyNet: {fileID: 0}
-  butterflyHolders: []
-  numberOfButterflies: 0
-  xDirectionLimitPositive: 0
-  xDirectionLimitNegative: 0
-  yDirectionLimitPositive: 0
-  yDirectionLimitNegative: 0
-  zDirectionLimitPositive: 0
-  zDirectionLimitNegative: 0
+  butterflyHolders:
+  - {fileID: 190572, guid: 4849a10f473993048ae0a77dee9224d3, type: 2}
+  numberOfButterflies: 40
+  xDirectionLimitPositive: 50
+  xDirectionLimitNegative: -8
+  yDirectionLimitPositive: 5
+  yDirectionLimitNegative: 1
+  zDirectionLimitPositive: 85
+  zDirectionLimitNegative: 60
 --- !u!4 &2120525187
 Transform:
   m_ObjectHideFlags: 0

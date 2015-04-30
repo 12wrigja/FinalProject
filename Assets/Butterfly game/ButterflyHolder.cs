@@ -42,7 +42,6 @@ public class ButterflyHolder : MonoBehaviour {
 
 	public void OnCollisionEnter (Collision col) {
 		if (col.gameObject.tag == "butterflynet") {
-			//Destroy(this.gameObject);
 			this.gameObject.SetActive (false);
 			ButterflyMachine.butterflyCaught ();
 		}
