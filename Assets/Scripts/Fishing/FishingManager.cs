@@ -4,6 +4,7 @@ using System.Collections;
 public class FishingManager : MonoBehaviour {
 
 	public Rod rod;
+	public Bauble bauble;
 	public Animator animations;
 	public float chanceOfFish;
 	public float initialCatchTimer;
@@ -13,7 +14,7 @@ public class FishingManager : MonoBehaviour {
 	public bool canCatch = false;
 	public bool fishCaught = false;
 
-	private bool soundIsPlaying = false, movementDisabled = false;
+	private bool soundIsPlaying = false, movementDisabled = false, baubleIsChild = true;
 	private float catchTimer;
 
 	void Start () {
@@ -23,6 +24,40 @@ public class FishingManager : MonoBehaviour {
 	}
 
 	void Update () {
+		handleBauble ();
+		handleMovement();
+		handleSound ();
+		if(fishCaught && Input.GetKeyDown(KeyCode.Space)){
+			rod.putDown();
+		}
+		handleFishing ();
+
+	}
+
+	public void setAnimator(Animator animations){
+		this.animations = animations;
+	}
+
+	public void setRod(Rod rod){
+		this.rod = rod;
+	}
+
+	public void setBauble(Bauble bauble){
+		this.bauble = bauble;
+	}
+
+	private void handleSound(){
+		if(canFish && isFishing && canCatch && !soundIsPlaying){
+			bauble.GetComponent<AudioSource>().Play();
+			soundIsPlaying = true;
+		}
+		else if(!canCatch && soundIsPlaying){
+			bauble.GetComponent<AudioSource>().Stop();
+			soundIsPlaying = false;
+		}
+	}
+
+	private void handleMovement(){
 		if(isFishing && !movementDisabled){
 			HumanControlScript.DisableHuman();
 			movementDisabled = true;
@@ -31,17 +66,9 @@ public class FishingManager : MonoBehaviour {
 			HumanControlScript.EnableHuman();
 			movementDisabled = false;
 		}
-		if(canFish && isFishing && canCatch && !soundIsPlaying){
-			rod.GetComponentInChildren<AudioSource>().Play();
-			soundIsPlaying = true;
-		}
-		else if(!canCatch && soundIsPlaying){
-			rod.GetComponentInChildren<AudioSource>().Stop();
-			soundIsPlaying = false;
-		}
-		if(fishCaught && Input.GetKeyDown(KeyCode.Space)){
-			rod.putDown();
-		}
+	}
+
+	private void handleFishing(){
 		if(canFish){
 			if(isFishing && canCatch) {
 				if(catchTimer > 0){
@@ -64,20 +91,23 @@ public class FishingManager : MonoBehaviour {
 				isFishing = !isFishing;
 				animations.SetBool("isFishing", isFishing);
 			}
-
+			
 			if(isFishing && !canCatch && chanceOfFish > Random.Range(0f, 100f)){
 				canCatch = true;
 				animations.SetBool("canCatch", canCatch);
 			}
 		}
-
 	}
 
-	public void setAnimator(Animator animations){
-		this.animations = animations;
-	}
-
-	public void setRod(Rod rod){
-		this.rod = rod;
+	private void handleBauble(){
+		AnimatorStateInfo info = animations.GetCurrentAnimatorStateInfo (0);
+		if(baubleIsChild && (info.IsName("HasBeenCast") || info.IsName("CanCatch"))){
+			bauble.toPool();
+			baubleIsChild = false;
+		}
+		if(!baubleIsChild && !(info.IsName("HasBeenCast") || info.IsName("CanCatch"))){
+			bauble.toRod();
+			baubleIsChild = false;
+		}
 	}
 }

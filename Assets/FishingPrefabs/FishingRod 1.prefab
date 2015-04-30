@@ -13,6 +13,7 @@ GameObject:
   - 23: {fileID: 2318764}
   - 95: {fileID: 9518764}
   - 82: {fileID: 8289230}
+  - 114: {fileID: 11474742}
   m_Layer: 0
   m_Name: Bauble
   m_TagString: Untagged
@@ -242,12 +243,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactText: 
+  bauble: {fileID: 11474742}
   isPickedUp: 0
   managerPrefab: {fileID: 11434214, guid: cd6acbf2cc3e24dc69d0edd8dd9b8df3, type: 2}
   fish: {fileID: 117900, guid: 6d293b113d92d41f490d0b91baeb79c1, type: 2}
   cam: {fileID: 0}
   cameraPosition: {x: 0, y: 0, z: 0}
   cameraRotation: {x: 0, y: 0, z: 0}
+--- !u!114 &11474742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ca81414996d430f9c63641e9b23ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rod: {fileID: 11418766}
+  poolPosition: {x: 21.6100006, y: 3.1099999, z: 64.4199982}
 --- !u!135 &13518766
 SphereCollider:
   m_ObjectHideFlags: 1

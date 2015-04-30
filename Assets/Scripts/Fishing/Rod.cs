@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Rod : Interactable{
 
+	public Bauble bauble;
 	public bool isPickedUp = false;
 	public FishingManager managerPrefab;
 	public GameObject fish;
@@ -32,6 +33,7 @@ public class Rod : Interactable{
 			managerInstance = Instantiate(managerPrefab) as FishingManager;
 			managerInstance.setAnimator(this.GetComponent<Animator>());
 			managerInstance.setRod(this);
+			managerInstance.setBauble(bauble);
 			managerExists = true;
 		}
 		if (!isPickedUp && managerExists){
@@ -52,8 +54,8 @@ public class Rod : Interactable{
 		if(!fishExists){
 			fishExists = true;
 			fishInstance = Instantiate (fish) as GameObject;
-			fishInstance.transform.SetParent (this.transform.GetChild(0));
-			fishInstance.transform.position = this.transform.GetChild (0).position;
+			fishInstance.transform.SetParent (bauble.transform);
+			fishInstance.transform.position = bauble.transform.position;
 		}
 	}
 
