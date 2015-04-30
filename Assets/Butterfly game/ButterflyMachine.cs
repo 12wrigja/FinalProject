@@ -38,7 +38,7 @@ public class ButterflyMachine : MonoBehaviour {
 			this.GUItext = "Butterflies to catch: " + ButterflyMachine.butterfliesToCatch.ToString ();
 			if (Input.GetKeyDown(butterflyNetKey) && this.allowSwing) {
 				this.allowSwing = false;
-				this.swingDelay = 1f;
+				this.swingDelay = 0.6f;
 				this.butterflyCollider.GetComponent<Collider>().enabled = true;
 				//////////////////////////////////
 				// ANIMATE instantiatedNet HERE //
@@ -93,12 +93,7 @@ public class ButterflyMachine : MonoBehaviour {
 		Destroy (this.instantiatedNet);
 		this.GUItext = "";
 		this.butterflyCollider.GetComponent<Collider>().enabled = false;
-		///////////////////////////
-		// DECREASE ANXIETY HERE //
-		///////////////////////////
-
         AnxietySystem.decreaseAnxiety(100);
-
 		for (int i = 0; i < this.butterflyInstances.Length; i++) {
 			butterflyInstances[i].GetComponent<ButterflyHolder> ().playerWon ();
 		}
