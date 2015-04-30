@@ -43,6 +43,10 @@ public class ButterflyMachine : MonoBehaviour {
 				//////////////////////////////////
 				// ANIMATE instantiatedNet HERE //
 				//////////////////////////////////
+
+                Animator a = instantiatedNet.GetComponent<Animator>();
+                a.SetTrigger("swingNet");
+
 			}
 			if (this.swingDelay <= 0) {
 				this.allowSwing = true;
