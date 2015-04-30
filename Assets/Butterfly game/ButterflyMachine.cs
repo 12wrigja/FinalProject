@@ -40,13 +40,8 @@ public class ButterflyMachine : MonoBehaviour {
 				this.allowSwing = false;
 				this.swingDelay = 0.6f;
 				this.butterflyCollider.GetComponent<Collider>().enabled = true;
-				//////////////////////////////////
-				// ANIMATE instantiatedNet HERE //
-				//////////////////////////////////
-
                 Animator a = instantiatedNet.GetComponent<Animator>();
                 a.SetTrigger("swingNet");
-
 			}
 			if (this.swingDelay <= 0) {
 				this.allowSwing = true;
@@ -82,7 +77,7 @@ public class ButterflyMachine : MonoBehaviour {
 			butterflyInstances[i] = (GameObject)(Instantiate (butterflyHolders[butterfly], new Vector3 (xcoord, ycoord, zcoord), Quaternion.identity));
 			i += 1;
 		}
-		ButterflyMachine.butterfliesToCatch = Random.Range (5, 20);
+		ButterflyMachine.butterfliesToCatch = Random.Range (6, 20);
 		this.GUItext = "Butterflies to catch: " + ButterflyMachine.butterfliesToCatch.ToString ();
 		this.equipPlayer ();
 		ButterflyMachine.gameInProgress = true;
