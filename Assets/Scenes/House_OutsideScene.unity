@@ -468,6 +468,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 118002, guid: 4a3ed1826b05b724ab8d4cfd83feee37, type: 2}
+      propertyPath: m_TagString
+      value: butterflynet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a3ed1826b05b724ab8d4cfd83feee37, type: 2}
   m_IsPrefabParent: 0
@@ -540,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8335cfadc6fdc08409d875cc7bb7f427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: 
+  interactText: catch butterflies
   butterflyMachine: {fileID: 2120525186}
 --- !u!136 &1218321712
 CapsuleCollider:
@@ -665,7 +669,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 478606, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11460622, guid: 6b817a11c8a3f964f84e0282305d2b10, type: 2}
       propertyPath: playerStartPosition.x
@@ -721,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbda1a2f0a8cf3a4091c8071d7fac5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactText: 
   player: {fileID: 0}
   butterflyNet: {fileID: 0}
   butterflyHolders:
@@ -739,7 +744,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2120525185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.0688248, y: -1.60374546, z: 63.0168343}
+  m_LocalPosition: {x: 45.0688248, y: -1.60374475, z: 63.0168343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

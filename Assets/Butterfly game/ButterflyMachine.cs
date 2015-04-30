@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ButterflyMachine : MonoBehaviour {
+public class ButterflyMachine : Interactable {
 	public GameObject player;
 	public GameObject butterflyNet;
 	public GameObject[] butterflyHolders;
@@ -21,7 +21,8 @@ public class ButterflyMachine : MonoBehaviour {
 	public static float zLimitPositive;
 	public static float zLimitNegative;
 
-	public  static bool gameInProgress = false;
+	public static bool gameInProgress = false;
+	private string GUItext;
 	private GameObject[] butterflyInstances;
 
 	void Start () {
@@ -29,22 +30,24 @@ public class ButterflyMachine : MonoBehaviour {
 	}
 
 	void Update () {
+		if (ButterflyMachine.gameInProgress) {
+			this.GUItext = "Butterflies to catch: " + ButterflyMachine.butterfliesToCatch.ToString ();
+		}
+		else {
+			this.GUItext = "";
+		}
 		if (ButterflyMachine.gameInProgress && ButterflyMachine.butterfliesToCatch <= 0) {
 			this.playerWin ();
 		}
 	}
 
-	/*
-	void OnGUI() {
-		if (ButterflyMachine.gameInProgress == false) {
-			enabled = false;
-		}
-		else {
-			enabled = true;
-		}
-		GUI.Label(new Rect(10, 10, 100, 200), "Butterflies to catch: " + ButterflyMachine.butterfliesToCatch.ToString());
+	public override void Interact() {
+		this.beginGame();
 	}
-	*/
+	
+	void OnGUI() {
+		GUI.Label(new Rect(10, 10, 100, 200), this.GUItext);
+	}
 
 	public void beginGame() {
 		if (ButterflyMachine.gameInProgress) {
@@ -67,6 +70,7 @@ public class ButterflyMachine : MonoBehaviour {
 			i += 1;
 		}
 		ButterflyMachine.butterfliesToCatch = Random.Range (5, 20);
+		this.GUItext = "Butterflies to catch: " + ButterflyMachine.butterfliesToCatch.ToString ();
 		ButterflyMachine.gameInProgress = true;
 	}
 
@@ -76,6 +80,7 @@ public class ButterflyMachine : MonoBehaviour {
 
 	public void playerWin () {
 		ButterflyMachine.gameInProgress = false;
+		this.GUItext = "";
 		for (int i = 0; i < this.butterflyInstances.Length; i++) {
 			butterflyInstances[i].GetComponent<ButterflyHolder> ().playerWon ();
 		}
