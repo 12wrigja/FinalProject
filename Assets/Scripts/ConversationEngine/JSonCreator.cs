@@ -7,7 +7,7 @@ using System.IO;
 
 public class JSonCreator : MonoBehaviour{
 	public static void CreateJSon() {
-		StreamReader reader = new StreamReader("Assets/Resources/tojson.txt");
+		StreamReader reader = new StreamReader(Application.dataPath+"/Resources/tojson.txt");
 		string line;
 		List<string> charList = new List<string>();
 		List<int> charLineCount = new List<int>();
